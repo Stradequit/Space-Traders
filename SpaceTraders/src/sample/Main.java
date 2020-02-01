@@ -8,8 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -20,7 +20,6 @@ public class Main extends Application {
         //Initializes height and width variables
         int height = 480;
         int width = 720;
-
         //Initializes welcome screen
         primaryStage.setTitle("Space Traders");
         Button startButton = new Button("Start");
@@ -35,11 +34,22 @@ public class Main extends Application {
         Scene configurationScreen = new Scene(configurationPane, width,height);
         Button configurationScreenDone = new Button("Done");
         configurationPane.setBottom(configurationScreenDone);
-
+        Person person = new Person();
         //Initialize the Scene for Character Sheet Screen
-        BorderPane characterSheetPane = new BorderPane();
+        HBox characterSheetPane = new HBox(8);
+        Label nameLabel = new Label("Name: " + person.getName());
+        Label difficultyLabel = new Label("Difficulty: " + person.getDifficulty());
+        Label creditsLabel = new Label("Credits: " + String.valueOf(person.getCredits()));
+        VBox charInfo = new VBox(8);
+        charInfo.getChildren().addAll(nameLabel,difficultyLabel,creditsLabel);
+        Label engineeringLabel = new Label("Engineering: " + person.getEngineeringPoints());
+        Label fighterLabel = new Label("Fighter: " + person.getFighterPoints());
+        Label pilotLabel = new Label("Pilot: " + person.getPilotPoints());
+        Label merchantLabel = new Label("Merchant: " + person.getMerchantPoints());
+        VBox skillInfo = new VBox(8);
+        skillInfo.getChildren().addAll(engineeringLabel,fighterLabel,pilotLabel,merchantLabel);
+        characterSheetPane.getChildren().addAll(charInfo, skillInfo);
         Scene characterSheetScreen = new Scene(characterSheetPane, width, height);
-        
         //Event for Welcome Screen Button and Configuration Screen Button
         startButton.setOnAction(new EventHandler() {
 
