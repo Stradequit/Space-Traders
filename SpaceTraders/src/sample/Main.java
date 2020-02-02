@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
@@ -40,7 +42,7 @@ public class Main extends Application {
                             + "-fx-font-size: 3em;"
                             + "-fx-text-fill: #FFFFFF;"
                             + "-fx-font-weight: bold");
-        startButton.setPrefSize(150, 50);
+        startButton.setPrefSize(400, 60);
         buttonBox.getChildren().add(startButton);
         buttonBox.setAlignment(Pos.TOP_CENTER);
         startScreenPane.setBottom(buttonBox);
