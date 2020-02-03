@@ -1,7 +1,7 @@
 /**
  *  TODO: Change the author to your full name
  *
- *  @author Bob
+ *  @author Joseph Adam Pendry
  *  @version 1.1
  */
 public class Person2 {
