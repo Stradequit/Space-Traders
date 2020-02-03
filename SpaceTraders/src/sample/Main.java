@@ -199,8 +199,7 @@ public class Main extends Application {
 
             @Override
             public void handle(ActionEvent e) {
-                if (diff[0] == "Easy") {
-                } else if (diff[0] == "Medium") {
+                if (diff[0] == "Medium") {
                     skill[0] += 4;
                     diffChoice.setText(skill[0] + " Skill Points Left");
                     diff[0] = "Easy";
@@ -223,8 +222,7 @@ public class Main extends Application {
 
             @Override
             public void handle(ActionEvent e) {
-                if (diff[0] == "Medium") {
-                } else if (diff[0] == "Easy") {
+                if (diff[0] == "Easy") {
                     skill[0] -= 4;
                     diffChoice.setText(skill[0] + " Skill Points Left");
                     diff[0] = "Medium";
@@ -247,8 +245,7 @@ public class Main extends Application {
 
             @Override
             public void handle(ActionEvent e) {
-                if (diff[0] == "Hard") {
-                } else if (diff[0] == "Easy") {
+                if (diff[0] == "Easy") {
                     skill[0] -= 8;
                     diffChoice.setText(skill[0] + " Skill Points Left");
                     diff[0] = "Hard";
