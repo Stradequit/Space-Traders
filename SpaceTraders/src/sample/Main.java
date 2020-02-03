@@ -17,7 +17,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -61,7 +60,7 @@ public class Main extends Application {
         Person person = new Person();
         border.setBottom(bottom);
         border.setLeft(left);
-        Scene configurationScreen = new Scene(border, width,height);
+        Scene configurationScreen = new Scene(border, width, height);
         Button configurationScreenDone = new Button("Next");
         configurationScreenDone.setPrefSize(100, 40);
         //This is for the name entry box
@@ -139,7 +138,7 @@ public class Main extends Application {
 
             @Override
             public void handle(Event event) {
-                if (skill[0] == 0){
+                if (skill[0] == 0) {
                     person.setName(nameEntry.getText());
                     person.setDifficulty(diff[0]);
                     person.setCredits(credit[0]);
@@ -176,7 +175,8 @@ public class Main extends Application {
                 skillInfo.setAlignment(Pos.CENTER);
                 skillInfo.setPadding(new Insets(20, 15, 20, 15));
                 skillInfo.setSpacing(10);
-                skillInfo.getChildren().addAll(engineeringLabel, fighterLabel, pilotLabel, merchantLabel);
+                skillInfo.getChildren().addAll(engineeringLabel, fighterLabel, pilotLabel,
+                                                        merchantLabel);
                 characterSheetPane.getChildren().addAll(charInfo, skillInfo);
                 Scene characterSheetScreen = new Scene(characterSheetPane, width, height);
                 return characterSheetScreen;
@@ -199,8 +199,7 @@ public class Main extends Application {
 
             @Override
             public void handle(ActionEvent e) {
-                if (diff[0] == "Easy") {
-                } else if (diff[0] == "Medium") {
+                if (diff[0] == "Medium") {
                     skill[0] += 4;
                     diffChoice.setText(skill[0] + " Skill Points Left");
                     diff[0] = "Easy";
@@ -223,8 +222,7 @@ public class Main extends Application {
 
             @Override
             public void handle(ActionEvent e) {
-                if (diff[0] == "Medium") {
-                } else if (diff[0] == "Easy") {
+                if (diff[0] == "Easy") {
                     skill[0] -= 4;
                     diffChoice.setText(skill[0] + " Skill Points Left");
                     diff[0] = "Medium";
@@ -247,8 +245,7 @@ public class Main extends Application {
 
             @Override
             public void handle(ActionEvent e) {
-                if (diff[0] == "Hard") {
-                } else if (diff[0] == "Easy") {
+                if (diff[0] == "Easy") {
                     skill[0] -= 8;
                     diffChoice.setText(skill[0] + " Skill Points Left");
                     diff[0] = "Hard";
