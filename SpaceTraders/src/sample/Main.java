@@ -14,7 +14,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -152,18 +155,28 @@ public class Main extends Application {
             }
 
             private Scene initCharSheet() {
-                HBox characterSheetPane = new HBox(8);
+                VBox characterSheetPane = new VBox();
                 Label nameLabel = new Label("Name: " + person.getName());
+                nameLabel.setFont(new Font("Arial", 24));
+                nameLabel.setTextFill(Color.web("#8A2BE2"));
                 Label difficultyLabel = new Label("Difficulty: " + person.getDifficulty());
+                difficultyLabel.setFont(new Font("Arial", 24));
+                difficultyLabel.setTextFill(Color.web("#8A2BE2"));
                 Label creditsLabel = new Label("Credits: " + person.getCredits());
-                VBox charInfo = new VBox(8);
-                charInfo.getChildren().addAll(nameLabel,difficultyLabel,creditsLabel);
+                creditsLabel.setFont(new Font("Arial", 24));
+                creditsLabel.setTextFill(Color.web("#8A2BE2"));
+                HBox charInfo = new HBox(20);
+                charInfo.setAlignment(Pos.TOP_CENTER);
+                charInfo.getChildren().addAll(nameLabel, difficultyLabel, creditsLabel);
                 Label engineeringLabel = new Label("Engineering: " + person.getEngineeringPoints());
                 Label fighterLabel = new Label("Fighter: " + person.getFighterPoints());
                 Label pilotLabel = new Label("Pilot: " + person.getPilotPoints());
                 Label merchantLabel = new Label("Merchant: " + person.getMerchantPoints());
-                VBox skillInfo = new VBox(8);
-                skillInfo.getChildren().addAll(engineeringLabel,fighterLabel,pilotLabel,merchantLabel);
+                VBox skillInfo = new VBox();
+                skillInfo.setAlignment(Pos.CENTER);
+                skillInfo.setPadding(new Insets(20, 15, 20, 15));
+                skillInfo.setSpacing(10);
+                skillInfo.getChildren().addAll(engineeringLabel, fighterLabel, pilotLabel, merchantLabel);
                 characterSheetPane.getChildren().addAll(charInfo, skillInfo);
                 Scene characterSheetScreen = new Scene(characterSheetPane, width, height);
                 return characterSheetScreen;
