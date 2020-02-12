@@ -1,7 +1,7 @@
 /**
  *  TODO: Change the author to your full name
  *
- *  @author Bob
+ *  @author Aashna Sethi
  *  @version 1.1
  */
 public class Person3 {
