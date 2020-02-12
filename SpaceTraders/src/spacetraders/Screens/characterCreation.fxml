@@ -7,12 +7,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.CharacterCreationController">
    <left>
       <BorderPane prefHeight="171.0" prefWidth="649.0" BorderPane.alignment="CENTER">
          <center>
-            <HBox prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="28.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
                   <Label text="Choose Your Difficulty: ">
                      <HBox.margin>
@@ -22,18 +23,25 @@
                   <Button fx:id="easyButton" mnemonicParsing="false" onAction="#setEasy" prefHeight="20.0" prefWidth="100.0" text="Easy" />
                   <Button fx:id="mediumButton" mnemonicParsing="false" onAction="#setMedium" prefWidth="100.0" text="Medium" />
                   <Button fx:id="hardButton" mnemonicParsing="false" onAction="#setHard" prefWidth="100.0" text="Hard" />
-                  <Label fx:id="pointsLabel">
+               </children>
+            </HBox>
+         </center>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="remainMessage" prefHeight="24.0" prefWidth="614.0">
                      <HBox.margin>
                         <Insets left="12.0" />
                      </HBox.margin>
                   </Label>
+                  <Label fx:id="remainPoints" prefHeight="24.0" prefWidth="331.0" />
                </children>
             </HBox>
-         </center>
+         </bottom>
       </BorderPane>
    </left>
    <bottom>
-      <BorderPane prefHeight="303.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="238.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <left>
             <HBox prefHeight="303.0" prefWidth="133.0" BorderPane.alignment="CENTER">
                <children>
@@ -44,41 +52,21 @@
                               <Insets bottom="12.0" left="12.0" top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Fighter:">
+                        <Label prefHeight="26.0" prefWidth="40.0" text="Fighter:">
                            <VBox.margin>
                               <Insets bottom="12.0" left="12.0" top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Pilot:">
+                        <Label prefHeight="29.0" prefWidth="26.0" text="Pilot:">
                            <VBox.margin>
                               <Insets bottom="12.0" left="12.0" top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Merchant:">
+                        <Label prefHeight="33.0" prefWidth="110.0" text="Merchant:">
                            <VBox.margin>
                               <Insets left="12.0" right="12.0" />
                            </VBox.margin>
                         </Label>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="303.0" prefWidth="195.0">
-                     <children>
-                        <TextField fx:id="engineerFeild">
-                           <VBox.margin>
-                              <Insets bottom="12.0" top="12.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField fx:id="fighterFeild">
-                           <VBox.margin>
-                              <Insets bottom="12.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField fx:id="pilotFeild">
-                           <VBox.margin>
-                              <Insets bottom="12.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField fx:id="merchantFeild" />
                      </children>
                   </VBox>
                </children>
@@ -87,6 +75,56 @@
          <bottom>
             <Button fx:id="done" mnemonicParsing="false" onAction="#configDone" text="Done" BorderPane.alignment="BOTTOM_RIGHT" />
          </bottom>
+         <center>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="69.0" BorderPane.alignment="CENTER_LEFT">
+               <children>
+                  <HBox prefHeight="79.0" prefWidth="466.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="-" />
+                        <TextField fx:id="engField" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="28.0" promptText="0" />
+                        <Button graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.6" prefWidth="20.8" text="+" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="78.0" prefHeight="79.0" prefWidth="466.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="-" />
+                        <TextField fx:id="fightField" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="28.0" promptText="0" />
+                        <Button graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.6" prefWidth="20.8" text="+" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="117.0" prefHeight="79.0" prefWidth="466.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="-" />
+                        <TextField fx:id="pilotField" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="28.0" promptText="0" />
+                        <Button graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.6" prefWidth="20.8" text="+" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="153.0" prefHeight="79.0" prefWidth="466.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="-" />
+                        <TextField fx:id="merchField" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="28.0" promptText="0" />
+                        <Button graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.6" prefWidth="20.8" text="+" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
       </BorderPane>
    </bottom>
    <top>

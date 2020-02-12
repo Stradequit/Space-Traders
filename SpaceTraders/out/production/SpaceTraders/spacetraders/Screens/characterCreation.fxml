@@ -12,7 +12,7 @@
    <left>
       <BorderPane prefHeight="171.0" prefWidth="649.0" BorderPane.alignment="CENTER">
          <center>
-            <HBox prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="28.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
                   <Label text="Choose Your Difficulty: ">
                      <HBox.margin>
@@ -22,18 +22,25 @@
                   <Button fx:id="easyButton" mnemonicParsing="false" onAction="#setEasy" prefHeight="20.0" prefWidth="100.0" text="Easy" />
                   <Button fx:id="mediumButton" mnemonicParsing="false" onAction="#setMedium" prefWidth="100.0" text="Medium" />
                   <Button fx:id="hardButton" mnemonicParsing="false" onAction="#setHard" prefWidth="100.0" text="Hard" />
-                  <Label fx:id="pointsLabel">
+               </children>
+            </HBox>
+         </center>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="remainMessage" prefHeight="24.0" prefWidth="614.0">
                      <HBox.margin>
                         <Insets left="12.0" />
                      </HBox.margin>
                   </Label>
+                  <Label fx:id="remainPoints" prefHeight="24.0" prefWidth="331.0" />
                </children>
             </HBox>
-         </center>
+         </bottom>
       </BorderPane>
    </left>
    <bottom>
-      <BorderPane prefHeight="303.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="238.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <left>
             <HBox prefHeight="303.0" prefWidth="133.0" BorderPane.alignment="CENTER">
                <children>
