@@ -1,4 +1,4 @@
-package sample;
+package spacetraders.classes;
 
 public class Person {
     private String name = "placeholder";
@@ -26,6 +26,17 @@ public class Person {
 
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
+        skillPoints = 16;
+        credits = 1000;
+        if (difficulty == "Medium") {
+            skillPoints += 4;
+            credits = 1200;
+        } else if (difficulty == "Hard") {
+            skillPoints += 8;
+            credits = 1300;
+        } else {
+            skillPoints = 16;
+        }
     }
 
     public int getCredits() {
