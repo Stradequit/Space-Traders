@@ -2,7 +2,7 @@ package spacetraders.classes;
 
 public class Region {
     private String name;
-    private int[] coordinates = new int[]{ 0, 0};
+    private int[] coordinates = new int[]{0, 0};
     private String techLevel;
     private String description;
     public Region(String regionName, String tlevel, String desc, int x, int y) {
