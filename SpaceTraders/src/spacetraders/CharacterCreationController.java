@@ -42,17 +42,14 @@ public class CharacterCreationController implements Initializable {
     }
     public void configDone(javafx.event.ActionEvent actionEvent) {
         try {
-//            root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
-            root = FXMLLoader.load(getClass().getResource("Screens/mapPage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        Scene characterPage = new Scene(root, 720, 480);
-        Scene mapPage = new Scene(root, 720, 480);
+        Scene characterPage = new Scene(root, 720, 480);
         GameController gameController = new GameController();
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        gameController.changeStage(mapPage);
-//        gameController.changeStage(characterPage);
+        gameController.changeStage(characterPage);
         stage.close();
     }
 
