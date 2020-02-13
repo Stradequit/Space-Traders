@@ -21,16 +21,22 @@ public class CharacterCreationController implements Initializable {
     @FXML Button nameSubmit;
     @FXML TextField nameField;
     @FXML Label nameBox;
+    @FXML Label remainMessage;
+    @FXML Label remainPoints;
+
     Pane root = null;
     Person person = new Person();
     Boolean nameCheck = false;
     public void setEasy() {
         person.setDifficulty("Easy");
+        remainMessage.setText("Skill points remaining:");
     }
     public void setMedium() {
+        remainMessage.setText("Skill points remaining:");
         person.setDifficulty("Medium");
     }
     public void setHard() {
+        remainMessage.setText("Skill points remaining:");
         person.setDifficulty("Hard");
     }
     public void configDone(javafx.event.ActionEvent actionEvent) {
