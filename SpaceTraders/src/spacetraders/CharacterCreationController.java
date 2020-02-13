@@ -24,21 +24,26 @@ public class CharacterCreationController implements Initializable {
     @FXML Label nameBox;
     @FXML Label remainMessage;
     @FXML Label remainPoints;
+    @FXML TextField engineeringField, fighterField, pilotField, merchantField;
+    @FXML Button engineerPlus, engineerMinus, pilotPlus, pilotMinus, fighterPlus, fighterMinus, merchantPlus, merchantMinus;
 
     Pane root = null;
-    Person person = new Person();
+    GameController gameController = new GameController();
     Boolean nameCheck = false;
     public void setEasy() {
-        person.setDifficulty("Easy");
-        remainMessage.setText("Skill points remaining:");
+        gameController.person.setDifficulty("Easy");
+        System.out.println(gameController.person.getDifficulty());
+        remainMessage.setText("Skill points remaining:" + gameController.person.getSkillPoints());
     }
     public void setMedium() {
-        remainMessage.setText("Skill points remaining:");
-        person.setDifficulty("Medium");
+        gameController.person.setDifficulty("Medium");
+        System.out.println(gameController.person.getDifficulty());
+        remainMessage.setText("Skill points remaining:" + gameController.person.getSkillPoints());
     }
     public void setHard() {
-        remainMessage.setText("Skill points remaining:");
-        person.setDifficulty("Hard");
+        gameController.person.setDifficulty("Hard");
+        remainMessage.setText("Skill points remaining:" + gameController.person.getSkillPoints());
+
     }
     public void configDone(javafx.event.ActionEvent actionEvent) {
         try {
@@ -57,11 +62,47 @@ public class CharacterCreationController implements Initializable {
         if (nameField.getText() != null && !nameField.getText().isEmpty()) {
             nameBox.setText("Your name is: " + nameField.getText());
             nameCheck = true;
+            gameController.person.setName(nameField.getText());
         }
         else {
             nameBox.setText("Enter a name.");
             nameCheck = false;
         }
+    }
+    public void incrementUp(ActionEvent actionEvent) {
+        if (gameController.person.getSkillPoints() > 0) {
+            if (actionEvent.getSource() == engineerPlus) {
+                gameController.person.setEngineeringPoints(gameController.person.getEngineeringPoints() + 1);
+            } else if (actionEvent.getSource() == merchantPlus) {
+                gameController.person.setMerchantPoints(gameController.person.getMerchantPoints() + 1);
+            } else if (actionEvent.getSource() == pilotPlus) {
+                gameController.person.setPilotPoints(gameController.person.getPilotPoints() + 1);
+            } else if (actionEvent.getSource() == fighterPlus) {
+                gameController.person.setFighterPoints(gameController.person.getFighterPoints() + 1);
+            }
+            gameController.person.setSkillPoints(gameController.person.getSkillPoints() - 1);
+        }
+        updateTextFields();
+    }
+    public void incrementDown(ActionEvent actionEvent){
+        if (actionEvent.getSource() == engineerMinus) {
+            gameController.person.setEngineeringPoints(gameController.person.getEngineeringPoints() - 1);
+        } else if (actionEvent.getSource() == merchantMinus) {
+            gameController.person.setMerchantPoints(gameController.person.getMerchantPoints() - 1);
+        } else if (actionEvent.getSource() == pilotMinus) {
+            gameController.person.setPilotPoints(gameController.person.getPilotPoints() - 1);
+        } else if (actionEvent.getSource() == fighterMinus) {
+            gameController.person.setFighterPoints(gameController.person.getFighterPoints() - 1);
+        }
+        gameController.person.setSkillPoints(gameController.person.getSkillPoints() + 1);
+        updateTextFields();
+    }
+    public void updateTextFields() {
+        engineeringField.setText(String.valueOf(gameController.person.getEngineeringPoints()));
+        pilotField.setText(String.valueOf(gameController.person.getPilotPoints()));
+        fighterField.setText(String.valueOf(gameController.person.getFighterPoints()));
+        merchantField.setText(String.valueOf(gameController.person.getMerchantPoints()));
+        remainPoints.setText("Remaining Points: " + String.valueOf(gameController.person.getSkillPoints()));
     }
 
     @Override
