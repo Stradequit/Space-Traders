@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -41,14 +42,17 @@ public class CharacterCreationController implements Initializable {
     }
     public void configDone(javafx.event.ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
+//            root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Screens/mapPage.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene characterPage = new Scene(root, 720, 480);
+//        Scene characterPage = new Scene(root, 720, 480);
+        Scene mapPage = new Scene(root, 720, 480);
         GameController gameController = new GameController();
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        gameController.changeStage(characterPage);
+        gameController.changeStage(mapPage);
+//        gameController.changeStage(characterPage);
         stage.close();
     }
 
