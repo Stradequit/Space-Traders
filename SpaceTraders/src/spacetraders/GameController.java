@@ -14,4 +14,5 @@ public class GameController {
         stage.show();
     }
     Person person = new Person();
+
 }

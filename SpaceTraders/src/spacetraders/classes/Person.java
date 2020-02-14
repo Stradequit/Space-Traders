@@ -1,5 +1,7 @@
 package spacetraders.classes;
 
+import java.util.ArrayList;
+
 public class Person {
     private static String name = "placeholder";
     private static String difficulty = "easy";
@@ -10,6 +12,7 @@ public class Person {
     private static int fighterPoints = 0;
     private static int merchantPoints = 0;
     private Region currRegion;
+    private static ArrayList<Region> visited = new ArrayList<Region>(0);
     public Person() {
     }
     public Person(Person person) {
@@ -27,7 +30,9 @@ public class Person {
     public String getDifficulty() {
         return difficulty;
     }
-
+    public void addVisited(Region region) { visited.add(region); }
+    public ArrayList<Region> getVisited() { return this.visited; }
+    public boolean visitedContains(Region region) { return visited.contains(region); }
     public void setDifficulty(String diff) {
         difficulty = diff;
         skillPoints = 16;
