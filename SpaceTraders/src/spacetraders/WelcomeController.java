@@ -7,16 +7,24 @@ import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import spacetraders.GameController;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class WelcomeController implements Initializable {
     Pane root = null;
+    @FXML MediaView mediaViewer;
+    Media introSong = new Media(new File("src/spacetraders/introMusic.mp3").toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(introSong);
     @FXML public void openConfigScreen(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("Screens/characterCreation.fxml"));
@@ -32,6 +40,7 @@ public class WelcomeController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        mediaViewer.setMediaPlayer(mediaPlayer);
+        mediaPlayer.play();
     }
 }
