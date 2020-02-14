@@ -16,7 +16,6 @@ public class GameController {
         stage.setScene(scene);
         stage.show();
     }
-
     private Region instantia = new Region("Instantia",
             "Agricultural",
             "Riddled with domestic wars, this region has never been able to evolve.", 0, 0);
