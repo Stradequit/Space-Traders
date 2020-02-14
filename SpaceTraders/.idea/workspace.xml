@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/META-INF/SpaceTraders.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/CharacterPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/CharacterPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/MapController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/RegionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/RegionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Region.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Region.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/CharacterCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/CharacterCreationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spacetraders/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/RegionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/RegionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/Screens/RegionPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/Screens/RegionPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/classes/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/classes/Region.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
