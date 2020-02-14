@@ -18,10 +18,11 @@ public class Person {
     public String getName() {
         return this.name;
     }
-
+    public Region getCurrRegion() { return this.currRegion; }
     public void setName(String name1) {
         this.name = name1;
     }
+    public void setCurrRegion(Region region) { this.currRegion = region; }
 
     public String getDifficulty() {
         return difficulty;
