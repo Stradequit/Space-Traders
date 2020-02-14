@@ -9,7 +9,7 @@ public class Person {
     private static int engineeringPoints = 0;
     private static int fighterPoints = 0;
     private static int merchantPoints = 0;
-    private Region currRegion;
+    private static Region currRegion;
     public Person() {
     }
     public Person(Person person) {
