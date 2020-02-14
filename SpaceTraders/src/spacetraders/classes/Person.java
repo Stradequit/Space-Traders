@@ -36,30 +36,30 @@ public class Person {
     public void setDifficulty(String diff) {
         if (diff == "Easy") {
             if (difficulty == "Medium") {
-                skillPoints -= 4;
+                skillPoints += 4;
             }
             if (difficulty == "Hard") {
-                skillPoints -= 8;
+                skillPoints += 8;
             }
             difficulty = diff;
         }
         credits = 1000;
         if (diff == "Medium") {
             if (difficulty == "Easy") {
-                skillPoints += 4;
+                skillPoints -= 4;
             }
             if (difficulty == "Hard") {
-                skillPoints -= 4;
+                skillPoints += 4;
             }
             difficulty = diff;
             credits = 1200;
         }
         if (diff == "Hard") {
             if (difficulty == "Easy") {
-                skillPoints += 8;
+                skillPoints -= 8;
             }
             if (difficulty == "Medium") {
-                skillPoints += 4;
+                skillPoints -= 4;
             }
             difficulty = diff;
             credits = 1400;

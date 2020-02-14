@@ -18,6 +18,10 @@ public class GameController {
         stage.show();
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
     private Person person = new Person();
     private Region instantia = new Region("Instantia", "Agricultural", "Riddled with domestic wars, this region has never been able to evolve.", 0,0);
     private Region neverthirst = new Region("Neverthirst", "Pre-agricultural", "The newest planet in the galaxy",0,0);
