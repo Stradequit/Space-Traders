@@ -10,15 +10,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import spacetraders.classes.Person;
+import spacetraders.classes.Region;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RegionController implements Initializable {
-    @FXML Label regionNameField;
-    @FXML Label regionCoordinatesField;
-    @FXML Label regionTechLevel;
+    @FXML Label regionNameField, regionCoordinatesField, regionTechLevel, regionDescription;
     @FXML ListView visitedRegionList;
 
     Pane root = null;
@@ -51,7 +51,14 @@ public class RegionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Person person = new Person ();
+        regionNameField.setText(person.getCurrRegion().getName());
+        regionCoordinatesField.setText(person.getCurrRegion().getCoordinates());
+        regionTechLevel.setText(person.getCurrRegion().getTechLevel());
+        regionDescription.setText(person.getCurrRegion().getDescription());
+        travelUniverse(ActionEvent e).isClicked();
 
+        }
     }
 
 }

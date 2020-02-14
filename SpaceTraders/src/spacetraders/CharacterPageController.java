@@ -37,12 +37,12 @@ public class CharacterPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         GameController gameController = new GameController();
-        nameLabel.setText(gameController.person.getName());
-        difficultyLabel.setText(gameController.person.getDifficulty());
-        creditsLabel.setText(String.valueOf(gameController.person.getCredits()));
-        engineerLabel.setText(String.valueOf(gameController.person.getEngineeringPoints()));
-        fighterLabel.setText(String.valueOf(gameController.person.getFighterPoints()));
-        pilotLabel.setText(String.valueOf(gameController.person.getPilotPoints()));
-        merchantLabel.setText(String.valueOf(gameController.person.getMerchantPoints()));
+        nameLabel.setText("Name: " +gameController.person.getName());
+        difficultyLabel.setText("Difficulty: " + gameController.person.getDifficulty());
+        creditsLabel.setText("Credits: " + String.valueOf(gameController.person.getCredits()));
+        engineerLabel.setText("Engineer: " + String.valueOf(gameController.person.getEngineeringPoints()));
+        fighterLabel.setText("Fighter: " + String.valueOf(gameController.person.getFighterPoints()));
+        pilotLabel.setText("Pilot: " + String.valueOf(gameController.person.getPilotPoints()));
+        merchantLabel.setText("Merchant: " + String.valueOf(gameController.person.getMerchantPoints()));
     }
 }
