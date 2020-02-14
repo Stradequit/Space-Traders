@@ -34,29 +34,30 @@ public class CharacterCreationController implements Initializable {
     public void setEasy() {
         gameController.person.setDifficulty("Easy");
         System.out.println(gameController.person.getDifficulty());
-        remainMessage.setText("Skill points remaining:" + gameController.person.getSkillPoints());
+        updateTextFields();
     }
     public void setMedium() {
         gameController.person.setDifficulty("Medium");
         System.out.println(gameController.person.getDifficulty());
-        remainMessage.setText("Skill points remaining:" + gameController.person.getSkillPoints());
+        updateTextFields();
     }
     public void setHard() {
         gameController.person.setDifficulty("Hard");
-        remainMessage.setText("Skill points remaining:" + gameController.person.getSkillPoints());
-
+        updateTextFields();
     }
     public void configDone(javafx.event.ActionEvent actionEvent) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (nameCheck == true && gameController.person.getSkillPoints() == 0) {
+            try {
+                root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene characterPage = new Scene(root, 720, 480);
+            GameController gameController = new GameController();
+            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            gameController.changeStage(characterPage);
+            stage.close();
         }
-        Scene characterPage = new Scene(root, 720, 480);
-        GameController gameController = new GameController();
-        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        gameController.changeStage(characterPage);
-        stage.close();
     }
 
     public void submitName(ActionEvent actionEvent) {
@@ -103,7 +104,7 @@ public class CharacterCreationController implements Initializable {
         pilotField.setText(String.valueOf(gameController.person.getPilotPoints()));
         fighterField.setText(String.valueOf(gameController.person.getFighterPoints()));
         merchantField.setText(String.valueOf(gameController.person.getMerchantPoints()));
-        remainPoints.setText("Remaining Points: " + String.valueOf(gameController.person.getSkillPoints()));
+        remainMessage.setText("Skill points remaining:" + gameController.person.getSkillPoints());
     }
 
     @Override
