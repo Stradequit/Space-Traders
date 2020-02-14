@@ -46,7 +46,7 @@ public class CharacterCreationController implements Initializable {
         updateTextFields();
     }
     public void configDone(javafx.event.ActionEvent actionEvent) {
-        if (nameCheck == true && gameController.person.getSkillPoints() == 0) {
+//        if (nameCheck == true && gameController.person.getSkillPoints() == 0) {
             try {
                 root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
             } catch (IOException e) {
@@ -57,7 +57,7 @@ public class CharacterCreationController implements Initializable {
             Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
             gameController.changeStage(characterPage);
             stage.close();
-        }
+//        }
     }
 
     public void submitName(ActionEvent actionEvent) {

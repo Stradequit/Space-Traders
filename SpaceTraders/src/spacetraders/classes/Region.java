@@ -1,7 +1,7 @@
 package spacetraders.classes;
 
 public class Region {
-    private String name;
+    private String name = "placeholder";
     private int[] coordinates = new int[]{ 0, 0};
     private String techLevel;
     private String description;
@@ -16,6 +16,12 @@ public class Region {
         return name;
     }
 
+    public void setXCoordinate(int x) {
+        this.coordinates[0] = x;
+    }
+    public void setYCoordinate(int y) {
+        this.coordinates[1] = y;
+    }
     public int[] getCoordinates() {
         return coordinates;
     }
