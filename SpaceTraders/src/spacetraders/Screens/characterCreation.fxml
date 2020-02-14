@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.CharacterCreationController">
+   <left>
+      <BorderPane prefHeight="171.0" prefWidth="649.0" BorderPane.alignment="CENTER">
+         <center>
+            <HBox prefHeight="28.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Choose Your Difficulty: ">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="easyButton" mnemonicParsing="false" onAction="#setEasy" prefHeight="20.0" prefWidth="100.0" text="Easy" />
+                  <Button fx:id="mediumButton" mnemonicParsing="false" onAction="#setMedium" prefWidth="100.0" text="Medium" />
+                  <Button fx:id="hardButton" mnemonicParsing="false" onAction="#setHard" prefWidth="100.0" text="Hard" />
+               </children>
+            </HBox>
+         </center>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="remainMessage" prefHeight="24.0" prefWidth="614.0">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="remainPoints" prefHeight="24.0" prefWidth="331.0" />
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </left>
+   <bottom>
+      <BorderPane prefHeight="238.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <left>
+            <HBox prefHeight="303.0" prefWidth="133.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="303.0" prefWidth="225.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="110.0" text="Engineer:" textOverrun="CLIP">
+                           <VBox.margin>
+                              <Insets bottom="12.0" left="12.0" top="12.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="26.0" prefWidth="111.0" text="Fighter:" textOverrun="CLIP">
+                           <VBox.margin>
+                              <Insets bottom="12.0" left="12.0" top="12.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" prefWidth="110.0" text="Pilot:" textOverrun="CLIP">
+                           <VBox.margin>
+                              <Insets bottom="12.0" left="12.0" top="12.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="33.0" prefWidth="110.0" text="Merchant:" textOverrun="CLIP">
+                           <VBox.margin>
+                              <Insets left="12.0" right="12.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </left>
+         <bottom>
+            <Button fx:id="done" mnemonicParsing="false" onAction="#configDone" text="Done" BorderPane.alignment="BOTTOM_RIGHT" />
+         </bottom>
+         <center>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="69.0" BorderPane.alignment="CENTER_LEFT">
+               <children>
+                  <HBox prefHeight="79.0" prefWidth="466.0">
+                     <children>
+                        <Button fx:id="engineerMinus" mnemonicParsing="false" onAction="#incrementDown" text="-" />
+                        <TextField fx:id="engineeringField" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="28.0" promptText="0" />
+                        <Button fx:id="engineerPlus" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incrementUp" prefHeight="25.6" prefWidth="20.8" text="+" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="78.0" prefHeight="79.0" prefWidth="466.0">
+                     <children>
+                        <Button fx:id="fighterMinus" mnemonicParsing="false" onAction="#incrementDown" text="-" />
+                        <TextField fx:id="fighterField" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="28.0" promptText="0" />
+                        <Button fx:id="fighterPlus" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incrementUp" prefHeight="25.6" prefWidth="20.8" text="+" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="117.0" prefHeight="79.0" prefWidth="466.0">
+                     <children>
+                        <Button fx:id="pilotMinus" mnemonicParsing="false" onAction="#incrementDown" text="-" />
+                        <TextField fx:id="pilotField" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="28.0" promptText="0" />
+                        <Button fx:id="pilotPlus" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incrementUp" prefHeight="25.6" prefWidth="20.8" text="+" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="153.0" prefHeight="79.0" prefWidth="466.0">
+                     <children>
+                        <Button fx:id="merchantMinus" mnemonicParsing="false" onAction="#incrementDown" text="-" />
+                        <TextField fx:id="merchantField" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="28.0" promptText="0" />
+                        <Button fx:id="merchantPlus" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#incrementUp" prefHeight="25.6" prefWidth="20.8" text="+" textAlignment="CENTER" textOverrun="CLIP">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </bottom>
+   <top>
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="56.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Name: " />
+            <TextField fx:id="nameField" />
+            <Button fx:id="nameSubmit" mnemonicParsing="false" onAction="#submitName" text="Submit">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+            <Label fx:id="nameBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="300.0">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
+         </padding>
+      </HBox>
+   </top>
+</BorderPane>

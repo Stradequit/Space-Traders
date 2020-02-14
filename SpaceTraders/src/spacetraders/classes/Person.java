@@ -1,31 +1,46 @@
-package sample;
+package spacetraders.classes;
 
 public class Person {
-    private String name = "placeholder";
-    private String difficulty = "easy";
-    private int credits = 0;
-    private int skillPoints = 0;
-    private int pilotPoints = 0;
-    private int engineeringPoints = 0;
-    private int fighterPoints = 0;
-    private int merchantPoints = 0;
+    private static String name = "placeholder";
+    private static String difficulty = "easy";
+    private static int credits = 0;
+    private static int skillPoints = 0;
+    private static int pilotPoints = 0;
+    private static int engineeringPoints = 0;
+    private static int fighterPoints = 0;
+    private static int merchantPoints = 0;
+    private Region currRegion;
     public Person() {
+    }
+    public Person(Person person) {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public Region getCurrRegion() { return this.currRegion; }
+    public void setName(String name1) {
+        this.name = name1;
     }
+    public void setCurrRegion(Region region) { this.currRegion = region; }
 
     public String getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
+    public void setDifficulty(String diff) {
+        difficulty = diff;
+        skillPoints = 16;
+        credits = 1000;
+        if (difficulty == "Medium") {
+            skillPoints += 4;
+            credits = 1200;
+        } else if (difficulty == "Hard") {
+            skillPoints += 8;
+            credits = 1300;
+        } else {
+            skillPoints = 16;
+        }
     }
 
     public int getCredits() {
