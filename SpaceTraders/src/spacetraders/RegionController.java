@@ -59,7 +59,6 @@ public class RegionController implements Initializable {
         travelUniverse(ActionEvent e).isClicked();
 
         }
-
     }
 
 }
