@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.media.MediaView?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: #301934;" stylesheets="@../startButton.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.WelcomeController">
    <bottom>
@@ -21,4 +22,7 @@
          </image>
       </ImageView>
    </center>
+   <left>
+      <MediaView fx:id="mediaViewer" opacity="0.0" visible="false" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>
