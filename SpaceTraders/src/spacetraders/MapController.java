@@ -45,10 +45,9 @@ public class MapController implements Initializable {
         for (int i = 0; i < 10; i++) {
             int x = (int) randomBetween(0, 14);
             int y = (int) randomBetween(1, 13);
-            int j = (int) randomBetween(0, 14);
-            regionArray[j].setXCoordinate(x);
-            regionArray[j].setYCoordinate(y);
-            Region region = regionArray[j];
+            regionArray[i].setXCoordinate(x);
+            regionArray[i].setYCoordinate(y);
+            Region region = regionArray[i];
             regions.add(region);
             Button button = new Button(region.getName());
             button.setWrapText(true);
