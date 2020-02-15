@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 
 public class MapController implements Initializable {
-    @FXML GridPane regionPane;
+    private @FXML GridPane regionPane;
 
 
     public static double randomBetween(double min, double max) {

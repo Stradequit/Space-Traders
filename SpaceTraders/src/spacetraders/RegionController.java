@@ -11,10 +11,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RegionController implements Initializable {
-    @FXML Label regionNameField;
-    @FXML Label regionTechField;
-    @FXML Label regionDescField;
-    @FXML ListView visitedRegionList;
+    private @FXML Label regionNameField;
+    private @FXML Label regionTechField;
+    private @FXML Label regionDescField;
+    private @FXML ListView visitedRegionList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
