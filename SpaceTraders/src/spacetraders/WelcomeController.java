@@ -20,10 +20,11 @@ import java.util.ResourceBundle;
 
 
 public class WelcomeController implements Initializable {
-    Pane root = null;
-    @FXML MediaView mediaViewer;
-    Media introSong = new Media(new File("src/spacetraders/introMusic.mp3").toURI().toString());
-    MediaPlayer mediaPlayer = new MediaPlayer(introSong);
+    private Pane root = null;
+    private @FXML MediaView mediaViewer;
+    private Media introSong = new Media(new File(
+            "src/spacetraders/introMusic.mp3").toURI().toString());
+    private MediaPlayer mediaPlayer = new MediaPlayer(introSong);
     @FXML public void openConfigScreen(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("Screens/characterCreation.fxml"));
