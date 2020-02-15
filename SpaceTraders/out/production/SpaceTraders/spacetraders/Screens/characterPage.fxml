@@ -17,7 +17,7 @@
       </VBox>
       <VBox prefHeight="400.0" prefWidth="291.0">
          <children>
-            <Label fx:id="engineerLabel" text="" />
+            <Label fx:id="engineerLabel" text="Engineer: " />
             <Label fx:id="pilotLabel" text="Pilot: " />
             <Label fx:id="merchantLabel" text="Merchant: " />
             <Label fx:id="fighterLabel" text=" Fighter: " />
