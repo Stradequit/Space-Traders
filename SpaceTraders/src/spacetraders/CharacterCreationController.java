@@ -20,8 +20,18 @@ public class CharacterCreationController implements Initializable {
     @FXML Label nameBox;
     @FXML Label remainMessage;
     @FXML Label remainPoints;
-    @FXML TextField engineeringField, fighterField, pilotField, merchantField;
-    @FXML Button engineerPlus, engineerMinus, pilotPlus, pilotMinus, fighterPlus, fighterMinus, merchantPlus, merchantMinus;
+    @FXML TextField engineeringField;
+    @FXML TextField fighterField;
+    @FXML TextField pilotField;
+    @FXML TextField merchantField;
+    @FXML Button engineerPlus;
+    @FXML Button engineerMinus;
+    @FXML Button pilotPlus;
+    @FXML Button pilotMinus;
+    @FXML Button fighterPlus;
+    @FXML Button fighterMinus;
+    @FXML Button merchantPlus;
+    @FXML Button merchantMinus;
     private Person person = new Person();
     private Pane root = null;
     private GameController gameController = new GameController();
@@ -41,7 +51,7 @@ public class CharacterCreationController implements Initializable {
         updateTextFields();
     }
     public void configDone(javafx.event.ActionEvent actionEvent) {
-        if (nameCheck == true && person.getSkillPoints() == 0) {
+        if (nameCheck && person.getSkillPoints() == 0) {
             try {
                 root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
             } catch (IOException e) {
@@ -52,7 +62,7 @@ public class CharacterCreationController implements Initializable {
             Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
             gameController.changeStage(characterPage);
             stage.close();
-       }
+        }
     }
 
     public void submitName(ActionEvent actionEvent) {
@@ -60,8 +70,7 @@ public class CharacterCreationController implements Initializable {
             nameBox.setText("Your name is: " + nameField.getText());
             nameCheck = true;
             person.setName(nameField.getText());
-        }
-        else {
+        } else {
             nameBox.setText("Enter a name.");
             nameCheck = false;
         }
@@ -81,7 +90,7 @@ public class CharacterCreationController implements Initializable {
         }
         updateTextFields();
     }
-    public void incrementDown(ActionEvent actionEvent){
+    public void incrementDown(ActionEvent actionEvent) {
         if (actionEvent.getSource() == engineerMinus) {
             person.setEngineeringPoints(person.getEngineeringPoints() - 1);
         } else if (actionEvent.getSource() == merchantMinus) {

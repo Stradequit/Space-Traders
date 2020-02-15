@@ -21,18 +21,28 @@ public class Person {
     public String getName() {
         return this.name;
     }
-    public Region getCurrRegion() { return this.currRegion; }
+    public Region getCurrRegion() {
+        return this.currRegion;
+    }
     public void setName(String name1) {
         this.name = name1;
     }
-    public void setCurrRegion(Region region) { this.currRegion = region; }
+    public void setCurrRegion(Region region) {
+        this.currRegion = region;
+    }
 
     public String getDifficulty() {
         return difficulty;
     }
-    public void addVisited(Region region) { visited.add(region); }
-    public ArrayList<Region> getVisited() { return this.visited; }
-    public boolean visitedContains(Region region) { return visited.contains(region); }
+    public void addVisited(Region region) {
+        visited.add(region);
+    }
+    public ArrayList<Region> getVisited() {
+        return this.visited;
+    }
+    public boolean visitedContains(Region region) {
+        return visited.contains(region);
+    }
     public void setDifficulty(String diff) {
         if (diff == "Easy") {
             if (difficulty == "Medium") {
