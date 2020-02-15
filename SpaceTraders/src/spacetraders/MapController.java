@@ -1,22 +1,17 @@
 package spacetraders;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
-import javafx.stage.Stage;
 import spacetraders.classes.Person;
 import spacetraders.classes.Region;
-import spacetraders.GameController;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,7 +24,7 @@ public class MapController implements Initializable {
 
 
     public static double randomBetween(double min, double max) {
-        double x = (int)(Math.random()*((max-min)+1))+min;
+        double x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
     }
 
@@ -39,7 +34,7 @@ public class MapController implements Initializable {
         Region[] regionArray = gc.getRegionArray();
         ArrayList<Region> regions = new ArrayList<Region>(0);
         ArrayList<Button> buttons = new ArrayList<Button>(0);
-        double r=20;
+        double r = 20;
         Person person = new Person();
         final Pane[] root = {null};
         for (int i = 0; i < 10; i++) {
@@ -74,7 +69,8 @@ public class MapController implements Initializable {
                     visit.setWrapText(true);
                     regionPane.add(visit, x, (y + 1));
                     visit.setOnAction(event1 -> {
-                        buttons.get(regions.indexOf(person.getCurrRegion())).setStyle("-fx-background-color: #00ff00");
+                        buttons.get(regions.indexOf(
+                                person.getCurrRegion())).setStyle("-fx-background-color: #00ff00");
                         button.setStyle("-fx-background-color: #ffc300");
                         person.setCurrRegion(regions.get(buttons.indexOf(button)));
                         person.addVisited(person.getCurrRegion());
@@ -88,7 +84,8 @@ public class MapController implements Initializable {
                     regionPane.add(viewInfo, x, (y - 1));
                     viewInfo.setOnAction(event2 -> {
                         try {
-                            root[0] = FXMLLoader.load(getClass().getResource("Screens/RegionPage.fxml"));
+                            root[0] = FXMLLoader.load(getClass().getResource(
+                                    "Screens/RegionPage.fxml"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
