@@ -56,7 +56,8 @@ public class MapController implements Initializable {
             double xdiff = Double.valueOf(x - person.getCurrRegion().getCoordinates()[0]);
             double ydiff = Double.valueOf(y - person.getCurrRegion().getCoordinates()[1]);
             double distance = Math.pow(Math.pow(xdiff, 2.0) + Math.pow(ydiff, 2.0), 0.5);
-            button.setTooltip(new Tooltip("(" + x + ", " + (14 - y) + ")" + "\n distance: " + distance));
+            button.setTooltip(new Tooltip("(" + x + ", " + (14 - y) + ")"
+                    + "\n distance: " + distance));
             button.setShape(new Circle(r));
             button.setMinSize(2 * r, 2 * r);
             button.setMaxSize(2 * r, 2 * r);
