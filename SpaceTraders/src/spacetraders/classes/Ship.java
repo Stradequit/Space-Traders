@@ -9,9 +9,9 @@ public class Ship {
     private int health;
     private ItemInventory itemInventory;
     public void addItem(Good good){
-        this.itemInventory.addGood(good, 0);
+        this.itemInventory.addGood(good);
     }
     public void removeItem(Good good) {
-        this.itemInventory.removeGood(good, 0);
+        this.itemInventory.removeGood(good);
     }
 }

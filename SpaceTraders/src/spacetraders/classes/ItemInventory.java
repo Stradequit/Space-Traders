@@ -1,41 +1,38 @@
 package spacetraders.classes;
 
+import java.util.HashMap;
+
 public class ItemInventory {
-    private Good[] goodArray;
-    private int[] goodNumber;
     private int capacity;
-    public ItemInventory(int cargoCapacity) {
-        this.capacity = cargoCapacity;
-        goodArray = new Good[capacity];
-        goodNumber = new int[capacity];
-        for (int i = 0; i < capacity; i++) {
-            goodArray[i] = null;
-            goodNumber[i] = 0;
-        }
-    }
-    public void addGood(Good good, int i) {
-        boolean goodSlot = false;
-        if(goodArray[i].equals(null)) {
-            goodArray[i] = good;
-            goodNumber[i] += 1;
-        } else if (goodArray[i].equals(good)) {
-            goodNumber[i] += 1;
-        } else {
-            i++;
-            addGood(good, i);
-        }
-    }
-    public void removeGood(Good good, int i) {
-        if (i < goodArray.length) {
-            if (goodArray[i].equals(good)) {
-                goodNumber[i]--;
-                if (goodNumber[i] == 0) {
-                    goodArray[i] = null;
-                }
+    private HashMap goodMap = new HashMap(capacity);
+    private int size = 0;
+    public void addGood(Good good) {
+        if (size < capacity) {
+            if (goodMap.containsKey(good)) {
+                int val = (Integer) goodMap.get(good) + 1;
+                goodMap.replace(good, val);
             } else {
-                i++;
-                removeGood(good, i);
+                goodMap.put(good, 1);
             }
+            size++;
+        }
+    }
+    public void removeGood(Good good) {
+        if (goodMap.containsKey(good)) {
+            if ((Integer)goodMap.get(good) == 1) {
+                goodMap.remove(good);
+            } else {
+                int val = (Integer)goodMap.get(good) - 1;
+                goodMap.replace(good, val);
+            }
+            size--;
+        }
+    }
+    public int getNumberOfGood(Good good) {
+        if (goodMap.containsKey(good)) {
+            return (Integer)goodMap.get(good);
+        } else {
+            return 0;
         }
     }
 }
