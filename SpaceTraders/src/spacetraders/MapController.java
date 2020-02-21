@@ -44,7 +44,7 @@ public class MapController implements Initializable {
             regionArray[i].setYCoordinate(y);
             Region region = regionArray[i];
             regions.add(region);
-            Button button = new Button(region.getName());
+            Button button = new Button(region.getId());
             button.setWrapText(true);
             if (i == 0) {
                 button.setStyle("-fx-background-color: #ffc300");
