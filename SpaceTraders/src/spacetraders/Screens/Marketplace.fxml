@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="spacetraders.MarketplaceController" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000ce" height="360.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
       <Pane layoutX="81.0" layoutY="269.0">
