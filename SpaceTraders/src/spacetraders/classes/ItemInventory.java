@@ -35,4 +35,11 @@ public class ItemInventory {
             return 0;
         }
     }
+    public void changeSize(int modFactor) {
+        capacity += modFactor;
+        HashMap temp = new HashMap(capacity);
+        temp = (HashMap) goodMap.clone();
+        goodMap = temp;
+    }
+
 }
