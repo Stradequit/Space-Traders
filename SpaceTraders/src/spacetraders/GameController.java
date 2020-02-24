@@ -11,32 +11,33 @@ public class GameController {
         stage.setScene(scene);
         stage.show();
     }
+    //Creating Regions
     private Region instantia = new Region("0", "Instantia",
             "Agricultural",
             "Riddled with domestic wars, this region has never been able to evolve.", 0, 0);
     private Region neverthirst = new Region("1", "Neverthirst",
-            "Pre-agricultural", "The newest planet in the galaxy", 0, 0);
+            "Agricultural", "The newest planet in the galaxy", 0, 0);
     private Region dell = new Region("2", "Dell",
-            "Early Industrial", "A region full of laptop people", 0, 0);
+            "Post Industrial", "A region full of laptop people", 0, 0);
     private Region godhaven = new Region("3", "Godhaven",
-            "Industrial", "People here have a bit of an ego, maybe that explains the name.", 0, 0);
+            "High Tech", "People here have a bit of an ego, maybe that explains the name.", 0, 0);
     private Region borkland = new Region("4", "Borkland",
             "Post Industrial", "The only planet with more dogs than people", 0, 0);
     private Region lazda = new Region("5", "Lazda",
             "High Tech", "By far the most advanced galaxy. Control all of space travel", 0, 0);
     private Region formenos = new Region("6", "Formenos",
-            "Early Industrial",
+            "Industrial",
             "A fully underwater planet. This make their industrial standing quite impressive.",
             0, 0);
     private Region catolus = new Region("7", "Catolus",
-            "Industrial", "Cats have taken over. Expect stingy traders.", 0, 0);
+            "High Tech", "Cats have taken over. Expect stingy traders.", 0, 0);
     private Region caladria = new Region("8", "Caladria",
-            "Agricultural", "People are finally settling down here, don't expect much.", 0, 0);
+            "Industrial", "People are finally settling down here, don't expect much.", 0, 0);
     private Region arcana = new Region("9", "Arcana",
-            "Pre-agricultural",
+            "Agricultural",
             "A society solely based on magic, making no progress in other categories", 0, 0);
     private Region harmonia = new Region("10", "Harmonia",
-            "Early Industrial", "A society that exists in complete peace, for now.", 0, 0);
+            "Post Industrial", "A society that exists in complete peace, for now.", 0, 0);
     private Region araboozia = new Region("11", "Araboozia",
             "High Tech",
             "Working on their international space travel, "

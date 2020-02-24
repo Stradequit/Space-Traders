@@ -13,7 +13,7 @@ public class Person {
     private static int merchantPoints = 0; //A high merchant stat can buy goods for less and sell for more
     private static Region currRegion;
     private static ArrayList<Region> visited = new ArrayList<Region>(0);
-    private static Ship ship;
+    private static Ship ship = new Ship();
 
     public Person() {
     }
@@ -124,5 +124,13 @@ public class Person {
 
     public void setMerchantPoints(int merchantPoints) {
         this.merchantPoints = merchantPoints;
+    }
+
+    public static Ship getShip() {
+        return ship;
+    }
+
+    public static void setShip(Ship ship) {
+        Person.ship = ship;
     }
 }
