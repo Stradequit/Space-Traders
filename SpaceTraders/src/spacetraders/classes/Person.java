@@ -7,12 +7,14 @@ public class Person {
     private static String difficulty = "Easy";
     private static int credits = 0;
     private static int skillPoints = 16;
-    private static int pilotPoints = 0;
-    private static int engineeringPoints = 0;
-    private static int fighterPoints = 0;
-    private static int merchantPoints = 0;
+    private static int pilotPoints = 0; //Distance your ship can travel
+    private static int engineeringPoints = 0; //Increases effectiveness of repairing your own ship
+    private static int fighterPoints = 0; //Strength in combat
+    private static int merchantPoints = 0; //A high merchant stat can buy goods for less and sell for more
     private static Region currRegion;
     private static ArrayList<Region> visited = new ArrayList<Region>(0);
+    private static Ship ship;
+
     public Person() {
     }
     public Person(Person person) {
