@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.MarketplaceController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000ce" height="360.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
+      <Pane layoutX="81.0" layoutY="269.0">
+         <children>
+            <GridPane prefHeight="91.0" prefWidth="600.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.5999755859375" minWidth="10.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.4000244140625" minWidth="10.0" prefWidth="194.4000244140625" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="buy" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="sell" mnemonicParsing="false" prefHeight="26.0" prefWidth="176.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pane layoutX="179.0" layoutY="-11.0">
+         <children>
+            <GridPane layoutY="28.799999237060547" prefHeight="250.0" prefWidth="362.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.199951171875" minWidth="10.0" prefWidth="25.9999755859375" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.40001220703124" minWidth="10.0" prefWidth="67.60002441406249" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.20001220703125" minWidth="10.0" prefWidth="76.199951171875" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.199951171875" minWidth="10.0" prefWidth="28.20002441406251" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.20001220703125" minWidth="10.0" prefWidth="55.5999755859375" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.4000244140625" minWidth="10.0" prefWidth="82.00002441406252" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.39997558593751" minWidth="10.0" prefWidth="35.199975585937466" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="47.59998168945313" minHeight="10.0" prefHeight="46.79999389648438" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="23.600012207031256" minHeight="9.20001831054688" prefHeight="10.00000610351563" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="44.199987792968756" minHeight="10.0" prefHeight="42.600012207031256" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="41.00000610351563" minHeight="10.0" prefHeight="12.199987792968756" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#635a67" height="264.0" stroke="TRANSPARENT" strokeType="INSIDE" width="366.0" GridPane.rowIndex="4" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff2153" height="32.0" stroke="TRANSPARENT" strokeType="INSIDE" width="85.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f093c" height="29.0" stroke="TRANSPARENT" strokeType="INSIDE" width="58.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e083b" height="23.0" stroke="TRANSPARENT" strokeType="INSIDE" width="59.0" GridPane.rowIndex="8" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e083b" height="25.0" stroke="TRANSPARENT" strokeType="INSIDE" width="58.0" GridPane.rowIndex="6" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7f48" height="32.0" stroke="TRANSPARENT" strokeType="INSIDE" width="77.0" GridPane.rowIndex="7" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8ef2" height="32.0" stroke="TRANSPARENT" strokeType="INSIDE" width="77.0" GridPane.rowIndex="5" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e083b" height="44.0" stroke="TRANSPARENT" strokeType="INSIDE" width="58.0" GridPane.rowIndex="4" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#21ffb4" height="32.0" stroke="TRANSPARENT" strokeType="INSIDE" width="77.0" GridPane.rowIndex="3" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe821" height="32.0" stroke="TRANSPARENT" strokeType="INSIDE" width="77.0" GridPane.rowIndex="1" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e083b" height="29.0" stroke="TRANSPARENT" strokeType="INSIDE" width="58.0" GridPane.rowIndex="2" />
+                  <Button fx:id="fighterGood" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Button fx:id="healthGood" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Button fx:id="cargoGood" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Button fx:id="fuelGood" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                  <Label prefHeight="18.0" prefWidth="103.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label prefHeight="18.0" prefWidth="103.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label prefHeight="18.0" prefWidth="103.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label prefHeight="18.0" prefWidth="92.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label prefHeight="18.0" prefWidth="103.0" text="Label" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
