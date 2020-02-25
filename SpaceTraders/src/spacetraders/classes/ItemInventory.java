@@ -19,10 +19,10 @@ public class ItemInventory {
     }
     public void removeGood(Good good) {
         if (goodMap.containsKey(good)) {
-            if ((Integer)goodMap.get(good) == 1) {
+            if ((Integer) goodMap.get(good) == 1) {
                 goodMap.remove(good);
             } else {
-                int val = (Integer)goodMap.get(good) - 1;
+                int val = (Integer) goodMap.get(good) - 1;
                 goodMap.replace(good, val);
             }
             size--;
@@ -30,9 +30,16 @@ public class ItemInventory {
     }
     public int getNumberOfGood(Good good) {
         if (goodMap.containsKey(good)) {
-            return (Integer)goodMap.get(good);
+            return (Integer) goodMap.get(good);
         } else {
             return 0;
         }
     }
+    public void changeSize(int modFactor) {
+        capacity += modFactor;
+        HashMap temp = new HashMap(capacity);
+        temp = (HashMap) goodMap.clone();
+        goodMap = temp;
+    }
+
 }
