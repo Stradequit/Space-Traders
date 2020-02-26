@@ -38,7 +38,7 @@ public class MapController implements Initializable {
         Person person = new Person();
         final Pane[] root = {null};
         for (int i = 0; i < 10; i++) {
-            int x = (int) randomBetween(0, 14);
+            int x = (int) randomBetween(1, 14);
             int y = (int) randomBetween(1, 13);
             regionArray[i].setXCoordinate(x);
             regionArray[i].setYCoordinate(y);
@@ -66,6 +66,7 @@ public class MapController implements Initializable {
                 final boolean[] clicked = {false};
                 Button visit = new Button("Visit");
                 Button viewInfo = new Button("View Info");
+                Button marketplace = new Button("Marketplace");
                 if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) {
                     visit.setWrapText(true);
                     regionPane.add(visit, x, (y + 1));
@@ -82,8 +83,23 @@ public class MapController implements Initializable {
 
                 if (person.visitedContains((regions.get(buttons.indexOf(button))))) {
                     viewInfo.setWrapText(true);
+                    marketplace.setWrapText(true);
                     regionPane.add(viewInfo, x, (y - 1));
-                    viewInfo.setOnAction(event2 -> {
+                    regionPane.add(marketplace, (x - 1), y);
+                    marketplace.setOnAction(event2 -> {
+                        try {
+                            root[0] = FXMLLoader.load(getClass().getResource(
+                                    "Screens/Marketplace.fxml"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Scene marketPage = new Scene(root[0], 720, 360);
+                        GameController gameController = new GameController();
+                        gameController.changeStage(marketPage);
+                        regionPane.getChildren().remove(marketplace);
+                        clicked[0] = true;
+                    });
+                    viewInfo.setOnAction(event3 -> {
                         try {
                             root[0] = FXMLLoader.load(getClass().getResource(
                                     "Screens/RegionPage.fxml"));
@@ -101,6 +117,7 @@ public class MapController implements Initializable {
                 if (clicked[0]) {
                     regionPane.getChildren().remove(visit);
                     regionPane.getChildren().remove(viewInfo);
+                    regionPane.getChildren().remove(marketplace);
                 }
             });
             regionPane.add(button, x, y);
