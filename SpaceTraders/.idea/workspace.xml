@@ -5,11 +5,13 @@
       <change afterPath="$PROJECT_DIR$/src/spacetraders/Screens/Ship.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/spacetraders/ShipController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/spacetraders/MarketplaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/MarketplaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spacetraders/classes/Good.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/classes/Good.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/MapController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/MarketplaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/MarketplaceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/Screens/mapPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/Screens/mapPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/Screens/mapPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/Screens/mapPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,11 +201,11 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="680" y="166" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1580605784943" />
-    <state x="323" y="79" width="718" height="650" key="search.everywhere.popup" timestamp="1581628465980">
+    <state x="323" y="79" width="718" height="650" key="search.everywhere.popup" timestamp="1582748528665">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="303" y="82" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1581205361803" />
-    <state x="323" y="79" width="718" height="650" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581628465980" />
+    <state x="323" y="79" width="718" height="650" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1582748528665" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SpaceTraders$Main.ic" NAME="Main Coverage Results" MODIFIED="1580623101567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
