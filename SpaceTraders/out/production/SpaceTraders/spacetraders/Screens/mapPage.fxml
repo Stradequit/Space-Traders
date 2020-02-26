@@ -43,7 +43,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="7">
+      <ImageView fitHeight="880" fitWidth="1840" pickOnBounds="true" smooth="false" GridPane.rowIndex="7">
          <image>
             <Image url="@../images/spaceBG.jpg" />
          </image>
