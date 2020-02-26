@@ -6,7 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import spacetraders.classes.Person;
 import spacetraders.classes.Good;
+
 
 import java.io.IOException;
 import java.net.URL;

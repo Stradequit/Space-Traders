@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class ItemInventory {
     private int capacity;
-    private HashMap goodMap = new HashMap(capacity);
+    private HashMap goodMap = new HashMap(25);
     private int size = 0;
     public void addGood(Good good) {
         if (size < capacity) {
@@ -35,11 +35,4 @@ public class ItemInventory {
             return 0;
         }
     }
-    public void changeSize(int modFactor) {
-        capacity += modFactor;
-        HashMap temp = new HashMap(capacity);
-        temp = (HashMap) goodMap.clone();
-        goodMap = temp;
-    }
-
 }

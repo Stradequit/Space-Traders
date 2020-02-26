@@ -21,7 +21,7 @@ public class RegionController implements Initializable {
         Person person = new Person();
         regionNameField.setText("Welcome to " + person.getCurrRegion().getName());
         System.out.println(person.getCurrRegion().getName());
-        regionTechField.setText("Tech Level: " + person.getCurrRegion().getTechLevel());
+        regionTechField.setText("Tech Level: " + person.getCurrRegion().getTechLevel().toString());
         regionDescField.setText("Description: " + person.getCurrRegion().getDescription());
     }
 
