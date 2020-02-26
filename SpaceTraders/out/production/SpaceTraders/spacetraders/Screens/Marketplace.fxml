@@ -19,8 +19,8 @@
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.199951171875" minWidth="10.0" prefWidth="25.9999755859375" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.40001220703124" minWidth="10.0" prefWidth="67.60002441406249" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.20001220703125" minWidth="10.0" prefWidth="76.199951171875" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.199951171875" minWidth="10.0" prefWidth="28.20002441406251" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.20001220703125" minWidth="10.0" prefWidth="95.400048828125" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.199951171875" minWidth="1.2207031261368684E-5" prefWidth="12.999951171875011" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -48,7 +48,7 @@
                   <Button fx:id="miscGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                   <Button fx:id="fighterGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="7" />
                   <Button fx:id="cargoGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button fx:id="fuelGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="fuelGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <Button fx:id="healthGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                   <Label fx:id="healthGood" prefHeight="18.0" prefWidth="103.0" text="Fighter" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                   <Label fx:id="fighterGood" prefHeight="18.0" prefWidth="103.0" text="Misc." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="9" />
@@ -80,8 +80,8 @@
               </rowConstraints>
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00039c" height="98.0" stroke="BLACK" strokeType="INSIDE" width="719.0" GridPane.rowIndex="1" />
-                  <Button fx:id="buy" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Buy" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="sell" mnemonicParsing="false" prefHeight="26.0" prefWidth="176.0" text="Sell" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="buy" mnemonicParsing="false" onAction="#buyItem" prefHeight="26.0" prefWidth="136.0" text="Buy" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="sell" mnemonicParsing="false" onAction="#sellItem" prefHeight="26.0" prefWidth="176.0" text="Sell" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
