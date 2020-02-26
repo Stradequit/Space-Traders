@@ -37,6 +37,19 @@ public class MapController implements Initializable {
         double r = 20;
         Person person = new Person();
         final Pane[] root = {null};
+        Button toShipScreen = new Button("Ship Status");
+        toShipScreen.setOnAction(event0 -> {
+            try {
+                root[0] = FXMLLoader.load(getClass().getResource(
+                        "Screens/Ship.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene shipPage = new Scene(root[0], 600, 400);
+            GameController gameController = new GameController();
+            gameController.changeStage(shipPage);
+        });
+        regionPane.add(toShipScreen, 0, 14);
         for (int i = 0; i < 10; i++) {
             int x = (int) randomBetween(1, 14);
             int y = (int) randomBetween(1, 13);
