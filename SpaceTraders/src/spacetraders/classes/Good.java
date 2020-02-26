@@ -31,4 +31,20 @@ public enum Good {
         this.modFactor = modFactor;
         this.modStat = modStat;
     }
+
+    public int getBasePrice() {
+        return basePrice;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getModFactor() {
+        return modFactor;
+    }
+
+    public String getModStat() {
+        return modStat;
+    }
 }
