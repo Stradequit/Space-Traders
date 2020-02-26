@@ -37,24 +37,21 @@ public class MarketplaceController implements Initializable {
 //    public static void removeGood(Good good, int i) {
 //
 //    }
+    public void buyItem(){}
+    public void sellItem(){}
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //Pick goods based on Tech Level
         Button[] buttons = new Button[]{fuelGoodConfirm, cargoGoodConfirm, healthGoodConfirm, fighterGoodConfirm, miscGoodConfirm};
         for (int i=0; i < buttons.length; i++){
-            buttons[i].setWrapText(true);
             buttons[i].setOnAction(buttonEvent -> {
                 itemName.setText("ITEM NAME GOES HERE");
                 descItem.setText("ITEM DESC GOES HERE");
                 buyPrice.setText("BUY PRICE GOES HERE");
                 sellPrice.setText("SELL PRICE GOES HERE");
                 numInv.setText("NUMBER GOES HERE");
-            });
-            buy.setOnAction(buyEvent -> {
-                //BUY METHOD GOES HERE
-            });
-            sell.setOnAction(sellEvent -> {
-                //BUY METHOD GOES HERE
             });
         }
     }
