@@ -120,7 +120,7 @@
                         <Label fx:id="numInv" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
-                  <Label fx:id="descItem" alignment="TOP_LEFT" prefHeight="58.0" prefWidth="258.0" text="Description goes here" textFill="#62ff00" GridPane.rowIndex="2" />
+                  <Label fx:id="descItem" alignment="TOP_LEFT" prefHeight="58.0" prefWidth="258.0" text="Description goes here" textFill="#ff9a00" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <BorderPane prefHeight="248.0" prefWidth="237.0">
