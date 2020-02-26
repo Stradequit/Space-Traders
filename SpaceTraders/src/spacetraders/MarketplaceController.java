@@ -6,6 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import spacetraders.classes.Person;
+import spacetraders.classes.Good;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,26 +29,21 @@ public class MarketplaceController implements Initializable {
     private @FXML Label sellPrice;
     private @FXML Label descItem;
 
-    public static void basePrice() {
+
+    public void buyItem() {
 
     }
+    public void sellItem() {
 
-//    public static void addGood(Good good, int i) {
-//
-//    }
-//
-//    public static void removeGood(Good good, int i) {
-//
-//    }
-    public void buyItem(){}
-    public void sellItem(){}
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Pick goods based on Tech Level
-        Button[] buttons = new Button[]{fuelGoodConfirm, cargoGoodConfirm, healthGoodConfirm, fighterGoodConfirm, miscGoodConfirm};
-        for (int i=0; i < buttons.length; i++){
+        Button[] buttons = new Button[]{fuelGoodConfirm, cargoGoodConfirm, healthGoodConfirm,
+            fighterGoodConfirm, miscGoodConfirm};
+        for (int i = 0; i < buttons.length; i++) {
             buttons[i].setOnAction(buttonEvent -> {
                 itemName.setText("ITEM NAME GOES HERE");
                 descItem.setText("ITEM DESC GOES HERE");
