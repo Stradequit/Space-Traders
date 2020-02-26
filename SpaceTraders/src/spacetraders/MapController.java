@@ -93,7 +93,7 @@ public class MapController implements Initializable {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Scene marketPage = new Scene(root[0], 720, 480);
+                        Scene marketPage = new Scene(root[0], 720, 360);
                         GameController gameController = new GameController();
                         gameController.changeStage(marketPage);
                         regionPane.getChildren().remove(marketplace);
