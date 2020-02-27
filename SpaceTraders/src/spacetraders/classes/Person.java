@@ -127,11 +127,11 @@ public class Person {
         this.merchantPoints = merchantPoints;
     }
 
-    public static Ship getShip() {
+    public Ship getShip() {
         return ship;
     }
 
-    public static void setShip(Ship ship) {
+    public void setShip(Ship ship) {
         Person.ship = ship;
     }
 }
