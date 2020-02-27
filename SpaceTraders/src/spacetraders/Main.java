@@ -5,12 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import spacetraders.controllers.GameController;
 
 public class Main extends Application {
     private GameController gameController = new GameController();
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Screens/Welcome.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("screens/Welcome.fxml"));
         //Initializes height and width variables
         int height = 480;
         int width = 720;

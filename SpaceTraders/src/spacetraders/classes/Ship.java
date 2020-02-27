@@ -6,10 +6,23 @@ public class Ship {
     private int fuelCapacity;
     private int health;
     private ItemInventory itemInventory = new ItemInventory();
+    Person person = new Person();
     public void addItem(Good good) {
+        switch (good.getModStat()) {
+            case ("fuelCapacity"): this.fuelCapacity += good.getModFactor(); break;
+            case ("cargoCapacity"): this.cargoCapacity += good.getModFactor(); break;
+            case ("health"): this.health += good.getModFactor(); break;
+            case ("fighterPoints"): person.setFighterPoints(person.getFighterPoints() + good.getModFactor()); break;
+        }
         this.itemInventory.addGood(good);
     }
     public void removeItem(Good good) {
+        switch (good.getModStat()) {
+            case ("fuelCapacity"): this.fuelCapacity -= good.getModFactor(); break;
+            case ("cargoCapacity"): this.cargoCapacity -= good.getModFactor(); break;
+            case ("health"): this.health -= good.getModFactor(); break;
+            case ("fighterPoints"): person.setFighterPoints(person.getFighterPoints() - good.getModFactor()); break;
+        }
         this.itemInventory.removeGood(good);
     }
     public Ship() {
