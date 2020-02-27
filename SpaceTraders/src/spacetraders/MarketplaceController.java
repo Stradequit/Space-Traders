@@ -30,25 +30,12 @@ public class MarketplaceController implements Initializable {
     private @FXML Label sellPrice;
     private @FXML Label descItem;
 
-    public void buyItem(ActionEvent actionEvent) {
+    
+    public void buyItem() {
 
     }
-    public void sellItem(ActionEvent actionEvent) {
+    public void sellItem() {
 
-    }
-    public void buyItem(int price, Good good, Person person) {
-        int oldCredit = person.getCredits();
-        int newCredit = oldCredit - price;
-        person.setCredits(newCredit);
-
-        person.getShip().addItem(good);
-    }
-    public void sellItem(int price, Good good, Person person) {
-        int oldCredit = person.getCredits();
-        int newCredit = oldCredit + price;
-        person.setCredits(newCredit);
-
-        person.getShip().removeItem(good);
     }
     public void showItem(ActionEvent actionEvent) {
         Person person = new Person();
@@ -76,7 +63,10 @@ public class MarketplaceController implements Initializable {
         sellPrice.setText(String.valueOf(sellPriceInt));
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
+
     }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
