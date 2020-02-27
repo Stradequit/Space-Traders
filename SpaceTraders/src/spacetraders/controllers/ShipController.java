@@ -1,4 +1,4 @@
-package spacetraders;
+package spacetraders.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

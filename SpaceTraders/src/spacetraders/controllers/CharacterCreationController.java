@@ -1,4 +1,4 @@
-package spacetraders;
+package spacetraders.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +53,7 @@ public class CharacterCreationController implements Initializable {
     public void configDone(javafx.event.ActionEvent actionEvent) {
         if (nameCheck && person.getSkillPoints() == 0) {
             try {
-                root = FXMLLoader.load(getClass().getResource("Screens/characterPage.fxml"));
+                root = FXMLLoader.load(getClass().getResource("..//screens//characterPage.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

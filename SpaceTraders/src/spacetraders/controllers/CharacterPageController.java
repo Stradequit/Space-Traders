@@ -1,4 +1,4 @@
-package spacetraders;
+package spacetraders.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,11 +23,11 @@ public class CharacterPageController implements Initializable {
     private @FXML Label fighterLabel;
     public void openMap(javafx.event.ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("Screens/mapPage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("..//screens//mapPage.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene mapPage = new Scene(root, 1920, 960);
+        Scene mapPage = new Scene(root, 1080, 720);
         GameController gameController = new GameController();
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         gameController.changeStage(mapPage);

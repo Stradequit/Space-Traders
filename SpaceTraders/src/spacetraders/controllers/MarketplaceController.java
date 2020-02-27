@@ -1,4 +1,4 @@
-package spacetraders;
+package spacetraders.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +40,7 @@ public class MarketplaceController implements Initializable {
     public void showItem(ActionEvent actionEvent) {
         Person person = new Person();
         Good good = null;
-        if (actionEvent.getSource() == fuelGoodConfirm) {           // button is for fuel
+        if (actionEvent.getSource() == fuelGoodConfirm) {
             good = person.getCurrRegion().getTechLevel().getFuel();
         }
         if (actionEvent.getSource() == cargoGoodConfirm) {
