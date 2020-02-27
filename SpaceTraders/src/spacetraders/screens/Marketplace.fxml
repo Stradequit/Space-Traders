@@ -107,7 +107,7 @@
                         <RowConstraints maxHeight="61.59998168945313" minHeight="10.0" prefHeight="36.799995803833006" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="61.59998168945313" minHeight="10.0" prefHeight="36.799995803833006" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="61.59998168945313" minHeight="10.0" prefHeight="36.799995803833006" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="117.60001411437989" minHeight="0.0" prefHeight="25.799989700317383" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="61.59998168945313" minHeight="10.0" prefHeight="36.799995803833006" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="148.79998626708985" minHeight="10.0" prefHeight="41.599993896484385" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
