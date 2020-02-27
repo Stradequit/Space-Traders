@@ -45,11 +45,11 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8ef2" height="32.0" stroke="TRANSPARENT" strokeType="INSIDE" width="77.0" GridPane.rowIndex="7" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e083b" height="44.0" stroke="TRANSPARENT" strokeType="INSIDE" width="58.0" GridPane.rowIndex="4" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e083b" height="29.0" stroke="TRANSPARENT" strokeType="INSIDE" width="58.0" GridPane.rowIndex="2" />
-                  <Button fx:id="miscGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                  <Button fx:id="fighterGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  <Button fx:id="cargoGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button fx:id="fuelGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button fx:id="healthGoodConfirm" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Button fx:id="miscGoodConfirm" mnemonicParsing="false" onAction="#showItem" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Button fx:id="fighterGoodConfirm" mnemonicParsing="false" onAction="#showItem" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Button fx:id="cargoGoodConfirm" mnemonicParsing="false" onAction="#showItem" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Button fx:id="fuelGoodConfirm" mnemonicParsing="false" onAction="#showItem" prefHeight="26.0" prefWidth="101.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="healthGoodConfirm" mnemonicParsing="false" onAction="#showItem" prefHeight="26.0" prefWidth="136.0" text="View Item" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                   <Label fx:id="healthGood" prefHeight="18.0" prefWidth="103.0" text="Fighter" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                   <Label fx:id="fighterGood" prefHeight="18.0" prefWidth="103.0" text="Misc." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e083b" height="29.0" stroke="TRANSPARENT" strokeType="INSIDE" width="58.0" GridPane.rowIndex="6" />
