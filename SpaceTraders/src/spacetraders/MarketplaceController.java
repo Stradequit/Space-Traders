@@ -48,12 +48,12 @@ public class MarketplaceController implements Initializable {
             if (i == 0) {           // button is for fuel
                 buttons[i].setOnAction(buttonEvent -> {
                     int buyFuelPrice = person.getCurrRegion().getTechLevel().getFuel().
-                            getBasePrice() * ((person.getMerchantPoints()) / 10);
+                            getBasePrice() - ((person.getMerchantPoints()));
                     int sellFuelPrice = person.getCurrRegion().getTechLevel().
-                            getFuel().getBasePrice() * (1 + ((person.getMerchantPoints()) / 10));
+                            getFuel().getBasePrice() + (((person.getMerchantPoints()))) - 20;
 
                     itemName.setText(person.getCurrRegion().getTechLevel().getFuel().getName());
-                    descItem.setText(person.getCurrRegion().getTechLevel().getFuel().getModStat());
+                    descItem.setText(person.getCurrRegion().getTechLevel().getFuel().getModStat() + " " + person.getCurrRegion().getTechLevel().getFuel().getModFactor());
                     buyPrice.setText(String.valueOf(buyFuelPrice));
                     sellPrice.setText(String.valueOf(sellFuelPrice));
                     numInv.setText(String.valueOf(person.getShip().getItemInventory().
@@ -71,12 +71,11 @@ public class MarketplaceController implements Initializable {
             } else if (i == 1) {        // button is for cargo (CAPACITY)
                 buttons[i].setOnAction(buttonEvent -> {
                     int buyCapacityPrice = person.getCurrRegion().getTechLevel().
-                            getCapacity().getBasePrice() * ((person.getMerchantPoints()) / 10);
+                            getCapacity().getBasePrice() - ((person.getMerchantPoints()));
                     int sellCapacityPrice = person.getCurrRegion().getTechLevel().
-                            getCapacity().getBasePrice() * (1 + ((person.getMerchantPoints()) / 10));
-
+                            getCapacity().getBasePrice() + (((person.getMerchantPoints()))) - 20;
                     itemName.setText(person.getCurrRegion().getTechLevel().getCapacity().getName());
-                    descItem.setText(person.getCurrRegion().getTechLevel().getCapacity().getModStat());
+                    descItem.setText(person.getCurrRegion().getTechLevel().getCapacity().getModStat() + " " + person.getCurrRegion().getTechLevel().getCapacity().getModFactor());
                     buyPrice.setText(String.valueOf(buyCapacityPrice));
                     sellPrice.setText(String.valueOf(sellCapacityPrice));
                     numInv.setText(String.valueOf(person.getShip().getItemInventory().
@@ -94,12 +93,12 @@ public class MarketplaceController implements Initializable {
             } else if (i == 2) {        // button is for health (DEFENSE)
                 buttons[i].setOnAction(buttonEvent -> {
                     int buyDefensePrice = person.getCurrRegion().getTechLevel().
-                            getDefense().getBasePrice() * ((person.getMerchantPoints()) / 10);
+                            getDefense().getBasePrice() - ((person.getMerchantPoints()));
                     int sellDefensePrice = person.getCurrRegion().getTechLevel().
-                            getDefense().getBasePrice() * (1 + ((person.getMerchantPoints()) / 10));
+                            getDefense().getBasePrice() + (1 + ((person.getMerchantPoints()))) - 20;
 
                     itemName.setText(person.getCurrRegion().getTechLevel().getDefense().getName());
-                    descItem.setText(person.getCurrRegion().getTechLevel().getDefense().getModStat());
+                    descItem.setText(person.getCurrRegion().getTechLevel().getDefense().getModStat() + " " + person.getCurrRegion().getTechLevel().getDefense().getModFactor());
                     buyPrice.setText(String.valueOf(buyDefensePrice));
                     sellPrice.setText(String.valueOf(sellDefensePrice));
                     numInv.setText(String.valueOf(person.getShip().getItemInventory().
@@ -117,12 +116,12 @@ public class MarketplaceController implements Initializable {
             } else if (i == 3) {        // button is for fighter (WEAPONS)
                 buttons[i].setOnAction(buttonEvent -> {
                     int buyWeaponsPrice = person.getCurrRegion().getTechLevel().
-                            getWeapon().getBasePrice() * ((person.getMerchantPoints()) / 10);
+                            getWeapon().getBasePrice() - ((person.getMerchantPoints()));
                     int sellWeaponsPrice = person.getCurrRegion().getTechLevel().
-                            getWeapon().getBasePrice() * (1 + ((person.getMerchantPoints()) / 10));
+                            getWeapon().getBasePrice() + (1 + ((person.getMerchantPoints()))) - 20;
 
                     itemName.setText(person.getCurrRegion().getTechLevel().getWeapon().getName());
-                    descItem.setText(person.getCurrRegion().getTechLevel().getWeapon().getModStat());
+                    descItem.setText(person.getCurrRegion().getTechLevel().getWeapon().getModStat() + " " + person.getCurrRegion().getTechLevel().getWeapon().getModFactor());
                     buyPrice.setText(String.valueOf(buyWeaponsPrice));
                     sellPrice.setText(String.valueOf(sellWeaponsPrice));
                     numInv.setText(String.valueOf(person.getShip().getItemInventory().
