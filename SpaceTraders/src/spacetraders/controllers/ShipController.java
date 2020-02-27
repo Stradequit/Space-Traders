@@ -3,9 +3,11 @@ package spacetraders.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import spacetraders.classes.Good;
 import spacetraders.classes.Person;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class ShipController implements Initializable {
@@ -22,6 +24,6 @@ public class ShipController implements Initializable {
         health.setText("" + person.getShip().getHealth());
         cargoCapacity.setText("" + person.getShip().getCargoCapacity());
         fuelCapacity.setText("" + person.getShip().getFuelCapacity());
-        itemInventory.setText("" + person.getShip().getItemInventory());
+        itemInventory.setText(person.getShip().getItemInventory().toString());
     }
 }

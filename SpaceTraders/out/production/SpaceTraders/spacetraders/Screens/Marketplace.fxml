@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.controllers.MarketplaceController">
    <children>
@@ -96,6 +97,7 @@
                 <RowConstraints maxHeight="100.00000610351563" minHeight="6.400000000000006" prefHeight="36.000006103515624" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="206.40001220703124" minHeight="10.0" prefHeight="105.59999389648436" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="141.39998779296874" minHeight="10.0" prefHeight="107.19999389648439" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <GridPane prefHeight="162.0" prefWidth="258.0" GridPane.rowIndex="1">
@@ -108,25 +110,38 @@
                         <RowConstraints maxHeight="61.59998168945313" minHeight="10.0" prefHeight="36.799995803833006" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="61.59998168945313" minHeight="10.0" prefHeight="36.799995803833006" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="61.59998168945313" minHeight="10.0" prefHeight="36.799995803833006" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="148.79998626708985" minHeight="10.0" prefHeight="41.599993896484385" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="148.79998626708985" minHeight="10.0" prefHeight="41.599993896484385" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="250.0" text="Sell Price:" textFill="#62ff00" GridPane.rowIndex="1" />
-                        <Label alignment="BOTTOM_LEFT" prefHeight="37.0" prefWidth="130.0" text="Effect:" textFill="#62ff00" GridPane.rowIndex="4" />
+                        <Label alignment="BOTTOM_LEFT" prefHeight="37.0" prefWidth="130.0" text="Effect:" textFill="#62ff00" GridPane.rowIndex="5" />
                         <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="250.0" text="# In Your Inventory:" textFill="#62ff00" GridPane.rowIndex="3" />
                         <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="250.0" text="Buy Price:" textFill="#62ff00" />
                         <Label fx:id="buyPrice" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" />
                         <Label fx:id="sellPrice" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="numInv" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="150.0" text="Credits:" textFill="#62ff00" GridPane.rowIndex="2" />
+                        <Label fx:id="currentCredits" alignment="CENTER" prefHeight="17.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="138.0" text="Inventory Space Left:" textFill="#62ff00" GridPane.rowIndex="4" />
+                        <Label fx:id="inventorySpaceLabel" alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <Label fx:id="descItem" alignment="TOP_LEFT" prefHeight="58.0" prefWidth="258.0" text="Description goes here" textFill="#ff9a00" GridPane.rowIndex="2" />
+                  <Label fx:id="itemInventoryLabel" text="Item Inventory: " textFill="#62ff00" wrapText="true" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <BorderPane prefHeight="248.0" prefWidth="237.0">
                <top>
                   <Label fx:id="itemName" alignment="CENTER" prefHeight="38.0" prefWidth="171.0" text="Item Name" textFill="#62ff00" BorderPane.alignment="CENTER" />
                </top>
+               <bottom>
+                  <Label fx:id="afterPurchaseLabel" alignment="CENTER" prefHeight="122.0" prefWidth="241.0" text="Purchase Feild" textAlignment="CENTER" textFill="RED" wrapText="true" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </bottom>
             </BorderPane>
          </children>
       </Pane>
