@@ -5,7 +5,7 @@ public class Ship {
     private int cargoCapacity;
     private int fuelCapacity;
     private int health;
-    private ItemInventory itemInventory;
+    private ItemInventory itemInventory = new ItemInventory();
     public void addItem(Good good) {
         this.itemInventory.addGood(good);
     }

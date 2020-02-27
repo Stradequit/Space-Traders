@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import spacetraders.classes.Person;
 import spacetraders.classes.Good;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,16 +29,32 @@ public class MarketplaceController implements Initializable {
     private @FXML Label sellPrice;
     private @FXML Label descItem;
 
+    private Person person = new Person();
+    private Good good = null;
+    private int buyPriceInt = 0;
+    private int sellPriceInt = 0;
 
-    public void buyItem() {
+    public void buyItem(ActionEvent actionEvent) {
+        if (person.getCredits() >= buyPriceInt) {
+            int oldCredit = person.getCredits();
+            int newCredit = oldCredit - buyPriceInt;
+            person.setCredits(newCredit);
 
+            person.getShip().addItem(good);
+        }
     }
-    public void sellItem() {
 
+    public void sellItem(ActionEvent actionEvent) {
+        if (person.getShip().getItemInventory().getNumberOfGood(good) > 0) {
+            int oldCredit = person.getCredits();
+            int newCredit = oldCredit + sellPriceInt;
+            person.setCredits(newCredit);
+
+            person.getShip().removeItem(good);
+        }
     }
+
     public void showItem(ActionEvent actionEvent) {
-        Person person = new Person();
-        Good good = null;
         if (actionEvent.getSource() == fuelGoodConfirm) {           // button is for fuel
             good = person.getCurrRegion().getTechLevel().getFuel();
         }
@@ -55,15 +70,14 @@ public class MarketplaceController implements Initializable {
         if (actionEvent.getSource() == miscGoodConfirm) {
             good = person.getCurrRegion().getTechLevel().getFuel();
         }
-        int buyPriceInt = good.getBasePrice() - ((person.getMerchantPoints()));
-        int sellPriceInt = good.getBasePrice() + (((person.getMerchantPoints()))) - 20;
+        buyPriceInt = good.getBasePrice() - ((person.getMerchantPoints()));
+        sellPriceInt = good.getBasePrice() + (((person.getMerchantPoints()))) - 20;
         itemName.setText(good.getName());
         descItem.setText(good.getModStat() + " " + good.getModFactor());
         buyPrice.setText(String.valueOf(buyPriceInt));
         sellPrice.setText(String.valueOf(sellPriceInt));
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
-                getNumberOfGood(good)));
-
+                    getNumberOfGood(good)));
     }
 
 
