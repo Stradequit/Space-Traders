@@ -18,6 +18,15 @@ public class Ship {
         case ("fighter points"): person.setFighterPoints(person.getFighterPoints()
                 + good.getModFactor());
         break;
+        case ("pilot points"): person.setPilotPoints(person.getPilotPoints()
+                    + good.getModFactor());
+        break;
+        case ("engineer points"): person.setEngineeringPoints(person.getEngineeringPoints()
+                    + good.getModFactor());
+        break;
+        case ("merchant points"): person.setMerchantPoints(person.getMerchantPoints()
+                    + good.getModFactor());
+        break;
         default: break;
         }
         this.itemInventory.addGood(good);
@@ -32,6 +41,15 @@ public class Ship {
         break;
         case ("fighter points"): person.setFighterPoints(person.getFighterPoints()
                 - good.getModFactor());
+        break;
+        case ("pilot points"): person.setPilotPoints(person.getPilotPoints()
+                    - good.getModFactor());
+        break;
+        case ("engineer points"): person.setEngineeringPoints(person.getEngineeringPoints()
+                    - good.getModFactor());
+        break;
+        case ("merchant points"): person.setMerchantPoints(person.getMerchantPoints()
+                    - good.getModFactor());
         break;
         default: break;
         }
