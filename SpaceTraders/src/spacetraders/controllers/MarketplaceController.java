@@ -50,12 +50,13 @@ public class MarketplaceController implements Initializable {
                     } else {
                         hullTaken = true;
                     }
+                } else {
+                    size++;
                 }
                 int oldCredit = person.getCredits();
                 int newCredit = oldCredit - buyPriceInt;
                 person.setCredits(newCredit);
                 person.getShip().addItem(good);
-                size++;
                 afterPurchaseLabel.setText("Purchase Successful");
                 update();
             } else {
@@ -69,13 +70,19 @@ public class MarketplaceController implements Initializable {
     public void sellItem(ActionEvent actionEvent) {
         if (person.getShip().getItemInventory().getNumberOfGood(good) > 0) {
             if (good.getModStat() == "cargoCapacity") {
-                hullTaken = false;
+                if (person.getShip().getCargoCapacity() - size >= good.getModFactor()) {
+                    hullTaken = false;
+                } else {
+                    afterPurchaseLabel.setText("This Hull is Currently Holding Items");
+                    return;
+                }
+            } else {
+                size--;
             }
             int oldCredit = person.getCredits();
             int newCredit = oldCredit + sellPriceInt;
             person.setCredits(newCredit);
             person.getShip().removeItem(good);
-            size--;
             afterPurchaseLabel.setText("Sale Successful");
             update();
         } else {
