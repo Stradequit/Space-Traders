@@ -28,7 +28,7 @@ public class GameController {
             TechLevel.HIGHTECH, "By far the most advanced galaxy. Control all of space travel", 0, 0);
     private Region formenos = new Region("6", "Formenos",
             TechLevel.INDUSTRIAL,
-            "A fully underwater planet. This make their industrial standing quite impressive.",
+            "A fully underwater planet. This makes their industrial standing quite impressive.",
             0, 0);
     private Region catolus = new Region("7", "Catolus",
             TechLevel.HIGHTECH, "Cats have taken over. Expect stingy traders.", 0, 0);

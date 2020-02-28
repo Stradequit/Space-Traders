@@ -43,7 +43,7 @@ public class MapController implements Initializable {
         Image image = new Image(path);
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(800);
-        imageView.setFitWidth(1200);
+        imageView.setFitWidth(1250);
         stackPane.getChildren().add(imageView);
         imageView.toBack();
         GameController gc = new GameController();
