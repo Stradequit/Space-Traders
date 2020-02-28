@@ -102,7 +102,7 @@ public class MarketplaceController implements Initializable {
             good = person.getCurrRegion().getTechLevel().getWeapon();
         }
         if (actionEvent.getSource() == miscGoodConfirm) {
-            good = person.getCurrRegion().getTechLevel().getFuel();
+            good = person.getCurrRegion().getTechLevel().getUpgrades();
         }
         buyPriceInt = good.getBasePrice() - ((person.getMerchantPoints()));
         sellPriceInt = good.getBasePrice() + (((person.getMerchantPoints()))) - 20;
