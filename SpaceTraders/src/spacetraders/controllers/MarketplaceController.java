@@ -109,7 +109,7 @@ public class MarketplaceController implements Initializable {
         buyPriceInt = good.getBasePrice() - ((person.getMerchantPoints()));
         sellPriceInt = good.getBasePrice() + (((person.getMerchantPoints()))) - 20;
         itemName.setText(good.getName());
-        descItem.setText(good.getModStat() + " " + good.getModFactor());
+        descItem.setText("Increases " + good.getModStat() + " by " + good.getModFactor());
         buyPrice.setText(String.valueOf(buyPriceInt));
         sellPrice.setText(String.valueOf(sellPriceInt));
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
@@ -117,6 +117,7 @@ public class MarketplaceController implements Initializable {
         currentCredits.setText("" + person.getCredits());
         inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory().toString());
+        afterPurchaseLabel.setText("");
     }
     public void update() {
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
