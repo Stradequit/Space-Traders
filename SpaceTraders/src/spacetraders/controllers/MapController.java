@@ -14,17 +14,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import spacetraders.classes.Person;
 import spacetraders.classes.Region;
-import spacetraders.controllers.GameController;
 
 
-import javax.swing.text.Element;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Stack;
 
 
 public class MapController implements Initializable {
@@ -43,7 +38,7 @@ public class MapController implements Initializable {
         Image image = new Image(path);
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(800);
-        imageView.setFitWidth(1250);
+        imageView.setFitWidth(1350);
         stackPane.getChildren().add(imageView);
         imageView.toBack();
         GameController gc = new GameController();
@@ -67,7 +62,7 @@ public class MapController implements Initializable {
         });
         regionPane.add(toShipScreen, 0, 14);
         for (int i = 0; i < 10; i++) {
-            int x = (int) randomBetween(1, 14);
+            int x = (int) randomBetween(1, 13);
             int y = (int) randomBetween(1, 13);
             regionArray[i].setXCoordinate(x);
             regionArray[i].setYCoordinate(y);
@@ -96,8 +91,6 @@ public class MapController implements Initializable {
                 Button visit = new Button("Visit");
                 Button viewInfo = new Button("View Info");
                 Button marketplace = new Button("Marketplace");
-                viewInfo.setPrefSize(100,100);
-                marketplace.setPrefSize(100,100);
                 if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) {
                     visit.setWrapText(true);
                     regionPane.add(visit, x, (y + 1));
@@ -114,7 +107,7 @@ public class MapController implements Initializable {
 
                 if (person.visitedContains((regions.get(buttons.indexOf(button))))) {
                     viewInfo.setWrapText(true);
-                    marketplace.setWrapText(true);
+                    marketplace.setWrapText(false);
                     regionPane.add(viewInfo, x, (y - 1));
                     regionPane.add(marketplace, (x - 1), y);
                     marketplace.setOnAction(event2 -> {

@@ -21,11 +21,13 @@ public class GameController {
     private Region dell = new Region("2", "Dell",
             TechLevel.POSTINDUSTRIAL, "A region full of laptop people", 0, 0);
     private Region godhaven = new Region("3", "Godhaven",
-            TechLevel.HIGHTECH, "People here have a bit of an ego, maybe that explains the name.", 0, 0);
+            TechLevel.HIGHTECH, "People here have a bit of an ego, maybe that explains the name.",
+            0, 0);
     private Region borkland = new Region("4", "Borkland",
             TechLevel.POSTINDUSTRIAL, "The only planet with more dogs than people", 0, 0);
     private Region lazda = new Region("5", "Lazda",
-            TechLevel.HIGHTECH, "By far the most advanced galaxy. Control all of space travel", 0, 0);
+            TechLevel.HIGHTECH, "By far the most advanced galaxy. Control all of space travel",
+            0, 0);
     private Region formenos = new Region("6", "Formenos",
             TechLevel.INDUSTRIAL,
             "A fully underwater planet. This makes their industrial standing quite impressive.",
@@ -33,7 +35,8 @@ public class GameController {
     private Region catolus = new Region("7", "Catolus",
             TechLevel.HIGHTECH, "Cats have taken over. Expect stingy traders.", 0, 0);
     private Region caladria = new Region("8", "Caladria",
-            TechLevel.INDUSTRIAL, "People are finally settling down here, don't expect much.", 0, 0);
+            TechLevel.INDUSTRIAL, "People are finally settling down here, don't expect much.",
+            0, 0);
     private Region arcana = new Region("9", "Arcana",
             TechLevel.AGRICULTURAL,
             "A society solely based on magic, making no progress in other categories", 0, 0);
