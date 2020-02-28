@@ -69,7 +69,7 @@ public class MarketplaceController implements Initializable {
 
     public void sellItem(ActionEvent actionEvent) {
         if (person.getShip().getItemInventory().getNumberOfGood(good) > 0) {
-            if (good.getModStat() == "cargoCapacity") {
+            if (good.getModStat() == "cargo capacity") {
                 if (person.getShip().getCargoCapacity() - size >= good.getModFactor()) {
                     hullTaken = false;
                 } else {
