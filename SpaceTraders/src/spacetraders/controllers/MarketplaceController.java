@@ -111,7 +111,7 @@ public class MarketplaceController implements Initializable {
         buyPrice.setText(String.valueOf(buyPriceInt));
         sellPrice.setText(String.valueOf(sellPriceInt));
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
-                    getNumberOfGood(good)));
+                getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
         inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
