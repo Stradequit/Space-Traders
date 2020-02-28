@@ -9,60 +9,60 @@ public class Ship {
     private Person person = new Person();
     public void addItem(Good good) {
         switch (good.getModStat()) {
-            case "fuel capacity":
-                this.fuelCapacity += good.getModFactor();
-                break;
-            case "cargo capacity":
-                this.cargoCapacity += good.getModFactor();
-                break;
-            case "health":
-                this.health += good.getModFactor();
-                break;
-            case "fighter points":
-                person.setFighterPoints(person.getFighterPoints() + good.getModFactor());
-                break;
-            case "pilot skills":
-                person.setPilotPoints(person.getPilotPoints() + good.getModFactor());
-                break;
-            case "fighter skills":
-                person.setFighterPoints(person.getFighterPoints() + good.getModFactor());
-                break;
-            case "merchant skills":
-                person.setMerchantPoints(person.getMerchantPoints() + good.getModFactor());
-                break;
-            case "engineer skills":
-                person.setEngineeringPoints(person.getEngineeringPoints() + good.getModFactor());
-                break;
+        case "fuel capacity":
+            this.fuelCapacity += good.getModFactor();
+            break;
+        case "cargo capacity":
+            this.cargoCapacity += good.getModFactor();
+            break;
+        case "health":
+            this.health += good.getModFactor();
+            break;
+        case "fighter points":
+            person.setFighterPoints(person.getFighterPoints() + good.getModFactor());
+            break;
+        case "pilot skills":
+            person.setPilotPoints(person.getPilotPoints() + good.getModFactor());
+            break;
+        case "fighter skills":
+            person.setFighterPoints(person.getFighterPoints() + good.getModFactor());
+            break;
+        case "merchant skills":
+            person.setMerchantPoints(person.getMerchantPoints() + good.getModFactor());
+            break;
+        case "engineer skills":
+            person.setEngineeringPoints(person.getEngineeringPoints() + good.getModFactor());
+            break;
         default: break;
         }
         this.itemInventory.addGood(good);
     }
     public void removeItem(Good good) {
         switch (good.getModStat()) {
-            case "fuel capacity":
-                this.fuelCapacity -= good.getModFactor();
-                break;
-            case "cargo capacity":
-                this.cargoCapacity -= good.getModFactor();
-                break;
-            case "health":
-                this.health -= good.getModFactor();
-                break;
-            case "fighter points":
-                person.setFighterPoints(person.getFighterPoints() - good.getModFactor());
-                break;
-            case "pilot skills":
-                person.setPilotPoints(person.getPilotPoints() - good.getModFactor());
-                break;
-            case "fighter skills":
-                person.setFighterPoints(person.getFighterPoints() - good.getModFactor());
-                break;
-            case "merchant skills":
-                person.setMerchantPoints(person.getMerchantPoints() - good.getModFactor());
-                break;
-            case "engineer skills":
-                person.setEngineeringPoints(person.getEngineeringPoints() - good.getModFactor());
-                break;
+        case "fuel capacity":
+            this.fuelCapacity -= good.getModFactor();
+            break;
+        case "cargo capacity":
+            this.cargoCapacity -= good.getModFactor();
+            break;
+        case "health":
+            this.health -= good.getModFactor();
+            break;
+        case "fighter points":
+            person.setFighterPoints(person.getFighterPoints() - good.getModFactor());
+            break;
+        case "pilot skills":
+            person.setPilotPoints(person.getPilotPoints() - good.getModFactor());
+            break;
+        case "fighter skills":
+            person.setFighterPoints(person.getFighterPoints() - good.getModFactor());
+            break;
+        case "merchant skills":
+            person.setMerchantPoints(person.getMerchantPoints() - good.getModFactor());
+            break;
+        case "engineer skills":
+            person.setEngineeringPoints(person.getEngineeringPoints() - good.getModFactor());
+            break;
         default: break;
         }
         this.itemInventory.removeGood(good);

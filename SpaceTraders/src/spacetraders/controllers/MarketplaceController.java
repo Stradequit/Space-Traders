@@ -113,7 +113,7 @@ public class MarketplaceController implements Initializable {
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
-        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
+        inventorySpaceLabel.setText("" + person.getShip().getCargoCapacity());
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
                 .toString());
         afterPurchaseLabel.setText("");
@@ -121,6 +121,7 @@ public class MarketplaceController implements Initializable {
 
     public void update() {
         person.getShip().setCargoCapacity(person.getShip().getCargoCapacity() - size);
+        size = 0;
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
