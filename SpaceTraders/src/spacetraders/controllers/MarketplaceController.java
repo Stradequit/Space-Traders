@@ -2,15 +2,12 @@ package spacetraders.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import spacetraders.classes.Person;
 import spacetraders.classes.Good;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -116,14 +113,16 @@ public class MarketplaceController implements Initializable {
                     getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
         inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
-        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory().toString());
+        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
+                .toString());
     }
     public void update() {
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
         inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
-        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory().toString());
+        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
+                .toString());
     }
 
 

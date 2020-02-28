@@ -118,16 +118,16 @@
                         <Label alignment="BOTTOM_LEFT" prefHeight="37.0" prefWidth="130.0" text="Effect:" textFill="#62ff00" GridPane.rowIndex="5" />
                         <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="250.0" text="# In Your Inventory:" textFill="#62ff00" GridPane.rowIndex="3" />
                         <Label alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="250.0" text="Buy Price:" textFill="#62ff00" />
-                        <Label fx:id="buyPrice" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" />
-                        <Label fx:id="sellPrice" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label fx:id="numInv" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="buyPrice" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" textFill="#ff9a00" GridPane.columnIndex="1" />
+                        <Label fx:id="sellPrice" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="numInv" alignment="CENTER" prefHeight="18.0" prefWidth="131.0" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="150.0" text="Credits:" textFill="#62ff00" GridPane.rowIndex="2" />
-                        <Label fx:id="currentCredits" alignment="CENTER" prefHeight="17.0" prefWidth="131.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="currentCredits" alignment="CENTER" prefHeight="17.0" prefWidth="131.0" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="138.0" text="Inventory Space Left:" textFill="#62ff00" GridPane.rowIndex="4" />
-                        <Label fx:id="inventorySpaceLabel" alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="Label" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="inventorySpaceLabel" alignment="CENTER" prefHeight="17.0" prefWidth="128.0" textFill="#ff9a00" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
-                  <Label fx:id="descItem" alignment="TOP_LEFT" prefHeight="58.0" prefWidth="258.0" text="Description goes here" textFill="#ff9a00" GridPane.rowIndex="2" />
+                  <Label fx:id="descItem" alignment="TOP_LEFT" prefHeight="58.0" prefWidth="258.0" textFill="#ff9a00" GridPane.rowIndex="2" />
                   <Label fx:id="itemInventoryLabel" text="Item Inventory: " textFill="#62ff00" wrapText="true" GridPane.rowIndex="3" />
                </children>
             </GridPane>
