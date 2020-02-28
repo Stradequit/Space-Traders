@@ -1,4 +1,4 @@
-package spacetraders;
+package spacetraders.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,29 +28,65 @@ public class MarketplaceController implements Initializable {
     private @FXML Label buyPrice;
     private @FXML Label sellPrice;
     private @FXML Label descItem;
+    private @FXML Label currentCredits;
+    private @FXML Label inventorySpaceLabel;
+    private @FXML Label afterPurchaseLabel;
+    private @FXML Label itemInventoryLabel;
 
     private Person person = new Person();
     private Good good = null;
     private int buyPriceInt = 0;
     private int sellPriceInt = 0;
+    private boolean hullTaken = false;
+    private int size = 0;
 
     public void buyItem(ActionEvent actionEvent) {
         if (person.getCredits() >= buyPriceInt) {
-            int oldCredit = person.getCredits();
-            int newCredit = oldCredit - buyPriceInt;
-            person.setCredits(newCredit);
-
-            person.getShip().addItem(good);
+            if (size < person.getShip().getCargoCapacity()) {
+                if (good.getModStat() == "cargoCapacity") {
+                    if (hullTaken) {
+                        afterPurchaseLabel.setText("Your ship already has a Hull");
+                        return;
+                    } else {
+                        hullTaken = true;
+                    }
+                } else {
+                    size++;
+                }
+                int oldCredit = person.getCredits();
+                int newCredit = oldCredit - buyPriceInt;
+                person.setCredits(newCredit);
+                person.getShip().addItem(good);
+                afterPurchaseLabel.setText("Purchase Successful");
+                update();
+            } else {
+                afterPurchaseLabel.setText("Not enough space");
+            }
+        } else {
+            afterPurchaseLabel.setText("Not enough credits");
         }
     }
 
     public void sellItem(ActionEvent actionEvent) {
         if (person.getShip().getItemInventory().getNumberOfGood(good) > 0) {
+            if (good.getModStat() == "cargoCapacity") {
+                if (person.getShip().getCargoCapacity() - size >= good.getModFactor()) {
+                    hullTaken = false;
+                } else {
+                    afterPurchaseLabel.setText("This Hull is Currently Holding Items");
+                    return;
+                }
+            } else {
+                size--;
+            }
             int oldCredit = person.getCredits();
             int newCredit = oldCredit + sellPriceInt;
             person.setCredits(newCredit);
-
             person.getShip().removeItem(good);
+            afterPurchaseLabel.setText("Sale Successful");
+            update();
+        } else {
+            afterPurchaseLabel.setText("No item to sell");
         }
     }
 
@@ -78,6 +114,16 @@ public class MarketplaceController implements Initializable {
         sellPrice.setText(String.valueOf(sellPriceInt));
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                     getNumberOfGood(good)));
+        currentCredits.setText("" + person.getCredits());
+        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
+        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory().toString());
+    }
+    public void update() {
+        numInv.setText(String.valueOf(person.getShip().getItemInventory().
+                getNumberOfGood(good)));
+        currentCredits.setText("" + person.getCredits());
+        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
+        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory().toString());
     }
 
 

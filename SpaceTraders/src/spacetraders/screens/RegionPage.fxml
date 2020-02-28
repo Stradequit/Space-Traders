@@ -5,7 +5,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.RegionController">
+<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.controllers.RegionController">
    <children>
       <Label fx:id="regionNameField" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="697.0" style="&#10;" textAlignment="CENTER" wrapText="false">
          <font>

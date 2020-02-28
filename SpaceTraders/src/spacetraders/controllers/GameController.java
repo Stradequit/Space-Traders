@@ -1,4 +1,4 @@
-package spacetraders;
+package spacetraders.controllers;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
