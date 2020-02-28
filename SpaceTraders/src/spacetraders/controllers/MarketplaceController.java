@@ -29,6 +29,7 @@ public class MarketplaceController implements Initializable {
     private @FXML Label inventorySpaceLabel;
     private @FXML Label afterPurchaseLabel;
     private @FXML Label itemInventoryLabel;
+    private @FXML Label characterStats;
 
     private Person person = new Person();
     private Good good = null;
@@ -66,7 +67,7 @@ public class MarketplaceController implements Initializable {
 
     public void sellItem(ActionEvent actionEvent) {
         if (person.getShip().getItemInventory().getNumberOfGood(good) > 0) {
-            if (good.getModStat() == "cargoCapacity") {
+            if (good.getModStat() == "cargo capacity") {
                 if (person.getShip().getCargoCapacity() - size >= good.getModFactor()) {
                     hullTaken = false;
                 } else {
@@ -117,6 +118,7 @@ public class MarketplaceController implements Initializable {
                 .toString());
         afterPurchaseLabel.setText("");
     }
+
     public void update() {
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
@@ -124,7 +126,11 @@ public class MarketplaceController implements Initializable {
         inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
                 .toString());
+        characterStats.setText("Engineering: " + person.getEngineeringPoints() + " Fighter: "
+                + person.getFighterPoints() + " Merchant: " + person.getMerchantPoints()
+                + " Pilot: " + person.getPilotPoints());
     }
+
 
 
 

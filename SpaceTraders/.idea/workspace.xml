@@ -3,13 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/Screens/Marketplace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/Screens/Marketplace.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/Screens/characterCreation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/Screens/characterCreation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/Screens/mapPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/Screens/mapPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Good.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Good.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/classes/Ship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/controllers/CharacterCreationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/controllers/CharacterCreationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/controllers/MarketplaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceTraders/spacetraders/controllers/MarketplaceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spacetraders/Screens/characterCreation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/Screens/characterCreation.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spacetraders/classes/Good.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/classes/Good.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/classes/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/classes/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spacetraders/classes/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/classes/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spacetraders/classes/TechLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/classes/TechLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spacetraders/controllers/CharacterCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/controllers/CharacterCreationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spacetraders/controllers/MarketplaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/controllers/MarketplaceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spacetraders/screens/Marketplace.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/spacetraders/screens/Marketplace.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
