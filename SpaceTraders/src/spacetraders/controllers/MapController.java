@@ -1,4 +1,4 @@
-package spacetraders;
+package spacetraders.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,20 +6,29 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import spacetraders.classes.Person;
 import spacetraders.classes.Region;
+import spacetraders.controllers.GameController;
 
 
+import javax.swing.text.Element;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 
 public class MapController implements Initializable {
+    private @FXML StackPane stackPane;
     private @FXML GridPane regionPane;
 
 
@@ -30,6 +39,13 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String path = MapController.class.getResource("..//images//spaceBG.jpg").toString();
+        Image image = new Image(path);
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(800);
+        imageView.setFitWidth(1250);
+        stackPane.getChildren().add(imageView);
+        imageView.toBack();
         GameController gc = new GameController();
         Region[] regionArray = gc.getRegionArray();
         ArrayList<Region> regions = new ArrayList<Region>(0);
@@ -41,7 +57,7 @@ public class MapController implements Initializable {
         toShipScreen.setOnAction(event0 -> {
             try {
                 root[0] = FXMLLoader.load(getClass().getResource(
-                        "Screens/Ship.fxml"));
+                        "..//screens//Ship.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -80,6 +96,8 @@ public class MapController implements Initializable {
                 Button visit = new Button("Visit");
                 Button viewInfo = new Button("View Info");
                 Button marketplace = new Button("Marketplace");
+                viewInfo.setPrefSize(100,100);
+                marketplace.setPrefSize(100,100);
                 if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) {
                     visit.setWrapText(true);
                     regionPane.add(visit, x, (y + 1));
@@ -102,7 +120,7 @@ public class MapController implements Initializable {
                     marketplace.setOnAction(event2 -> {
                         try {
                             root[0] = FXMLLoader.load(getClass().getResource(
-                                    "Screens/Marketplace.fxml"));
+                                    "..//screens//Marketplace.fxml"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -115,7 +133,7 @@ public class MapController implements Initializable {
                     viewInfo.setOnAction(event3 -> {
                         try {
                             root[0] = FXMLLoader.load(getClass().getResource(
-                                    "Screens/RegionPage.fxml"));
+                                    "..//screens//RegionPage.fxml"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

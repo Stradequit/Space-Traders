@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.media.MediaView?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: #301934;" stylesheets="@../startButton.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.WelcomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: #301934;" stylesheets="@../stylesheets/startButton.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.controllers.WelcomeController">
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button fx:id="startButton" mnemonicParsing="false" onAction="#openConfigScreen" styleClass="startButton" stylesheets="@../startButton.css" text="Start" translateX="-300.0" />
+          <Button fx:id="startButton" mnemonicParsing="false" onAction="#openConfigScreen" styleClass="startButton" stylesheets="@../stylesheets/startButton.css" text="Start" translateX="-300.0" />
         </buttons>
       </ButtonBar>
    </bottom>

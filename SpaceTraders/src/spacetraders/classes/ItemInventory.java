@@ -3,36 +3,50 @@ package spacetraders.classes;
 import java.util.HashMap;
 
 public class ItemInventory {
-    private int capacity;
-    private HashMap goodMap = new HashMap(25);
+//    private HashMap goodMap = new HashMap(25);
+    private HashMap <Good, Integer> goodMap;
     private int size = 0;
+
+    public int getSize() {
+        return size;
+    }
+
+    public ItemInventory() {
+        goodMap = new HashMap<Good, Integer>(20);
+    }
     public void addGood(Good good) {
-        if (size < capacity) {
-            if (goodMap.containsKey(good)) {
-                int val = (Integer) goodMap.get(good) + 1;
-                goodMap.replace(good, val);
-            } else {
-                goodMap.put(good, 1);
-            }
-            size++;
+        if (goodMap.containsKey(good)) {
+            int val = goodMap.get(good) + 1;
+            goodMap.replace(good, val);
+        } else {
+            goodMap.put(good, 1);
         }
     }
     public void removeGood(Good good) {
         if (goodMap.containsKey(good)) {
-            if ((Integer) goodMap.get(good) == 1) {
+            if (goodMap.get(good) == 1) {
                 goodMap.remove(good);
             } else {
-                int val = (Integer) goodMap.get(good) - 1;
+                int val = goodMap.get(good) - 1;
                 goodMap.replace(good, val);
             }
-            size--;
         }
     }
     public int getNumberOfGood(Good good) {
-        if (goodMap.containsKey(good)) {
-            return (Integer) goodMap.get(good);
-        } else {
-            return 0;
+        return goodMap.getOrDefault(good, 0);
+    }
+
+    public HashMap<Good, Integer> getGoodMap() {
+        return goodMap;
+    }
+    public String toString() {
+        String itemInventoryString = "";
+        Person person = new Person();
+        for (Good good: person.getShip().getItemInventory().getGoodMap().keySet()){
+            String key = good.getName();
+            String value = person.getShip().getItemInventory().getGoodMap().get(good).toString();
+            itemInventoryString += key + " " + value + " ";
         }
+        return itemInventoryString;
     }
 }
