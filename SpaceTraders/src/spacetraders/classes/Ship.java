@@ -9,13 +9,13 @@ public class Ship {
     private Person person = new Person();
     public void addItem(Good good) {
         switch (good.getModStat()) {
-        case ("fuelCapacity"): this.fuelCapacity += good.getModFactor();
+        case ("fuel capacity"): this.fuelCapacity += good.getModFactor();
         break;
-        case ("cargoCapacity"): this.cargoCapacity += good.getModFactor();
+        case ("cargo capacity"): this.cargoCapacity += good.getModFactor();
         break;
         case ("health"): this.health += good.getModFactor();
         break;
-        case ("fighterPoints"): person.setFighterPoints(person.getFighterPoints()
+        case ("fighter points"): person.setFighterPoints(person.getFighterPoints()
                 + good.getModFactor());
         break;
         default: break;
