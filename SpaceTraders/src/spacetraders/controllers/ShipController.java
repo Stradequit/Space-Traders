@@ -3,19 +3,17 @@ package spacetraders.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import spacetraders.classes.Good;
 import spacetraders.classes.Person;
 
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class ShipController implements Initializable {
-    @FXML Label name;
-    @FXML Label health;
-    @FXML Label cargoCapacity;
-    @FXML Label fuelCapacity;
-    @FXML Label itemInventory;
+    private @FXML Label name;
+    private @FXML Label health;
+    private @FXML Label cargoCapacity;
+    private @FXML Label fuelCapacity;
+    private @FXML Label itemInventory;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

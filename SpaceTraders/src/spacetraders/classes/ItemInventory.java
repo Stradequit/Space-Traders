@@ -3,8 +3,7 @@ package spacetraders.classes;
 import java.util.HashMap;
 
 public class ItemInventory {
-//    private HashMap goodMap = new HashMap(25);
-    private HashMap <Good, Integer> goodMap;
+    private HashMap<Good, Integer> goodMap;
     private int size = 0;
 
     public int getSize() {
@@ -42,7 +41,7 @@ public class ItemInventory {
     public String toString() {
         String itemInventoryString = "";
         Person person = new Person();
-        for (Good good: person.getShip().getItemInventory().getGoodMap().keySet()){
+        for (Good good: person.getShip().getItemInventory().getGoodMap().keySet()) {
             String key = good.getName();
             String value = person.getShip().getItemInventory().getGoodMap().get(good).toString();
             itemInventoryString += key + " " + value + " ";
