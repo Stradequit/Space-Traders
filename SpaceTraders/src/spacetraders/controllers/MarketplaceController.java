@@ -112,19 +112,21 @@ public class MarketplaceController implements Initializable {
         buyPrice.setText(String.valueOf(buyPriceInt));
         sellPrice.setText(String.valueOf(sellPriceInt));
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
-                    getNumberOfGood(good)));
+                getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
-        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
+        inventorySpaceLabel.setText("" + person.getShip().getCargoCapacity());
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
                 .toString());
         afterPurchaseLabel.setText("");
     }
 
     public void update() {
+        person.getShip().setCargoCapacity(person.getShip().getCargoCapacity() - size);
+        size = 0;
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
-        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
+        inventorySpaceLabel.setText("" + person.getShip().getCargoCapacity());
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
                 .toString());
         characterStats.setText("Engineering: " + person.getEngineeringPoints() + " Fighter: "
