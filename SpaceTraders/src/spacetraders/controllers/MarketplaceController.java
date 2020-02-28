@@ -38,6 +38,7 @@ public class MarketplaceController implements Initializable {
     private boolean hullTaken = false;
     private int size = 0;
 
+
     public void buyItem(ActionEvent actionEvent) {
         if (person.getCredits() >= buyPriceInt) {
             if (size < person.getShip().getCargoCapacity()) {

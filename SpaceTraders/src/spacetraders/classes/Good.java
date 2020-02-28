@@ -21,10 +21,10 @@ public enum Good {
     LASERMISSILES("Laser Missiles", 400, 6, "fighter points"),
     SPACENUKES("Space Nukes", 1000, 10, "fighter points"),
 
-    NAVSYSTEM("Navigation System", 500, 4, "pilot skills"),
-    TARGETSYSTEM("Targeting System", 500, 4, "fighter skills"),
-    AUTOTRANSLATOR("Auto Translator", 500, 4, "merchant skills"),
-    AUTOREPAIR("Auto-Repair System", 500, 4, "engineer skills");
+    NAVSYSTEM("Navigation System", 500, 4, "pilot points"),
+    TARGETSYSTEM("Targeting System", 500, 4, "fighter points"),
+    AUTOTRANSLATOR("Auto Translator", 500, 4, "merchant points"),
+    AUTOREPAIR("Auto-Repair System", 500, 4, "engineer points");
 
 
     private int basePrice;
