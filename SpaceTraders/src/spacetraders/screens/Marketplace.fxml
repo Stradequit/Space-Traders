@@ -136,7 +136,7 @@
                   <Label fx:id="itemName" alignment="CENTER" prefHeight="38.0" prefWidth="171.0" text="Item Name" textFill="#62ff00" BorderPane.alignment="CENTER" />
                </top>
                <bottom>
-                  <Label fx:id="afterPurchaseLabel" alignment="CENTER" prefHeight="122.0" prefWidth="241.0" text="Purchase Feild" textAlignment="CENTER" textFill="RED" wrapText="true" BorderPane.alignment="CENTER">
+                  <Label fx:id="afterPurchaseLabel" alignment="CENTER" prefHeight="122.0" prefWidth="241.0" text="Purchase Field" textAlignment="CENTER" textFill="RED" wrapText="true" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>

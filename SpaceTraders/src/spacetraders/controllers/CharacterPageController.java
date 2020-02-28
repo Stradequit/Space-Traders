@@ -27,7 +27,7 @@ public class CharacterPageController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene mapPage = new Scene(root, 1080, 720);
+        Scene mapPage = new Scene(root, 1250, 720);
         GameController gameController = new GameController();
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         gameController.changeStage(mapPage);
