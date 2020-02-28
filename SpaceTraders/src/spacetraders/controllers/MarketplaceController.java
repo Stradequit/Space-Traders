@@ -120,10 +120,11 @@ public class MarketplaceController implements Initializable {
     }
 
     public void update() {
+        person.getShip().setCargoCapacity(person.getShip().getCargoCapacity() - size);
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
-        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
+        inventorySpaceLabel.setText("" + person.getShip().getCargoCapacity());
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
                 .toString());
         characterStats.setText("Engineering: " + person.getEngineeringPoints() + " Fighter: "
