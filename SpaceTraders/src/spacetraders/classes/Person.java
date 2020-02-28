@@ -56,7 +56,7 @@ public class Person {
             }
             difficulty = diff;
         }
-        credits = 1000;
+        credits = 1400;
         if (diff == "Medium") {
             if (difficulty == "Easy") {
                 skillPoints -= 4;
@@ -75,7 +75,7 @@ public class Person {
                 skillPoints -= 4;
             }
             difficulty = diff;
-            credits = 1400;
+            credits = 1000;
         }
     }
 
