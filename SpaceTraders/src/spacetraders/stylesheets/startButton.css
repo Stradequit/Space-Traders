@@ -3,9 +3,13 @@
     -fx-background-color: #301934;
     -fx-font-size: 3em;
     -fx-text-fill: #FFFFFF;
-    -fx-font-weight: bold
+    -fx-font-weight: bold;
 }
-.genericButton{
 
+
+.doneButton{
+     -fx-background-color: #000000;
+     -fx-text-fill: #FFFFFF;
+     -fx-font-weight: bold;
 }
 

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
@@ -9,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.controllers.CharacterCreationController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.controllers.CharacterCreationController">
    <left>
       <BorderPane prefHeight="171.0" prefWidth="649.0" BorderPane.alignment="CENTER">
          <center>
             <HBox prefHeight="28.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Choose Your Difficulty: ">
+                  <Label prefHeight="24.0" prefWidth="143.0" style="-fx-text-fill: #FFFFFF" text="Choose Your Difficulty: ">
                      <HBox.margin>
                         <Insets left="12.0" />
                      </HBox.margin>
@@ -29,40 +30,40 @@
          <bottom>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="remainMessage" prefHeight="24.0" prefWidth="614.0">
+                  <Label fx:id="remainMessage" prefHeight="24.0" prefWidth="614.0" style="-fx-text-fill: #FFFFFF">
                      <HBox.margin>
                         <Insets left="12.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="remainPoints" prefHeight="24.0" prefWidth="331.0" />
+                  <Label fx:id="remainPoints" prefHeight="24.0" prefWidth="331.0" style="-fx-text-fill: #FFFFFF" />
                </children>
             </HBox>
          </bottom>
       </BorderPane>
    </left>
    <bottom>
-      <BorderPane prefHeight="238.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="239.0" prefWidth="597.0" BorderPane.alignment="CENTER">
          <left>
             <HBox prefHeight="303.0" prefWidth="133.0" BorderPane.alignment="CENTER">
                <children>
                   <VBox prefHeight="303.0" prefWidth="225.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="110.0" text="Engineer:" textOverrun="CLIP">
+                        <Label prefHeight="18.0" prefWidth="110.0" text="Engineer:" textFill="WHITE" textOverrun="CLIP">
                            <VBox.margin>
                               <Insets bottom="12.0" left="12.0" top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label prefHeight="26.0" prefWidth="111.0" text="Fighter:" textOverrun="CLIP">
+                        <Label prefHeight="26.0" prefWidth="111.0" text="Fighter:" textFill="WHITE" textOverrun="CLIP">
                            <VBox.margin>
                               <Insets bottom="12.0" left="12.0" top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label prefHeight="30.0" prefWidth="110.0" text="Pilot:" textOverrun="CLIP">
+                        <Label prefHeight="30.0" prefWidth="110.0" text="Pilot:" textFill="WHITE" textOverrun="CLIP">
                            <VBox.margin>
                               <Insets bottom="12.0" left="12.0" top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label prefHeight="33.0" prefWidth="110.0" text="Merchant:" textOverrun="CLIP">
+                        <Label prefHeight="33.0" prefWidth="110.0" text="Merchant:" textFill="WHITE" textOverrun="CLIP">
                            <VBox.margin>
                               <Insets left="12.0" right="12.0" />
                            </VBox.margin>
@@ -72,9 +73,6 @@
                </children>
             </HBox>
          </left>
-         <bottom>
-            <Button fx:id="done" mnemonicParsing="false" onAction="#configDone" text="Done" BorderPane.alignment="BOTTOM_RIGHT" />
-         </bottom>
          <center>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="69.0" BorderPane.alignment="CENTER_LEFT">
                <children>
@@ -125,12 +123,26 @@
                </children>
             </VBox>
          </center>
+         <right>
+            <ButtonBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="142.0" BorderPane.alignment="CENTER">
+              <buttons>
+                  <Button fx:id="done" mnemonicParsing="false" onAction="#configDone" style="-fx-background-color: #000000; -fx-font-weight: bold; -fx-text-fill: #FFFFFF; -fx-font-size: 2.5em;" text="Done">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+              </buttons>
+            </ButtonBar>
+         </right>
       </BorderPane>
    </bottom>
    <top>
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="56.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Name: " />
+            <Label prefHeight="17.0" prefWidth="51.0" style="-fx-text-fill: #FFFFFF" text="Name: ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <TextField fx:id="nameField" />
             <Button fx:id="nameSubmit" mnemonicParsing="false" onAction="#submitName" text="Submit">
                <opaqueInsets>
@@ -140,7 +152,7 @@
                   <Insets left="15.0" />
                </HBox.margin>
             </Button>
-            <Label fx:id="nameBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="300.0">
+            <Label fx:id="nameBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="254.0" style="-fx-text-fill: #FFFFFF">
                <HBox.margin>
                   <Insets left="15.0" />
                </HBox.margin>

@@ -42,5 +42,6 @@ public class WelcomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         mediaViewer.setMediaPlayer(mediaPlayer);
         mediaPlayer.play();
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 }

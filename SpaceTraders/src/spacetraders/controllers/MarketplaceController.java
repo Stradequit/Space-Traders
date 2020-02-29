@@ -105,31 +105,37 @@ public class MarketplaceController implements Initializable {
         if (actionEvent.getSource() == miscGoodConfirm) {
             good = person.getCurrRegion().getTechLevel().getUpgrades();
         }
-        buyPriceInt = good.getBasePrice() - ((person.getMerchantPoints()));
-        sellPriceInt = good.getBasePrice() + (((person.getMerchantPoints()))) - 20;
+        buyPriceInt = good.getBasePrice() - ((5 * person.getMerchantPoints()) / 10);
+        sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
         itemName.setText(good.getName());
         descItem.setText("Increases " + good.getModStat() + " by " + good.getModFactor());
         buyPrice.setText(String.valueOf(buyPriceInt));
         sellPrice.setText(String.valueOf(sellPriceInt));
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
-                    getNumberOfGood(good)));
+                getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
-        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
+        inventorySpaceLabel.setText("" + person.getShip().getCargoCapacity());
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
                 .toString());
         afterPurchaseLabel.setText("");
     }
 
     public void update() {
+        person.getShip().setCargoCapacity(person.getShip().getCargoCapacity() - size);
+        size = 0;
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
-        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
+        inventorySpaceLabel.setText("" + person.getShip().getCargoCapacity());
         itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
                 .toString());
         characterStats.setText("Engineering: " + person.getEngineeringPoints() + " Fighter: "
                 + person.getFighterPoints() + " Merchant: " + person.getMerchantPoints()
                 + " Pilot: " + person.getPilotPoints());
+        buyPriceInt = good.getBasePrice() - ((5 * person.getMerchantPoints()) / 10);
+        sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
+        buyPrice.setText(String.valueOf(buyPriceInt));
+        sellPrice.setText(String.valueOf(sellPriceInt));
     }
 
 
