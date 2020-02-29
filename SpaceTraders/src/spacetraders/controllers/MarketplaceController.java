@@ -105,8 +105,8 @@ public class MarketplaceController implements Initializable {
         if (actionEvent.getSource() == miscGoodConfirm) {
             good = person.getCurrRegion().getTechLevel().getUpgrades();
         }
-        buyPriceInt = good.getBasePrice() - ((person.getMerchantPoints()));
-        sellPriceInt = good.getBasePrice() + (((person.getMerchantPoints()))) - 20;
+        buyPriceInt = good.getBasePrice() - ((5 * person.getMerchantPoints()) / 10);
+        sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
         itemName.setText(good.getName());
         descItem.setText("Increases " + good.getModStat() + " by " + good.getModFactor());
         buyPrice.setText(String.valueOf(buyPriceInt));
@@ -132,6 +132,10 @@ public class MarketplaceController implements Initializable {
         characterStats.setText("Engineering: " + person.getEngineeringPoints() + " Fighter: "
                 + person.getFighterPoints() + " Merchant: " + person.getMerchantPoints()
                 + " Pilot: " + person.getPilotPoints());
+        buyPriceInt = good.getBasePrice() - ((5 * person.getMerchantPoints()) / 10);
+        sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
+        buyPrice.setText(String.valueOf(buyPriceInt));
+        sellPrice.setText(String.valueOf(sellPriceInt));
     }
 
 
