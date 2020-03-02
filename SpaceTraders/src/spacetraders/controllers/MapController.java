@@ -101,7 +101,6 @@ public class MapController implements Initializable {
                         person.setCurrRegion(regions.get(buttons.indexOf(button)));
                         person.addVisited(person.getCurrRegion());
                         regionPane.getChildren().remove(visit);
-                        clicked[0] = true;
                     });
                 }
 
@@ -121,7 +120,6 @@ public class MapController implements Initializable {
                         GameController gameController = new GameController();
                         gameController.changeStage(marketPage);
                         regionPane.getChildren().remove(marketplace);
-                        clicked[0] = true;
                     });
                     viewInfo.setOnAction(event3 -> {
                         try {
@@ -134,14 +132,7 @@ public class MapController implements Initializable {
                         GameController gameController = new GameController();
                         gameController.changeStage(regionPage);
                         regionPane.getChildren().remove(viewInfo);
-                        clicked[0] = true;
                     });
-                }
-
-                if (clicked[0]) {
-                    regionPane.getChildren().remove(visit);
-                    regionPane.getChildren().remove(viewInfo);
-                    regionPane.getChildren().remove(marketplace);
                 }
             });
             regionPane.add(button, x, y);
