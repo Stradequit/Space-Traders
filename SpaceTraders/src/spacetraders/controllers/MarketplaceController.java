@@ -2,15 +2,12 @@ package spacetraders.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import spacetraders.classes.Person;
 import spacetraders.classes.Good;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,6 +29,7 @@ public class MarketplaceController implements Initializable {
     private @FXML Label inventorySpaceLabel;
     private @FXML Label afterPurchaseLabel;
     private @FXML Label itemInventoryLabel;
+    private @FXML Label characterStats;
 
     private Person person = new Person();
     private Good good = null;
@@ -39,6 +37,7 @@ public class MarketplaceController implements Initializable {
     private int sellPriceInt = 0;
     private boolean hullTaken = false;
     private int size = 0;
+
 
     public void buyItem(ActionEvent actionEvent) {
         if (person.getCredits() >= buyPriceInt) {
@@ -69,7 +68,7 @@ public class MarketplaceController implements Initializable {
 
     public void sellItem(ActionEvent actionEvent) {
         if (person.getShip().getItemInventory().getNumberOfGood(good) > 0) {
-            if (good.getModStat() == "cargoCapacity") {
+            if (good.getModStat() == "cargo capacity") {
                 if (person.getShip().getCargoCapacity() - size >= good.getModFactor()) {
                     hullTaken = false;
                 } else {
@@ -104,27 +103,41 @@ public class MarketplaceController implements Initializable {
             good = person.getCurrRegion().getTechLevel().getWeapon();
         }
         if (actionEvent.getSource() == miscGoodConfirm) {
-            good = person.getCurrRegion().getTechLevel().getFuel();
+            good = person.getCurrRegion().getTechLevel().getUpgrades();
         }
-        buyPriceInt = good.getBasePrice() - ((person.getMerchantPoints()));
-        sellPriceInt = good.getBasePrice() + (((person.getMerchantPoints()))) - 20;
+        buyPriceInt = good.getBasePrice() - ((5 * person.getMerchantPoints()) / 10);
+        sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
         itemName.setText(good.getName());
-        descItem.setText(good.getModStat() + " " + good.getModFactor());
+        descItem.setText("Increases " + good.getModStat() + " by " + good.getModFactor());
         buyPrice.setText(String.valueOf(buyPriceInt));
         sellPrice.setText(String.valueOf(sellPriceInt));
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
-                    getNumberOfGood(good)));
+                getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
-        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
-        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory().toString());
+        inventorySpaceLabel.setText("" + person.getShip().getCargoCapacity());
+        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
+                .toString());
+        afterPurchaseLabel.setText("");
     }
+
     public void update() {
+        person.getShip().setCargoCapacity(person.getShip().getCargoCapacity() - size);
+        size = 0;
         numInv.setText(String.valueOf(person.getShip().getItemInventory().
                 getNumberOfGood(good)));
         currentCredits.setText("" + person.getCredits());
-        inventorySpaceLabel.setText("" + (person.getShip().getCargoCapacity() - size));
-        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory().toString());
+        inventorySpaceLabel.setText("" + person.getShip().getCargoCapacity());
+        itemInventoryLabel.setText("Item Inventory: " + person.getShip().getItemInventory()
+                .toString());
+        characterStats.setText("Engineering: " + person.getEngineeringPoints() + " Fighter: "
+                + person.getFighterPoints() + " Merchant: " + person.getMerchantPoints()
+                + " Pilot: " + person.getPilotPoints());
+        buyPriceInt = good.getBasePrice() - ((5 * person.getMerchantPoints()) / 10);
+        sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
+        buyPrice.setText(String.valueOf(buyPriceInt));
+        sellPrice.setText(String.valueOf(sellPriceInt));
     }
+
 
 
 

@@ -108,7 +108,7 @@ public class CharacterCreationController implements Initializable {
         pilotField.setText(String.valueOf(person.getPilotPoints()));
         fighterField.setText(String.valueOf(person.getFighterPoints()));
         merchantField.setText(String.valueOf(person.getMerchantPoints()));
-        remainMessage.setText("Skill points remaining:" + person.getSkillPoints());
+        remainMessage.setText("Skill points remaining: " + person.getSkillPoints());
     }
 
     @Override

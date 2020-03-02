@@ -11,10 +11,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import spacetraders.controllers.GameController;
 
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,7 +21,8 @@ import java.util.ResourceBundle;
 public class WelcomeController implements Initializable {
     private Pane root = null;
     private @FXML MediaView mediaViewer;
-    String path = WelcomeController.class.getResource("..//sounds//introMusic.mp3").toString();
+    private String path = WelcomeController.class.getResource("..//sounds//introMusic.mp3")
+            .toString();
     private Media introSong = new Media(path);
     private MediaPlayer mediaPlayer = new MediaPlayer(introSong);
     @FXML public void openConfigScreen(ActionEvent event) {
@@ -43,5 +42,6 @@ public class WelcomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         mediaViewer.setMediaPlayer(mediaPlayer);
         mediaPlayer.play();
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 }
