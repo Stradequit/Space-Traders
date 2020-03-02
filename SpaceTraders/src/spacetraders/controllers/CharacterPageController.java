@@ -14,13 +14,9 @@ import javafx.scene.control.Label;
 
 public class CharacterPageController implements Initializable {
     private Parent root;
-    private @FXML Label engineerLabel;
-    private @FXML Label pilotLabel;
-    private @FXML Label nameLabel;
-    private @FXML Label difficultyLabel;
-    private @FXML Label creditsLabel;
-    private @FXML Label merchantLabel;
-    private @FXML Label fighterLabel;
+    private @FXML Label
+            engineerLabel, pilotLabel, nameLabel,
+            difficultyLabel, creditsLabel, merchantLabel, fighterLabel;
     public void openMap(javafx.event.ActionEvent actionEvent) {
         try {
             root = FXMLLoader.load(getClass().getResource("..//screens//mapPage.fxml"));
