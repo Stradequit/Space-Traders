@@ -9,11 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ShipController implements Initializable {
-    private @FXML Label name;
-    private @FXML Label health;
-    private @FXML Label cargoCapacity;
-    private @FXML Label fuelCapacity;
-    private @FXML Label itemInventory;
+    private @FXML Label name, health, cargoCapacity, fuelCapacity, itemInventory;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

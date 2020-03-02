@@ -11,9 +11,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RegionController implements Initializable {
-    private @FXML Label regionNameField;
-    private @FXML Label regionTechField;
-    private @FXML Label regionDescField;
+    private @FXML Label
+            regionNameField, regionTechField, regionDescField;
     private @FXML ListView visitedRegionList;
 
     @Override
