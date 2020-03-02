@@ -15,23 +15,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CharacterCreationController implements Initializable {
-    private @FXML Button nameSubmit;
-    private @FXML TextField nameField;
-    private @FXML Label nameBox;
-    private @FXML Label remainMessage;
-    private @FXML Label remainPoints;
-    private @FXML TextField engineeringField;
-    private @FXML TextField fighterField;
-    private @FXML TextField pilotField;
-    private @FXML TextField merchantField;
-    private @FXML Button engineerPlus;
-    private @FXML Button engineerMinus;
-    private @FXML Button pilotPlus;
-    private @FXML Button pilotMinus;
-    private @FXML Button fighterPlus;
-    private @FXML Button fighterMinus;
-    private @FXML Button merchantPlus;
-    private @FXML Button merchantMinus;
+    private @FXML Button
+            nameSubmit, engineerPlus, engineerMinus,
+            pilotPlus, pilotMinus, fighterPlus,
+            fighterMinus, merchantPlus, merchantMinus;
+    private @FXML TextField
+            nameField, engineeringField, fighterField, pilotField, merchantField;
+    private @FXML Label
+            nameBox, remainMessage, remainPoints;
+
     private Person person = new Person();
     private Pane root = null;
     private GameController gameController = new GameController();
