@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class MapController implements Initializable {
@@ -31,6 +32,7 @@ public class MapController implements Initializable {
         double x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -70,70 +72,88 @@ public class MapController implements Initializable {
             regions.add(region);
             Button button = new Button(region.getId());
             button.setWrapText(true);
+            button.setStyle("-fx-background-color: #707070");
             if (i == 0) {
-                button.setStyle("-fx-background-color: #ffc300");
                 person.setCurrRegion(region);
                 person.addVisited(region);
-            } else {
-                button.setStyle("-fx-background-color: #707070");
+                button.setStyle("-fx-background-color: #ffc300");
             }
-            double xdiff = Double.valueOf(x - person.getCurrRegion().getCoordinates()[0]);
-            double ydiff = Double.valueOf(y - person.getCurrRegion().getCoordinates()[1]);
-            double distance = Math.pow(Math.pow(xdiff, 2.0) + Math.pow(ydiff, 2.0), 0.5);
-            button.setTooltip(new Tooltip("(" + x + ", " + (14 - y) + ")"
-                    + "\n distance: " + distance));
+            AtomicReference<Double> xdiff = new AtomicReference<>
+                    ((double) (x - person.getCurrRegion().getCoordinates()[0]));
+            AtomicReference<Double> ydiff = new AtomicReference<>
+                    ((double) (y - person.getCurrRegion().getCoordinates()[1]));
+            AtomicReference<Double> distance = new AtomicReference<>(Math.pow(Math.pow(xdiff.get(), 2.0) +
+                    Math.pow(ydiff.get(), 2.0), 0.5));
+            button.setTooltip(new Tooltip(("(" + x + ", " + (14 - y) + ")" + "\n distance: " + distance)));
             button.setShape(new Circle(r));
             button.setMinSize(2 * r, 2 * r);
             button.setMaxSize(2 * r, 2 * r);
             buttons.add(button);
             button.setOnAction(event -> {
-                final boolean[] clicked = {false};
                 Button visit = new Button("Visit");
                 Button viewInfo = new Button("View Info");
                 Button marketplace = new Button("Marketplace");
                 if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) {
                     visit.setWrapText(true);
                     regionPane.add(visit, x, (y + 1));
+
+                    //When visited
                     visit.setOnAction(event1 -> {
                         buttons.get(regions.indexOf(
                                 person.getCurrRegion())).setStyle("-fx-background-color: #00ff00");
                         button.setStyle("-fx-background-color: #ffc300");
                         person.setCurrRegion(regions.get(buttons.indexOf(button)));
                         person.addVisited(person.getCurrRegion());
+                        //Fixes distances
+                        for (int j = 0; j < 10; j++) {
+                            xdiff.set((double)
+                                    (regions.get(j).getCoordinates()[0] - person.getCurrRegion().getCoordinates()[0]));
+                            ydiff.set((double)
+                                    (regions.get(j).getCoordinates()[1] - person.getCurrRegion().getCoordinates()[1]));
+                            distance.set(Math.pow(Math.pow(xdiff.get(), 2.0) + Math.pow(ydiff.get(), 2.0), 0.5));
+                            buttons.get(j).setTooltip(new Tooltip("(" + x + ", " + (14 - y) + ")"
+                                    + "\n distance: " + distance));
+                        }
+                        visit.setVisible(false);
+                        marketplace.setWrapText(false);
+                        regionPane.add(marketplace, (x - 1), y);
+                        viewInfo.setWrapText(true);
+                        regionPane.add(viewInfo, x, (y - 1));
+
+                        //When marketplace is clicked
+                        marketplace.setOnAction(event2 -> {
+                            marketplace.setVisible(false);
+                            try {
+                                root[0] = FXMLLoader.load(getClass().getResource(
+                                        "..//screens//Marketplace.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Scene marketPage = new Scene(root[0], 720, 360);
+                            GameController gameController = new GameController();
+                            gameController.changeStage(marketPage);
+                            regionPane.getChildren().remove(marketplace);
+                        });
+
+                        //When viewInfo is clicked
+                        viewInfo.setOnAction(event3 -> {
+                            viewInfo.setVisible(false);
+                            try {
+                                root[0] = FXMLLoader.load(getClass().getResource(
+                                        "..//screens//RegionPage.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Scene regionPage = new Scene(root[0], 720, 480);
+                            GameController gameController = new GameController();
+                            gameController.changeStage(regionPage);
+                            regionPane.getChildren().remove(viewInfo);
+                        });
+
                         regionPane.getChildren().remove(visit);
                     });
                 }
 
-                if (person.visitedContains((regions.get(buttons.indexOf(button))))) {
-                    viewInfo.setWrapText(true);
-                    marketplace.setWrapText(false);
-                    regionPane.add(viewInfo, x, (y - 1));
-                    regionPane.add(marketplace, (x - 1), y);
-                    marketplace.setOnAction(event2 -> {
-                        try {
-                            root[0] = FXMLLoader.load(getClass().getResource(
-                                    "..//screens//Marketplace.fxml"));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        Scene marketPage = new Scene(root[0], 720, 360);
-                        GameController gameController = new GameController();
-                        gameController.changeStage(marketPage);
-                        regionPane.getChildren().remove(marketplace);
-                    });
-                    viewInfo.setOnAction(event3 -> {
-                        try {
-                            root[0] = FXMLLoader.load(getClass().getResource(
-                                    "..//screens//RegionPage.fxml"));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        Scene regionPage = new Scene(root[0], 720, 480);
-                        GameController gameController = new GameController();
-                        gameController.changeStage(regionPage);
-                        regionPane.getChildren().remove(viewInfo);
-                    });
-                }
             });
             regionPane.add(button, x, y);
         }
