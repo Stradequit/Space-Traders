@@ -7,6 +7,11 @@ public class Ship {
     private int health;
     private ItemInventory itemInventory = new ItemInventory();
     private Person person = new Person();
+
+    public void refuel(){
+        person.setCurrFuel(fuelCapacity);
+    }
+
     public void addItem(Good good) {
         switch (good.getModStat()) {
         case "fuel capacity":

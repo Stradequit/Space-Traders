@@ -27,6 +27,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label alignment="CENTER" prefHeight="18.0" prefWidth="303.0" text="Ship Name:" textFill="#62ff00" GridPane.rowIndex="1" />
@@ -39,6 +41,8 @@
             <Label fx:id="cargoCapacity" prefHeight="18.0" prefWidth="446.0" text="Label" textFill="#62ff00" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label fx:id="fuelCapacity" prefHeight="18.0" prefWidth="446.0" text="Label" textFill="#62ff00" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <Label fx:id="itemInventory" prefHeight="18.0" prefWidth="446.0" text="Label" textFill="#62ff00" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="302.0" text="Current Fuel:" textFill="#62ff00" GridPane.rowIndex="11" />
+            <Label fx:id="currFuel" prefHeight="18.0" prefWidth="446.0" text="Label" textFill="#62ff00" GridPane.columnIndex="1" GridPane.rowIndex="11" />
          </children>
       </GridPane>
    </children>

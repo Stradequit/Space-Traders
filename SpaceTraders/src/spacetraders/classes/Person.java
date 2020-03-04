@@ -15,6 +15,8 @@ public class Person {
     private static Region currRegion;
     private static ArrayList<Region> visited = new ArrayList<Region>(0);
     private static Ship ship = new Ship();
+    private static int currFuel = ship.getFuelCapacity();
+    private static int fuelCost = 0;
 
     public Person() {
     }
@@ -33,7 +35,8 @@ public class Person {
     public void setCurrRegion(Region region) {
         this.currRegion = region;
     }
-
+    public void setCurrFuel(int fuel) { this.currFuel = fuel; }
+    public Integer getCurrFuel() { return this.currFuel; }
     public String getDifficulty() {
         return difficulty;
     }
@@ -45,6 +48,12 @@ public class Person {
     }
     public boolean visitedContains(Region region) {
         return visited.contains(region);
+    }
+    public Integer getFuelCost() {
+        return this.fuelCost;
+    }
+    public void setFuelCost(int fuelCost) {
+        this.fuelCost = fuelCost;
     }
     public void setDifficulty(String diff) {
         if (diff == "Easy") {
