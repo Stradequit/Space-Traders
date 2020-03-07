@@ -9,14 +9,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.controllers.encounterController">
    <children>
       <VBox prefHeight="400.0" prefWidth="221.0">
          <children>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="55.0" fitWidth="250.0" pickOnBounds="true">
+                  <ImageView fx:id="scroll" fitHeight="55.0" fitWidth="250.0" pickOnBounds="true">
                      <image>
                         <Image url="@../images/Scroll.jpg" />
                      </image>

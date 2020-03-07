@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -46,6 +47,11 @@
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
          </padding>
+         <children>
+            <Button fx:id="bandit" mnemonicParsing="false" onAction="#encounter" text="Button" GridPane.columnIndex="14" GridPane.rowIndex="12" />
+            <Button fx:id="trader" mnemonicParsing="false" onAction="#encounter" text="Button" GridPane.columnIndex="14" GridPane.rowIndex="13" />
+            <Button fx:id="police" mnemonicParsing="false" onAction="#encounter" text="Button" GridPane.columnIndex="14" GridPane.rowIndex="14" />
+         </children>
       </GridPane>
    </children>
 </StackPane>
