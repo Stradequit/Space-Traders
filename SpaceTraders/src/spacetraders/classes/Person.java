@@ -15,12 +15,14 @@ public class Person {
     private static Region currRegion;
     private static ArrayList<Region> visited = new ArrayList<Region>(0);
     private static Ship ship = new Ship();
-
+    private static Encounter currentEncounter;
     public Person() {
     }
     public Person(Person person) {
     }
-
+    public static Encounter getCurrentEncounter() {
+        return currentEncounter;
+    }
     public String getName() {
         return this.name;
     }

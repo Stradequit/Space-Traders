@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.controllers.encounterController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="221.0">
+         <children>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="55.0" fitWidth="250.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/Scroll.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="encounterLabel" alignment="CENTER" prefHeight="48.0" prefWidth="296.0" text="Name Of Encounter" />
+               </children>
+            </StackPane>
+            <ImageView fx:id="encounterImage" fitHeight="361.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="434.0">
+         <children>
+            <Label fx:id="encounterDescription" prefHeight="243.0" prefWidth="354.0" text="Description" />
+            <Button fx:id="optionOneButton" mnemonicParsing="false" onAction="#optionOne" prefHeight="25.0" prefWidth="437.0" text="Button">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="optionTwoButton" mnemonicParsing="false" onAction="#optionTwo" prefHeight="25.0" prefWidth="425.0" text="Button">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="optionThreeButton" mnemonicParsing="false" onAction="#optionThree" prefHeight="25.0" prefWidth="425.0" text="Button">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="optionFourButton" mnemonicParsing="false" onAction="#optionFour" prefHeight="25.0" prefWidth="425.0" text="Button" />
+         </children>
+      </VBox>
+   </children>
+</HBox>
