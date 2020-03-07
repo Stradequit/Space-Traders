@@ -1,5 +1,7 @@
 package spacetraders.classes;
 
+import javafx.scene.control.Button;
+
 import java.util.ArrayList;
 
 public class Person {
@@ -16,6 +18,11 @@ public class Person {
     private static ArrayList<Region> visited = new ArrayList<Region>(0);
     private static Ship ship = new Ship();
     private static Encounter currentEncounter;
+    private static int currFuel = ship.getFuelCapacity();
+    private static int fuelCost = 0;
+    private static Region nextRegion;
+    private static Button currButton;
+    private static Button nextButton;
     public Person() {
     }
     public Person(Person person) {
@@ -35,7 +42,8 @@ public class Person {
     public void setCurrRegion(Region region) {
         this.currRegion = region;
     }
-
+    public void setCurrFuel(int fuel) { this.currFuel = fuel; }
+    public Integer getCurrFuel() { return this.currFuel; }
     public String getDifficulty() {
         return difficulty;
     }
@@ -48,6 +56,32 @@ public class Person {
     public boolean visitedContains(Region region) {
         return visited.contains(region);
     }
+    public Integer getFuelCost() {
+        return this.fuelCost;
+    }
+    public void setFuelCost(int fuelCost) {
+        this.fuelCost = fuelCost;
+    }
+    public Region getNextRegion() {
+        return this.nextRegion;
+    }
+    public void setNextRegion(Region nextRegion) {
+        this.nextRegion = nextRegion;
+    }
+    public Button getCurrButton() {
+        return currButton;
+    }
+    public void setCurrButton(Button currButton) {
+        this.currButton = currButton;
+    }
+    public Button getNextButton() {
+        return nextButton;
+    }
+    public void setNextButton(Button nextButton) {
+        this.nextButton = nextButton;
+    }
+
+
     public void setDifficulty(String diff) {
         if (diff == "Easy") {
             if (difficulty == "Medium") {
