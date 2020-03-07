@@ -48,9 +48,9 @@
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
          </padding>
          <children>
-            <Button fx:id="bandit" mnemonicParsing="false" onAction="#encounter" text="Button" GridPane.columnIndex="14" GridPane.rowIndex="12" />
-            <Button fx:id="trader" mnemonicParsing="false" onAction="#encounter" text="Button" GridPane.columnIndex="14" GridPane.rowIndex="13" />
-            <Button fx:id="police" mnemonicParsing="false" onAction="#encounter" text="Button" GridPane.columnIndex="14" GridPane.rowIndex="14" />
+            <Button fx:id="bandit" mnemonicParsing="false" onAction="#encounter" text="bandit" GridPane.columnIndex="14" GridPane.rowIndex="12" />
+            <Button fx:id="trader" mnemonicParsing="false" onAction="#encounter" text="trader" GridPane.columnIndex="14" GridPane.rowIndex="13" />
+            <Button fx:id="police" mnemonicParsing="false" onAction="#encounter" text="police" GridPane.columnIndex="14" GridPane.rowIndex="14" />
          </children>
       </GridPane>
    </children>
