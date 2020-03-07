@@ -13,3 +13,9 @@
      -fx-font-weight: bold;
 }
 
+.encounterButton{
+    -fx-background-color: #301934;
+    -fx-font-size: 3em;
+    -fx-text-fill: #FFFFFF;
+}
+
