@@ -17,18 +17,19 @@ public class Person {
     private static Region currRegion;
     private static ArrayList<Region> visited = new ArrayList<Region>(0);
     private static Ship ship = new Ship();
+    private static Encounter currentEncounter;
     private static int currFuel = ship.getFuelCapacity();
     private static int fuelCost = 0;
     private static Region nextRegion;
     private static Button currButton;
     private static Button nextButton;
-
-
     public Person() {
     }
     public Person(Person person) {
     }
-
+    public static Encounter getCurrentEncounter() {
+        return currentEncounter;
+    }
     public String getName() {
         return this.name;
     }

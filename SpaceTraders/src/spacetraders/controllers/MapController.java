@@ -1,8 +1,10 @@
 package spacetraders.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
@@ -13,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import spacetraders.classes.Encounter;
 import spacetraders.classes.Person;
 import spacetraders.classes.Region;
 
@@ -27,8 +30,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class MapController implements Initializable {
     private @FXML StackPane stackPane;
     private @FXML GridPane regionPane;
-
-
+    private @FXML Button police, bandit, trader;
     public static double randomBetween(double min, double max) {
         double x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
@@ -114,6 +116,27 @@ public class MapController implements Initializable {
             });
             regionPane.add(button, x, y);
         }
+    }
+    public void encounter(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == bandit) {
+            encounterController.setEncounter(Encounter.BANDIT);
+        }
+        if (actionEvent.getSource() == trader) {
+            encounterController.setEncounter(Encounter.TRADER);
+        }
+        if (actionEvent.getSource() == police) {
+            encounterController.setEncounter(Encounter.POLICE);
+        }
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(
+                    "..//screens//encounterPage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene encounterPage = new Scene(root, 600, 400);
+        GameController gameController = new GameController();
+        gameController.changeStage(encounterPage);
     }
 }
 
