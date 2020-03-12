@@ -76,6 +76,9 @@ public class MapController implements Initializable {
             Button button = new Button("");
             button.setWrapText(true);
             button.setStyle("-fx-background-color: #707070");
+            button.setShape(new Circle(r));
+            button.setMinSize(2 * r, 2 * r);
+            button.setMaxSize(2 * r, 2 * r);
             if (i == 0) {
                 person.setCurrRegion(region);
                 person.addVisited(region);
@@ -83,11 +86,10 @@ public class MapController implements Initializable {
                 button.setShape(new Rectangle(20.0, 20.0));
                 person.setCurrButton(button);
             }
-            button.setShape(new Circle(r));
-            button.setMinSize(2 * r, 2 * r);
-            button.setMaxSize(2 * r, 2 * r);
             buttons.add(button);
             button.setOnAction(event -> {
+                person.setPrevRegion(person.getCurrRegion());
+                person.setPrevButton(person.getCurrButton());
                 person.setNextRegion(regions.get(buttons.indexOf(button)));
                 person.setNextButton(button);
                 if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) { //If not currRegion
@@ -112,6 +114,16 @@ public class MapController implements Initializable {
                         GameController gameController = new GameController();
                         gameController.changeStage(KnownVisit);
                     }
+                } else {
+                    try {
+                        root[0] = FXMLLoader.load(getClass().getResource(
+                                "..//screens//RegionPage.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene regionPage = new Scene(root[0], 720, 480);
+                    GameController gameController = new GameController();
+                    gameController.changeStage(regionPage);
                 }
             });
             regionPane.add(button, x, y);

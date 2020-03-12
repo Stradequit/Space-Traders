@@ -11,10 +11,10 @@ public enum Good {
     ATTACHABLE("Attachable Storage Container", 400, 5, "cargo capacity"),
     TARDIS("Tardis Extension", 600, 10, "cargo capacity"),
 
-    LIGHTFORCEFIELD("Light Force Field", 200, 2, "health"),
-    MEDIUMFORCEFIELD("Medium Force Field", 400, 4, "health"),
-    HEAVYFORCEFIELD("Heavy Force Field", 600, 6, "health"),
-    DYSONSPHERE("Dyson Sphere", 800, 8, "health"),
+    LIGHTFORCEFIELD("Light Force Field", 200, 2, "max health"),
+    MEDIUMFORCEFIELD("Medium Force Field", 400, 4, "max health"),
+    HEAVYFORCEFIELD("Heavy Force Field", 600, 6, "max health"),
+    DYSONSPHERE("Dyson Sphere", 800, 8, "max health"),
 
     LASERS("Lasers", 100, 2, "fighter points"),
     MISSILES("Missiles", 200, 4, "fighter points"),
