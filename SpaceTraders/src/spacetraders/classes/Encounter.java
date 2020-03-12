@@ -6,7 +6,10 @@ import spacetraders.controllers.MapController;
 public enum Encounter {
     POLICE("a","","","","", Images.getPoliceImage()),
     TRADER("b","","","","", Images.getMerchantImage()),
-    BANDIT("c","","","","", Images.getBanditsImage());
+    BANDIT("\"Hey, you! This here is a toll booth of sorts. " +
+            "How's abouts ya pay a little coin so I don't rob you blind?\" [the bandit demands 15 coins]",
+            "Pay the bandit","Fight the bandit","Flee to previous region",
+            "", Images.getBanditsImage());
 
     Encounter(String description, String optionOneText, String optionTwoText, String optionThreeText, String optionFourText, Image image) {
         this.description = description;

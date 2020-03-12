@@ -15,7 +15,7 @@ public class ShipController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Person person = new Person();
         name.setText(person.getShip().getName());
-        health.setText("" + person.getShip().getHealth());
+        health.setText("" + person.getShip().getMaxHealth());
         cargoCapacity.setText("" + person.getShip().getCargoCapacity());
         fuelCapacity.setText("" + person.getShip().getFuelCapacity());
         itemInventory.setText(person.getShip().getItemInventory().toString());

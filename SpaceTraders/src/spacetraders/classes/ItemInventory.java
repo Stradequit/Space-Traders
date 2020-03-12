@@ -31,6 +31,8 @@ public class ItemInventory {
             }
         }
     }
+
+
     public int getNumberOfGood(Good good) {
         return goodMap.getOrDefault(good, 0);
     }
