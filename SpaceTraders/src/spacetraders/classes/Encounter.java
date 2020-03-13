@@ -4,7 +4,9 @@ import javafx.scene.image.Image;
 import spacetraders.controllers.MapController;
 
 public enum Encounter {
-    POLICE("a","","","","", Images.getPoliceImage()),
+    POLICE("","Forfeit the items",
+            "Fight the police","Flee to previous region",
+            "", Images.getPoliceImage()),
     TRADER("b","","","","", Images.getMerchantImage()),
     BANDIT("\"Hey, you! This here is a toll booth of sorts. " +
             "How's abouts ya pay a little coin so I don't rob you blind?\" [the bandit demands 15 coins]",
@@ -19,6 +21,8 @@ public enum Encounter {
         this.optionFourText = optionFourText;
         this.image = image;
     }
+
+
     private String description;
     private String optionOneText;
     private String optionTwoText;
@@ -29,6 +33,10 @@ public enum Encounter {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getOptionOneText() {

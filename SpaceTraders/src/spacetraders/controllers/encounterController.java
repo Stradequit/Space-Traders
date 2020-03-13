@@ -41,9 +41,9 @@ public class encounterController {
                     Map<Good, Integer> map = ship.getItemInventory().getGoodMap();
                     for (Good good : map.keySet()) {
                         ship.removeItem(good);
-                        encounterDescription.setText("\"Aww, you can't pay the toll? Then pay with your hard earned" +
-                                "items!\" [The bandit steals literally all of your items]");
                     }
+                    encounterDescription.setText("\"Aww, you can't pay the toll? Then pay with your hard earned" +
+                            "items!\" [The bandit steals literally all of your items]");
                 } else {
                     ship.setCurrHealth(ship.getCurrHealth() - 1);
                     encounterDescription.setText("\"Boiii, you broke as hell. *stabs you*\" [You take 1 damage]");
@@ -51,6 +51,10 @@ public class encounterController {
                 person.travel();
                 ;
             case POLICE:
+                ship.removeItem(person.getRandomGood());
+                encounterDescription.setText("\"Thank you, citizen. I'll be taking those." +
+                        " Consider this time a warning.\" [You lose " + person.getRandomGood().getName() +"]");
+                person.travel();
                 ;
             case TRADER:
                 ;
@@ -66,7 +70,6 @@ public class encounterController {
         Ship ship = person.getShip();
         switch (encounter) {
             case BANDIT:
-                boolean won = wonFight();
                 if (wonFight()) {
                     encounterDescription.setText("\"AGH! Take whatever you want, just please don't hit me again!\"" +
                             " [You take 25 coins from the bandit and continue your journey]");
@@ -80,6 +83,16 @@ public class encounterController {
                 person.travel();
                 ;
             case POLICE:
+                if (wonFight()) {
+                    encounterDescription.setText("\"Please stop! I won't tell the rest of the force! " +
+                            "You can even keep your stuff!\"" + " [You continue your journey]");
+                } else {
+                    ship.removeItem(person.getRandomGood());
+                    encounterDescription.setText("\"Trying to assault an officer, eh? I'll take those stolen goods. " +
+                            "Now, get out of here before I arrest you. \" " +
+                            "[You lose " + person.getRandomGood().getName() +"]");
+                }
+                person.travel();
                 ;
             case TRADER:
                 ;
@@ -107,6 +120,17 @@ public class encounterController {
                 }
                 ;
             case POLICE:
+                if (didFlee()) {
+                    encounterDescription.setText("[You fled successfully].");
+                    person.travel();
+                } else {
+                    person.setCredits(person.getCredits() - 15);
+                    ship.removeItem(person.getRandomGood());
+                    ship.setCurrHealth(ship.getCurrHealth() - 1);
+                    encounterDescription.setText("\"Trying to evade the law is a 15 " +
+                            "credit fine, and I'll be taking those items anyway.\" [You lose 15 credits and " +
+                            person.getRandomGood().getName() + "]");
+                }
                 ;
             case TRADER:
                 ;
