@@ -4,6 +4,11 @@ import java.util.HashMap;
 
 public class ItemInventory {
     private HashMap<Good, Integer> goodMap;
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     private int size = 0;
 
     public int getSize() {
@@ -49,5 +54,17 @@ public class ItemInventory {
             itemInventoryString += key + " " + value + " ";
         }
         return itemInventoryString;
+    }
+
+    public void getRandomGood() {
+        Person person = new Person();
+        double count = 1.0;
+        double random = (int)(Math.random() * ((size - 1) + 1)) + 1;
+        for (Good good : person.getShip().getItemInventory().getGoodMap().keySet()) {
+            if (count == random) {
+                person.setRandomGood(good);
+            }
+            count += 1.0;
+        }
     }
 }
