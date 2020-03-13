@@ -130,6 +130,7 @@ public class MapController implements Initializable {
         }
     }
     public void encounter(ActionEvent actionEvent) {
+        Person person = new Person();
         if (actionEvent.getSource() == bandit) {
             encounterController.setEncounter(Encounter.BANDIT);
         }
@@ -138,6 +139,11 @@ public class MapController implements Initializable {
         }
         if (actionEvent.getSource() == police) {
             encounterController.setEncounter(Encounter.POLICE);
+            Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. " +
+                    "YOU ARE IN POSSESSION OF STOLEN GOODS. " +
+                    "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST" +
+                    " EXTENT OF THE LAW.\" [The officer demands " +
+                    "that you turn over the following: " + person.getShip().getItemInventory().toString() + "]");
         }
         Parent root = null;
         try {

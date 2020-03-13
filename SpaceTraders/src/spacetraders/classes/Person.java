@@ -35,6 +35,16 @@ public class Person {
     private static Button prevButton;
     private static Region prevRegion;
 
+    public static Good getRandomGood() {
+        return randomGood;
+    }
+
+    public static void setRandomGood(Good randomGood) {
+        Person.randomGood = randomGood;
+    }
+
+    private static Good randomGood;
+
     public Person() {
     }
     public Person(Person person) {
@@ -135,7 +145,18 @@ public class Person {
                     encounterController.setEncounter(Encounter.BANDIT);
                     return true;
                 } else if (random >= 21 && random < 41) {
-                    encounterController.setEncounter(Encounter.POLICE);
+                    if (ship.getItemInventory().getSize() != 0) {
+                        encounterController.setEncounter(Encounter.POLICE);
+                        getShip().getItemInventory().getRandomGood();
+                        Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. " +
+                                "YOU ARE IN POSSESSION OF STOLEN GOODS. " +
+                                "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST" +
+                                " EXTENT OF THE LAW.\" [The officer demands " +
+                                "that you turn over the following: "
+                                + randomGood.getName() + "]");
+                    } else {
+                        encounterController.setEncounter(Encounter.BANDIT);
+                    }
                     return true;
                 } else if (random >= 41 && random < 81) {
                     encounterController.setEncounter(Encounter.TRADER);
@@ -148,7 +169,18 @@ public class Person {
                     encounterController.setEncounter(Encounter.BANDIT);
                     return true;
                 } else if (random >= 26 && random < 51) {
-                    encounterController.setEncounter(Encounter.POLICE);
+                    if (ship.getItemInventory().getSize() != 0) {
+                        encounterController.setEncounter(Encounter.POLICE);
+                        getShip().getItemInventory().getRandomGood();
+                        Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. " +
+                                "YOU ARE IN POSSESSION OF STOLEN GOODS. " +
+                                "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST" +
+                                " EXTENT OF THE LAW.\" [The officer demands " +
+                                "that you turn over the following: "
+                                + randomGood.getName() + "]");
+                    } else {
+                        encounterController.setEncounter(Encounter.BANDIT);
+                    }
                     return true;
                 } else if (random >= 51 && random < 81) {
                     encounterController.setEncounter(Encounter.TRADER);
@@ -161,7 +193,18 @@ public class Person {
                     encounterController.setEncounter(Encounter.BANDIT);
                     return true;
                 } else if (random >= 31 && random < 61) {
-                    encounterController.setEncounter(Encounter.POLICE);
+                    if (ship.getItemInventory().getSize() != 0) {
+                        encounterController.setEncounter(Encounter.POLICE);
+                        getShip().getItemInventory().getRandomGood();
+                        Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. " +
+                                "YOU ARE IN POSSESSION OF STOLEN GOODS. " +
+                                "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST" +
+                                " EXTENT OF THE LAW.\" [The officer demands " +
+                                "that you turn over the following: "
+                                + randomGood.getName() + "]");
+                    } else {
+                        encounterController.setEncounter(Encounter.BANDIT);
+                    }
                     return true;
                 } else if (random >= 61 && random < 81) {
                     encounterController.setEncounter(Encounter.TRADER);
@@ -222,7 +265,7 @@ public class Person {
         this.merchantPoints = merchantPoints;
     }
 
-    public Ship getShip() {
+    public static Ship getShip() {
         return ship;
     }
 

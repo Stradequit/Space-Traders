@@ -41,6 +41,7 @@ public class MarketplaceController implements Initializable {
                     }
                 } else {
                     size++;
+                    person.getShip().getItemInventory().setSize(person.getShip().getItemInventory().getSize() + 1);
                 }
                 int oldCredit = person.getCredits();
                 int newCredit = oldCredit - buyPriceInt;
@@ -67,6 +68,7 @@ public class MarketplaceController implements Initializable {
                 }
             } else {
                 size--;
+                person.getShip().getItemInventory().setSize(person.getShip().getItemInventory().getSize() - 1);
             }
             int oldCredit = person.getCredits();
             int newCredit = oldCredit + sellPriceInt;
