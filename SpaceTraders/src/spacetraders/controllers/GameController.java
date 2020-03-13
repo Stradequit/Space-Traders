@@ -7,7 +7,6 @@ import spacetraders.classes.TechLevel;
 
 public class GameController {
     private Stage stage = new Stage();
-
     public void changeStage(Scene scene) {
         stage.setScene(scene);
         stage.show();

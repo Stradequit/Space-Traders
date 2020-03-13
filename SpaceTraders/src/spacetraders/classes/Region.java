@@ -27,7 +27,7 @@ public class Region {
     public void setYCoordinate(int y) {
         this.coordinates[1] = y;
     }
-    public int[] getCoordinates() {
+    public int[] getCoords() {
         return coordinates;
     }
 

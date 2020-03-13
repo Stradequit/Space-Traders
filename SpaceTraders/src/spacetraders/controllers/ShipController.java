@@ -9,19 +9,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ShipController implements Initializable {
-    private @FXML Label name;
-    private @FXML Label health;
-    private @FXML Label cargoCapacity;
-    private @FXML Label fuelCapacity;
-    private @FXML Label itemInventory;
+    private @FXML Label name, health, cargoCapacity, fuelCapacity, itemInventory, currFuel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Person person = new Person();
         name.setText(person.getShip().getName());
-        health.setText("" + person.getShip().getHealth());
+        health.setText("" + person.getShip().getMaxHealth());
         cargoCapacity.setText("" + person.getShip().getCargoCapacity());
         fuelCapacity.setText("" + person.getShip().getFuelCapacity());
         itemInventory.setText(person.getShip().getItemInventory().toString());
+        currFuel.setText(person.getCurrFuel() + "");
     }
 }

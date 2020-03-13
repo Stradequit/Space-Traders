@@ -4,9 +4,15 @@ public class Ship {
     private String name;
     private int cargoCapacity;
     private int fuelCapacity;
-    private int health;
+    private int maxHealth;
+    private int currHealth;
     private ItemInventory itemInventory = new ItemInventory();
     private Person person = new Person();
+
+    public void refuel(){
+        person.setCurrFuel(fuelCapacity);
+    }
+
     public void addItem(Good good) {
         switch (good.getModStat()) {
         case "fuel capacity":
@@ -15,8 +21,8 @@ public class Ship {
         case "cargo capacity":
             this.cargoCapacity += good.getModFactor();
             break;
-        case "health":
-            this.health += good.getModFactor();
+        case "max health":
+            this.maxHealth += good.getModFactor();
             break;
         case "fighter points":
             person.setFighterPoints(person.getFighterPoints() + good.getModFactor());
@@ -42,8 +48,8 @@ public class Ship {
         case "cargo capacity":
             this.cargoCapacity -= good.getModFactor();
             break;
-        case "health":
-            this.health -= good.getModFactor();
+        case "max health":
+            this.maxHealth -= good.getModFactor();
             break;
         case "fighter points":
             person.setFighterPoints(person.getFighterPoints() - good.getModFactor());
@@ -66,7 +72,7 @@ public class Ship {
         name = "Ship";
         cargoCapacity = 3;
         fuelCapacity = 100;
-        health = 3;
+        maxHealth = 3;
     }
     public String getName() {
         return name;
@@ -92,16 +98,24 @@ public class Ship {
         this.fuelCapacity = fuelCapacity;
     }
 
-    public int getHealth() {
-        return health;
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public ItemInventory getItemInventory() {
         return itemInventory;
+    }
+
+    public int getCurrHealth() {
+        return currHealth;
+    }
+
+    public void setCurrHealth(int currHealth) {
+        this.currHealth = currHealth;
     }
 
     public void setItemInventory(ItemInventory itemInventory) {

@@ -1,8 +1,10 @@
 package spacetraders.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
@@ -12,6 +14,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import spacetraders.classes.Encounter;
 import spacetraders.classes.Person;
 import spacetraders.classes.Region;
 
@@ -20,17 +24,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class MapController implements Initializable {
     private @FXML StackPane stackPane;
     private @FXML GridPane regionPane;
-
-
+    private @FXML Button police, bandit, trader;
     public static double randomBetween(double min, double max) {
         double x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,84 +73,82 @@ public class MapController implements Initializable {
             regionArray[i].setYCoordinate(y);
             Region region = regionArray[i];
             regions.add(region);
-            Button button = new Button(region.getId());
+            Button button = new Button("");
             button.setWrapText(true);
-            if (i == 0) {
-                button.setStyle("-fx-background-color: #ffc300");
-                person.setCurrRegion(region);
-                person.addVisited(region);
-            } else {
-                button.setStyle("-fx-background-color: #707070");
-            }
-            double xdiff = Double.valueOf(x - person.getCurrRegion().getCoordinates()[0]);
-            double ydiff = Double.valueOf(y - person.getCurrRegion().getCoordinates()[1]);
-            double distance = Math.pow(Math.pow(xdiff, 2.0) + Math.pow(ydiff, 2.0), 0.5);
-            button.setTooltip(new Tooltip("(" + x + ", " + (14 - y) + ")"
-                    + "\n distance: " + distance));
+            button.setStyle("-fx-background-color: #707070");
             button.setShape(new Circle(r));
             button.setMinSize(2 * r, 2 * r);
             button.setMaxSize(2 * r, 2 * r);
+            if (i == 0) {
+                person.setCurrRegion(region);
+                person.addVisited(region);
+                button.setStyle("-fx-background-color: #ffc300");
+                button.setShape(new Rectangle(20.0, 20.0));
+                person.setCurrButton(button);
+            }
             buttons.add(button);
             button.setOnAction(event -> {
-                final boolean[] clicked = {false};
-                Button visit = new Button("Visit");
-                Button viewInfo = new Button("View Info");
-                Button marketplace = new Button("Marketplace");
-                if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) {
-                    visit.setWrapText(true);
-                    regionPane.add(visit, x, (y + 1));
-                    visit.setOnAction(event1 -> {
-                        buttons.get(regions.indexOf(
-                                person.getCurrRegion())).setStyle("-fx-background-color: #00ff00");
-                        button.setStyle("-fx-background-color: #ffc300");
-                        person.setCurrRegion(regions.get(buttons.indexOf(button)));
-                        person.addVisited(person.getCurrRegion());
-                        regionPane.getChildren().remove(visit);
-                        clicked[0] = true;
-                    });
-                }
-
-                if (person.visitedContains((regions.get(buttons.indexOf(button))))) {
-                    viewInfo.setWrapText(true);
-                    marketplace.setWrapText(false);
-                    regionPane.add(viewInfo, x, (y - 1));
-                    regionPane.add(marketplace, (x - 1), y);
-                    marketplace.setOnAction(event2 -> {
+                person.setPrevRegion(person.getCurrRegion());
+                person.setPrevButton(person.getCurrButton());
+                person.setNextRegion(regions.get(buttons.indexOf(button)));
+                person.setNextButton(button);
+                if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) { //If not currRegion
+                    if (!person.visitedContains((regions.get(buttons.indexOf(button))))) { //If haven't visited
                         try {
                             root[0] = FXMLLoader.load(getClass().getResource(
-                                    "..//screens//Marketplace.fxml"));
+                                    "..//screens//UnknownVisit.fxml"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Scene marketPage = new Scene(root[0], 720, 360);
+                        Scene unknownVisit = new Scene(root[0], 600, 400);
                         GameController gameController = new GameController();
-                        gameController.changeStage(marketPage);
-                        regionPane.getChildren().remove(marketplace);
-                        clicked[0] = true;
-                    });
-                    viewInfo.setOnAction(event3 -> {
+                        gameController.changeStage(unknownVisit);
+                    } else {
                         try {
                             root[0] = FXMLLoader.load(getClass().getResource(
-                                    "..//screens//RegionPage.fxml"));
+                                    "..//screens//KnownVisit.fxml"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Scene regionPage = new Scene(root[0], 720, 480);
+                        Scene KnownVisit = new Scene(root[0], 600, 400);
                         GameController gameController = new GameController();
-                        gameController.changeStage(regionPage);
-                        regionPane.getChildren().remove(viewInfo);
-                        clicked[0] = true;
-                    });
-                }
-
-                if (clicked[0]) {
-                    regionPane.getChildren().remove(visit);
-                    regionPane.getChildren().remove(viewInfo);
-                    regionPane.getChildren().remove(marketplace);
+                        gameController.changeStage(KnownVisit);
+                    }
+                } else {
+                    try {
+                        root[0] = FXMLLoader.load(getClass().getResource(
+                                "..//screens//RegionPage.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene regionPage = new Scene(root[0], 720, 480);
+                    GameController gameController = new GameController();
+                    gameController.changeStage(regionPage);
                 }
             });
             regionPane.add(button, x, y);
         }
+    }
+    public void encounter(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == bandit) {
+            encounterController.setEncounter(Encounter.BANDIT);
+        }
+        if (actionEvent.getSource() == trader) {
+            encounterController.setEncounter(Encounter.TRADER);
+        }
+        if (actionEvent.getSource() == police) {
+            encounterController.setEncounter(Encounter.POLICE);
+        }
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(
+                    "..//screens//encounterPage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene encounterPage = new Scene(root, 600, 400);
+        GameController gameController = new GameController();
+        gameController.changeStage(encounterPage);
     }
 }
 

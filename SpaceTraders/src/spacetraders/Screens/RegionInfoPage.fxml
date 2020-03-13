@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.controllers.RegionController">
+   <children>
+      <Label fx:id="regionNameField" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="697.0" style="&#10;" textAlignment="CENTER" wrapText="false">
+         <font>
+            <Font name="Avenir Light" size="18.0" />
+         </font>
+         <textFill>
+            <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+         </textFill>
+      </Label>
+      <GridPane layoutX="3.0" layoutY="106.0" prefHeight="60.0" prefWidth="714.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.199951171875" minWidth="10.0" prefWidth="196.99998474121094" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="554.6000518798828" minWidth="10.0" prefWidth="517.0000152587891" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="188.0" style="&#10;" text="T E C H   L E V E L: " textAlignment="CENTER" wrapText="false">
+               <font>
+                  <Font name="Avenir Light" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="regionTechField" prefHeight="43.0" prefWidth="518.0" style="&#10;" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Avenir Light" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <GridPane layoutX="5.0" layoutY="178.0" prefHeight="123.0" prefWidth="714.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.20001220703125" minWidth="10.0" prefWidth="216.79998779296875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="542.3999633789062" minWidth="10.0" prefWidth="511.20001220703125" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="60.0" prefWidth="206.0" style="&#10;" text="D E S C R I P T I O N: " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Avenir Light" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="regionDescField" prefHeight="122.0" prefWidth="506.0" style="&#10;" wrapText="true" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
