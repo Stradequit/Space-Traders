@@ -9,7 +9,7 @@ public class Ship {
     private ItemInventory itemInventory = new ItemInventory();
     private Person person = new Person();
 
-    public void refuel(){
+    public void refuel() {
         person.setCurrFuel(fuelCapacity);
     }
 

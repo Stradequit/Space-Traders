@@ -6,9 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
+//import javafx.stage.Stage;
 import spacetraders.controllers.GameController;
-import spacetraders.controllers.encounterController;
+import spacetraders.controllers.EncounterController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +34,15 @@ public class Person {
     private static Button nextButton;
     private static Button prevButton;
     private static Region prevRegion;
+    private static Good buyGood;
+
+    public Good getBuyGood() {
+        return buyGood;
+    }
+
+    public void setBuyGood(Good buyGood) {
+        Person.buyGood = buyGood;
+    }
 
     public static Good getRandomGood() {
         return randomGood;
@@ -64,8 +73,12 @@ public class Person {
     public void setCurrRegion(Region region) {
         this.currRegion = region;
     }
-    public void setCurrFuel(int fuel) { this.currFuel = fuel; }
-    public Integer getCurrFuel() { return this.currFuel; }
+    public void setCurrFuel(int fuel) {
+        this.currFuel = fuel;
+    }
+    public Integer getCurrFuel() {
+        return this.currFuel;
+    }
     public String getDifficulty() {
         return difficulty;
     }
@@ -139,81 +152,120 @@ public class Person {
 
     public boolean checkEncounter() {
         double random = (Math.random() * ((100 - 1) + 1)) + 1;
-        switch(this.getDifficulty()) {
-            case ("Easy"):
-                if (random < 21) {
-                    encounterController.setEncounter(Encounter.BANDIT);
-                    return true;
-                } else if (random >= 21 && random < 41) {
-                    if (ship.getItemInventory().getSize() != 0) {
-                        encounterController.setEncounter(Encounter.POLICE);
-                        getShip().getItemInventory().getRandomGood();
-                        Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. " +
-                                "YOU ARE IN POSSESSION OF STOLEN GOODS. " +
-                                "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST" +
-                                " EXTENT OF THE LAW.\" [The officer demands " +
-                                "that you turn over the following: "
-                                + randomGood.getName() + "]");
-                    } else {
-                        encounterController.setEncounter(Encounter.BANDIT);
-                    }
-                    return true;
-                } else if (random >= 41 && random < 81) {
-                    encounterController.setEncounter(Encounter.TRADER);
-                    return true;
+        switch (this.getDifficulty()) {
+        case ("Easy"):
+            if (random < 21) {
+                EncounterController.setEncounter(Encounter.BANDIT);
+                return true;
+            } else if (random >= 21 && random < 41) {
+                if (ship.getItemInventory().getSize() != 0) {
+                    EncounterController.setEncounter(Encounter.POLICE);
+                    getShip().getItemInventory().getRandomGood();
+                    Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. "
+                            + "YOU ARE IN POSSESSION OF STOLEN GOODS. "
+                            + "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST"
+                            + "EXTENT OF THE LAW.\" [The officer demands "
+                            + "that you turn over the following: "
+                            + randomGood.getName() + "]");
                 } else {
-                    return false;
+                    EncounterController.setEncounter(Encounter.BANDIT);
                 }
-            case ("Medium"):
-                if (random < 26) {
-                    encounterController.setEncounter(Encounter.BANDIT);
-                    return true;
-                } else if (random >= 26 && random < 51) {
-                    if (ship.getItemInventory().getSize() != 0) {
-                        encounterController.setEncounter(Encounter.POLICE);
-                        getShip().getItemInventory().getRandomGood();
-                        Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. " +
-                                "YOU ARE IN POSSESSION OF STOLEN GOODS. " +
-                                "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST" +
-                                " EXTENT OF THE LAW.\" [The officer demands " +
-                                "that you turn over the following: "
-                                + randomGood.getName() + "]");
-                    } else {
-                        encounterController.setEncounter(Encounter.BANDIT);
-                    }
-                    return true;
-                } else if (random >= 51 && random < 81) {
-                    encounterController.setEncounter(Encounter.TRADER);
-                    return true;
+                return true;
+            } else if (random >= 41 && random < 81) {
+                EncounterController.setEncounter(Encounter.TRADER);
+                int traderGood = (int) (Math.random() * 4) + 1;
+                if (traderGood == 1) {
+                    buyGood = getCurrRegion().getTechLevel().getFuel();
+                } else if (traderGood == 2) {
+                    buyGood = getCurrRegion().getTechLevel().getCapacity();
+                } else if (traderGood == 3) {
+                    buyGood = getCurrRegion().getTechLevel().getDefense();
                 } else {
-                    return false;
+                    buyGood = getCurrRegion().getTechLevel().getWeapon();
                 }
-            case ("Hard"):
-                if (random < 31) {
-                    encounterController.setEncounter(Encounter.BANDIT);
-                    return true;
-                } else if (random >= 31 && random < 61) {
-                    if (ship.getItemInventory().getSize() != 0) {
-                        encounterController.setEncounter(Encounter.POLICE);
-                        getShip().getItemInventory().getRandomGood();
-                        Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. " +
-                                "YOU ARE IN POSSESSION OF STOLEN GOODS. " +
-                                "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST" +
-                                " EXTENT OF THE LAW.\" [The officer demands " +
-                                "that you turn over the following: "
-                                + randomGood.getName() + "]");
-                    } else {
-                        encounterController.setEncounter(Encounter.BANDIT);
-                    }
-                    return true;
-                } else if (random >= 61 && random < 81) {
-                    encounterController.setEncounter(Encounter.TRADER);
-                    return true;
-                } else {
-                    return false;
-                }
-            default:
+                Encounter.TRADER.setDescription("\"Howdy! Would you like to buy some of "
+                        + buyGood.getName() + " for " + buyGood.getTraderPrice() + "?");
+                setBuyGood(buyGood);
+                return true;
+            } else {
                 return false;
+            }
+        case ("Medium"):
+            if (random < 26) {
+                EncounterController.setEncounter(Encounter.BANDIT);
+                return true;
+            } else if (random >= 26 && random < 51) {
+                if (ship.getItemInventory().getSize() != 0) {
+                    EncounterController.setEncounter(Encounter.POLICE);
+                    getShip().getItemInventory().getRandomGood();
+                    Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. "
+                            + "YOU ARE IN POSSESSION OF STOLEN GOODS. "
+                            + "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST"
+                            + " EXTENT OF THE LAW.\" [The officer demands "
+                            + "that you turn over the following: "
+                            + randomGood.getName() + "]");
+                } else {
+                    EncounterController.setEncounter(Encounter.BANDIT);
+                }
+                return true;
+            } else if (random >= 51 && random < 81) {
+                EncounterController.setEncounter(Encounter.TRADER);
+                int traderGood = (int) (Math.random() * 4) + 1;
+                if (traderGood == 1) {
+                    buyGood = getCurrRegion().getTechLevel().getFuel();
+                } else if (traderGood == 2) {
+                    buyGood = getCurrRegion().getTechLevel().getCapacity();
+                } else if (traderGood == 3) {
+                    buyGood = getCurrRegion().getTechLevel().getDefense();
+                } else {
+                    buyGood = getCurrRegion().getTechLevel().getWeapon();
+                }
+                Encounter.TRADER.setDescription("\"Howdy! Would you like to buy some of "
+                        + buyGood.getName() + " for " + buyGood.getTraderPrice() + "?");
+                setBuyGood(buyGood);
+                return true;
+            } else {
+                return false;
+            }
+        case ("Hard"):
+            if (random < 31) {
+                EncounterController.setEncounter(Encounter.BANDIT);
+                return true;
+            } else if (random >= 31 && random < 61) {
+                if (ship.getItemInventory().getSize() != 0) {
+                    EncounterController.setEncounter(Encounter.POLICE);
+                    getShip().getItemInventory().getRandomGood();
+                    Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. "
+                            + "YOU ARE IN POSSESSION OF STOLEN GOODS. "
+                            + "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST"
+                            + " EXTENT OF THE LAW.\" [The officer demands "
+                            + "that you turn over the following: "
+                            + randomGood.getName() + "]");
+                } else {
+                    EncounterController.setEncounter(Encounter.BANDIT);
+                }
+                return true;
+            } else if (random >= 61 && random < 81) {
+                EncounterController.setEncounter(Encounter.TRADER);
+                int traderGood = (int) (Math.random() * 4) + 1;
+                if (traderGood == 1) {
+                    buyGood = getCurrRegion().getTechLevel().getFuel();
+                } else if (traderGood == 2) {
+                    buyGood = getCurrRegion().getTechLevel().getCapacity();
+                } else if (traderGood == 3) {
+                    buyGood = getCurrRegion().getTechLevel().getDefense();
+                } else {
+                    buyGood = getCurrRegion().getTechLevel().getWeapon();
+                }
+                Encounter.TRADER.setDescription("\"Howdy! Would you like to buy some of "
+                        + buyGood.getName() + " for " + buyGood.getTraderPrice() + "?");
+                setBuyGood(buyGood);
+                return true;
+            } else {
+                return false;
+            }
+        default:
+            return false;
         }
     }
 
@@ -310,6 +362,4 @@ public class Person {
         GameController gameController = new GameController();
         gameController.changeStage(regionPage);
     }
-
-
 }

@@ -59,7 +59,7 @@ public class ItemInventory {
     public void getRandomGood() {
         Person person = new Person();
         double count = 1.0;
-        double random = (int)(Math.random() * ((size - 1) + 1)) + 1;
+        double random = (int) (Math.random() * ((size - 1) + 1)) + 1;
         for (Good good : person.getShip().getItemInventory().getGoodMap().keySet()) {
             if (count == random) {
                 person.setRandomGood(good);

@@ -1,19 +1,21 @@
 package spacetraders.classes;
 
 import javafx.scene.image.Image;
-import spacetraders.controllers.MapController;
 
 public enum Encounter {
-    POLICE("","Forfeit the items",
-            "Fight the police","Flee to previous region",
+    POLICE("", "Forfeit the items",
+            "Fight the police", "Flee to previous region",
             "", Images.getPoliceImage()),
-    TRADER("b","","","","", Images.getMerchantImage()),
-    BANDIT("\"Hey, you! This here is a toll booth of sorts. " +
-            "How's abouts ya pay a little coin so I don't rob you blind?\" [the bandit demands 15 coins]",
-            "Pay the bandit","Fight the bandit","Flee to previous region",
+    TRADER("", "Ignore trader",
+            "Buy good", "Rob the trader", "Negotiate price", Images.getMerchantImage()),
+    BANDIT("\"Hey, you! This here is a toll booth of sorts. "
+            + "How's abouts ya pay a little coin so I don't rob you blind?\" "
+            + "[the bandit demands 15 coins]", "Pay the bandit",
+            "Fight the bandit", "Flee to previous region",
             "", Images.getBanditsImage());
 
-    Encounter(String description, String optionOneText, String optionTwoText, String optionThreeText, String optionFourText, Image image) {
+    Encounter(String description, String optionOneText, String optionTwoText,
+              String optionThreeText, String optionFourText, Image image) {
         this.description = description;
         this.optionOneText = optionOneText;
         this.optionTwoText = optionTwoText;
