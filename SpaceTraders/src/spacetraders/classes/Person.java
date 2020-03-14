@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-//import javafx.stage.Stage;
 import spacetraders.controllers.GameController;
 import spacetraders.controllers.EncounterController;
 

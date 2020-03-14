@@ -18,8 +18,6 @@ public class MarketplaceController implements Initializable {
     private @FXML Button healthGoodConfirm;
     private @FXML Button fighterGoodConfirm;
     private @FXML Button miscGoodConfirm;
-    private @FXML Button buy;
-    private @FXML Button sell;
     private @FXML Label itemName;
     private @FXML Label numInv;
     private @FXML Label buyPrice;
@@ -140,6 +138,9 @@ public class MarketplaceController implements Initializable {
         sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
         buyPrice.setText(String.valueOf(buyPriceInt));
         sellPrice.setText(String.valueOf(sellPriceInt));
+        if (good == person.getCurrRegion().getTechLevel().getFuel()) {
+            person.getShip().refuel(good.getModFactor() + person.getShip().getFuelCapacity());
+        }
     }
 
 

@@ -19,7 +19,6 @@ public class UnknownVisitController implements Initializable {
     private @FXML Label fuelCost;
     private @FXML Label currFuel;
     private @FXML Label distance;
-    private @FXML Button visit;
     private final Pane[] root = {null};
 
     @Override
