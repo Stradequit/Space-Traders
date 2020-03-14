@@ -8,8 +8,9 @@ import spacetraders.classes.Person;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class fuelErrorController implements Initializable {
-    private @FXML Label currFuel, fuelCost;
+public class FuelErrorController implements Initializable {
+    private @FXML Label currFuel;
+    private @FXML Label fuelCost;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
