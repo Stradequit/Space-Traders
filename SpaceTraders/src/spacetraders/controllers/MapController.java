@@ -18,7 +18,6 @@ import spacetraders.classes.Encounter;
 import spacetraders.classes.Person;
 import spacetraders.classes.Region;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;

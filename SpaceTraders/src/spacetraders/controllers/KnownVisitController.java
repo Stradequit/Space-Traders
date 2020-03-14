@@ -19,8 +19,6 @@ public class KnownVisitController implements Initializable {
     private @FXML Label fuelCost;
     private @FXML Label currFuel;
     private @FXML Label distance;
-    private @FXML Button visit;
-    private @FXML Button viewInfo;
     private final Pane[] root = {null};
 
     public void viewInfo(javafx.event.ActionEvent actionEvent) {
@@ -47,7 +45,7 @@ public class KnownVisitController implements Initializable {
         int fuelCostCalc = (int) (
                 35 * dist - 10 * person.getPilotPoints()); //Fuel Cost formula
         if (fuelCostCalc > 0) {
-            person.setFuelCost(fuelCostCalc);
+            person.getShip().setFuelCapacity(person.getShip().getFuelCapacity() - fuelCostCalc);
         } else {
             person.setFuelCost(0);
         }

@@ -24,6 +24,6 @@ public class ShipController implements Initializable {
         cargoCapacity.setText("" + person.getShip().getCargoCapacity());
         fuelCapacity.setText("" + person.getShip().getFuelCapacity());
         itemInventory.setText(person.getShip().getItemInventory().toString());
-        currFuel.setText(person.getCurrFuel() + "");
+        currFuel.setText(person.getShip().getFuelCapacity() + "");
     }
 }

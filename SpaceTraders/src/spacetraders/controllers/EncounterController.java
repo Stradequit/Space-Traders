@@ -84,6 +84,7 @@ public class EncounterController {
                 encounterDescription.setText("\"AGH! Take whatever you want, "
                         + "just please don't hit me again!\""
                         + " [You take 25 coins from the bandit and continue your journey]");
+                person.setCredits(person.getCredits() + 25);
             } else {
                 person.setCredits(0);
                 ship.setCurrHealth(ship.getCurrHealth() - 1);
@@ -165,6 +166,7 @@ public class EncounterController {
                 encounterDescription.setText("\"Think you're too tough? Well take this!\" "
                         + "[Trader smashes your head against a table. You lose 1 health]");
             }
+            person.travel();
             break;
         default:
             break;
@@ -192,6 +194,7 @@ public class EncounterController {
                     + (person.getBuyGood().getTraderPrice()) * 1.4 + " credits");
         }
         optionFourButton.setVisible(false);
+        person.travel();
     }
 
     public boolean wonFight() {

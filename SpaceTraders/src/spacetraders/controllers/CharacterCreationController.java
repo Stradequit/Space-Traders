@@ -15,7 +15,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CharacterCreationController implements Initializable {
-    private @FXML Button nameSubmit;
     private @FXML Button engineerPlus;
     private @FXML Button engineerMinus;
     private @FXML Button pilotPlus;
@@ -31,7 +30,6 @@ public class CharacterCreationController implements Initializable {
     private @FXML TextField merchantField;
     private @FXML Label nameBox;
     private @FXML Label remainMessage;
-    private @FXML Label remainPoints;
 
     private Person person = new Person();
     private Pane root = null;
