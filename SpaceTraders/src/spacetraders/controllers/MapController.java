@@ -159,6 +159,11 @@ public class MapController implements Initializable {
         GameController gameController = new GameController();
         gameController.changeStage(encounterPage);
     }
+
+    public void takeDamage(ActionEvent actionEvent) {
+        Person person = new Person();
+        person.getShip().takeDamage();
+    }
 }
 
 
