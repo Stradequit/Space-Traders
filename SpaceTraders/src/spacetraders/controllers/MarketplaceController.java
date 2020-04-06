@@ -13,13 +13,21 @@ import java.util.ResourceBundle;
 
 public class MarketplaceController implements Initializable {
 
-    private @FXML Button
-            fuelGoodConfirm, cargoGoodConfirm, healthGoodConfirm,
-            fighterGoodConfirm, miscGoodConfirm, buy, sell;
-    private @FXML Label
-            itemName, numInv, buyPrice, sellPrice,
-            descItem, currentCredits, inventorySpaceLabel,
-            afterPurchaseLabel, itemInventoryLabel, characterStats;
+    private @FXML Button fuelGoodConfirm;
+    private @FXML Button cargoGoodConfirm;
+    private @FXML Button healthGoodConfirm;
+    private @FXML Button fighterGoodConfirm;
+    private @FXML Button miscGoodConfirm;
+    private @FXML Label itemName;
+    private @FXML Label numInv;
+    private @FXML Label buyPrice;
+    private @FXML Label sellPrice;
+    private @FXML Label descItem;
+    private @FXML Label currentCredits;
+    private @FXML Label inventorySpaceLabel;
+    private @FXML Label afterPurchaseLabel;
+    private @FXML Label itemInventoryLabel;
+    private @FXML Label characterStats;
 
     private Person person = new Person();
     private Good good = null;
@@ -41,6 +49,8 @@ public class MarketplaceController implements Initializable {
                     }
                 } else {
                     size++;
+                    person.getShip().getItemInventory().setSize(person.getShip().
+                            getItemInventory().getSize() + 1);
                 }
                 int oldCredit = person.getCredits();
                 int newCredit = oldCredit - buyPriceInt;
@@ -67,6 +77,8 @@ public class MarketplaceController implements Initializable {
                 }
             } else {
                 size--;
+                person.getShip().getItemInventory().setSize(person.getShip().
+                        getItemInventory().getSize() - 1);
             }
             int oldCredit = person.getCredits();
             int newCredit = oldCredit + sellPriceInt;
@@ -126,6 +138,9 @@ public class MarketplaceController implements Initializable {
         sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
         buyPrice.setText(String.valueOf(buyPriceInt));
         sellPrice.setText(String.valueOf(sellPriceInt));
+        if (good == person.getCurrRegion().getTechLevel().getFuel()) {
+            person.getShip().refuel(good.getModFactor() + person.getShip().getFuelCapacity());
+        }
     }
 
 

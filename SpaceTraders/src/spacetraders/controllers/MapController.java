@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -19,18 +18,19 @@ import spacetraders.classes.Encounter;
 import spacetraders.classes.Person;
 import spacetraders.classes.Region;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
 
 
 public class MapController implements Initializable {
     private @FXML StackPane stackPane;
     private @FXML GridPane regionPane;
-    private @FXML Button police, bandit, trader;
+    private @FXML Button police;
+    private @FXML Button bandit;
+    private @FXML Button trader;
+
     public static double randomBetween(double min, double max) {
         double x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
@@ -76,6 +76,9 @@ public class MapController implements Initializable {
             Button button = new Button("");
             button.setWrapText(true);
             button.setStyle("-fx-background-color: #707070");
+            button.setShape(new Circle(r));
+            button.setMinSize(2 * r, 2 * r);
+            button.setMaxSize(2 * r, 2 * r);
             if (i == 0) {
                 person.setCurrRegion(region);
                 person.addVisited(region);
@@ -83,15 +86,16 @@ public class MapController implements Initializable {
                 button.setShape(new Rectangle(20.0, 20.0));
                 person.setCurrButton(button);
             }
-            button.setShape(new Circle(r));
-            button.setMinSize(2 * r, 2 * r);
-            button.setMaxSize(2 * r, 2 * r);
             buttons.add(button);
             button.setOnAction(event -> {
+                person.setPrevRegion(person.getCurrRegion());
+                person.setPrevButton(person.getCurrButton());
                 person.setNextRegion(regions.get(buttons.indexOf(button)));
                 person.setNextButton(button);
-                if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) { //If not currRegion
-                    if (!person.visitedContains((regions.get(buttons.indexOf(button))))) { //If haven't visited
+                //If not currRegion
+                if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) {
+                    //If haven't visited
+                    if (!person.visitedContains((regions.get(buttons.indexOf(button))))) {
                         try {
                             root[0] = FXMLLoader.load(getClass().getResource(
                                     "..//screens//UnknownVisit.fxml"));
@@ -108,24 +112,41 @@ public class MapController implements Initializable {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Scene KnownVisit = new Scene(root[0], 600, 400);
+                        Scene knownVisit = new Scene(root[0], 600, 400);
                         GameController gameController = new GameController();
-                        gameController.changeStage(KnownVisit);
+                        gameController.changeStage(knownVisit);
                     }
+                } else {
+                    try {
+                        root[0] = FXMLLoader.load(getClass().getResource(
+                                "..//screens//RegionPage.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene regionPage = new Scene(root[0], 720, 480);
+                    GameController gameController = new GameController();
+                    gameController.changeStage(regionPage);
                 }
             });
             regionPane.add(button, x, y);
         }
     }
     public void encounter(ActionEvent actionEvent) {
+        Person person = new Person();
         if (actionEvent.getSource() == bandit) {
-            encounterController.setEncounter(Encounter.BANDIT);
+            EncounterController.setEncounter(Encounter.BANDIT);
         }
         if (actionEvent.getSource() == trader) {
-            encounterController.setEncounter(Encounter.TRADER);
+            EncounterController.setEncounter(Encounter.TRADER);
         }
         if (actionEvent.getSource() == police) {
-            encounterController.setEncounter(Encounter.POLICE);
+            EncounterController.setEncounter(Encounter.POLICE);
+            Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. "
+                    + "YOU ARE IN POSSESSION OF STOLEN GOODS. "
+                    + "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST"
+                    + " EXTENT OF THE LAW.\" [The officer demands "
+                    + "that you turn over the following: " + person.getShip().getItemInventory().
+                    toString() + "]");
         }
         Parent root = null;
         try {
