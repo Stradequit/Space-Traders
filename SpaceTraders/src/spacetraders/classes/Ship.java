@@ -82,6 +82,7 @@ public class Ship {
         cargoCapacity = 3;
         fuelCapacity = 100;
         maxHealth = 3;
+        currHealth = 3;
     }
     public String getName() {
         return name;
@@ -134,8 +135,8 @@ public class Ship {
 
     }
     public void takeDamage() {
-        health--;
-        if (health == 0) {
+        currHealth--;
+        if (currHealth == 0) {
             Parent root = null;
             try {
                 root = FXMLLoader.load(getClass().getResource("..//screens//GameOver.fxml"));
