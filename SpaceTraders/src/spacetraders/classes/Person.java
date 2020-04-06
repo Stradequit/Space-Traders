@@ -1,7 +1,15 @@
 package spacetraders.classes;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import spacetraders.controllers.GameController;
+import spacetraders.controllers.EncounterController;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Person {
@@ -23,6 +31,28 @@ public class Person {
     private static Region nextRegion;
     private static Button currButton;
     private static Button nextButton;
+    private static Button prevButton;
+    private static Region prevRegion;
+    private static Good buyGood;
+
+    public Good getBuyGood() {
+        return buyGood;
+    }
+
+    public void setBuyGood(Good buyGood) {
+        Person.buyGood = buyGood;
+    }
+
+    public static Good getRandomGood() {
+        return randomGood;
+    }
+
+    public static void setRandomGood(Good randomGood) {
+        Person.randomGood = randomGood;
+    }
+
+    private static Good randomGood;
+
     public Person() {
     }
     public Person(Person person) {
@@ -42,8 +72,12 @@ public class Person {
     public void setCurrRegion(Region region) {
         this.currRegion = region;
     }
-    public void setCurrFuel(int fuel) { this.currFuel = fuel; }
-    public Integer getCurrFuel() { return this.currFuel; }
+    public void setCurrFuel(int fuel) {
+        this.currFuel = fuel;
+    }
+    public Integer getCurrFuel() {
+        return this.currFuel;
+    }
     public String getDifficulty() {
         return difficulty;
     }
@@ -115,6 +149,125 @@ public class Person {
         }
     }
 
+    public boolean checkEncounter() {
+        double random = (Math.random() * ((100 - 1) + 1)) + 1;
+        switch (this.getDifficulty()) {
+        case ("Easy"):
+            if (random < 21) {
+                EncounterController.setEncounter(Encounter.BANDIT);
+                return true;
+            } else if (random >= 21 && random < 41) {
+                if (ship.getItemInventory().getSize() != 0) {
+                    EncounterController.setEncounter(Encounter.POLICE);
+                    getShip().getItemInventory().getRandomGood();
+                    Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. "
+                            + "YOU ARE IN POSSESSION OF STOLEN GOODS. "
+                            + "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST"
+                            + "EXTENT OF THE LAW.\" [The officer demands "
+                            + "that you turn over the following: "
+                            + randomGood.getName() + "]");
+                } else {
+                    EncounterController.setEncounter(Encounter.BANDIT);
+                }
+                return true;
+            } else if (random >= 41 && random < 81) {
+                EncounterController.setEncounter(Encounter.TRADER);
+                int traderGood = (int) (Math.random() * 4) + 1;
+                if (traderGood == 1) {
+                    buyGood = getCurrRegion().getTechLevel().getFuel();
+                } else if (traderGood == 2) {
+                    buyGood = getCurrRegion().getTechLevel().getCapacity();
+                } else if (traderGood == 3) {
+                    buyGood = getCurrRegion().getTechLevel().getDefense();
+                } else {
+                    buyGood = getCurrRegion().getTechLevel().getWeapon();
+                }
+                Encounter.TRADER.setDescription("\"Howdy! Would you like to buy some of "
+                        + buyGood.getName() + " for " + buyGood.getTraderPrice() + "?");
+                setBuyGood(buyGood);
+                return true;
+            } else {
+                return false;
+            }
+        case ("Medium"):
+            if (random < 26) {
+                EncounterController.setEncounter(Encounter.BANDIT);
+                return true;
+            } else if (random >= 26 && random < 51) {
+                if (ship.getItemInventory().getSize() != 0) {
+                    EncounterController.setEncounter(Encounter.POLICE);
+                    getShip().getItemInventory().getRandomGood();
+                    Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. "
+                            + "YOU ARE IN POSSESSION OF STOLEN GOODS. "
+                            + "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST"
+                            + " EXTENT OF THE LAW.\" [The officer demands "
+                            + "that you turn over the following: "
+                            + randomGood.getName() + "]");
+                } else {
+                    EncounterController.setEncounter(Encounter.BANDIT);
+                }
+                return true;
+            } else if (random >= 51 && random < 81) {
+                EncounterController.setEncounter(Encounter.TRADER);
+                int traderGood = (int) (Math.random() * 4) + 1;
+                if (traderGood == 1) {
+                    buyGood = getCurrRegion().getTechLevel().getFuel();
+                } else if (traderGood == 2) {
+                    buyGood = getCurrRegion().getTechLevel().getCapacity();
+                } else if (traderGood == 3) {
+                    buyGood = getCurrRegion().getTechLevel().getDefense();
+                } else {
+                    buyGood = getCurrRegion().getTechLevel().getWeapon();
+                }
+                Encounter.TRADER.setDescription("\"Howdy! Would you like to buy some of "
+                        + buyGood.getName() + " for " + buyGood.getTraderPrice() + "?");
+                setBuyGood(buyGood);
+                return true;
+            } else {
+                return false;
+            }
+        case ("Hard"):
+            if (random < 31) {
+                EncounterController.setEncounter(Encounter.BANDIT);
+                return true;
+            } else if (random >= 31 && random < 61) {
+                if (ship.getItemInventory().getSize() != 0) {
+                    EncounterController.setEncounter(Encounter.POLICE);
+                    getShip().getItemInventory().getRandomGood();
+                    Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. "
+                            + "YOU ARE IN POSSESSION OF STOLEN GOODS. "
+                            + "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST"
+                            + " EXTENT OF THE LAW.\" [The officer demands "
+                            + "that you turn over the following: "
+                            + randomGood.getName() + "]");
+                } else {
+                    EncounterController.setEncounter(Encounter.BANDIT);
+                }
+                return true;
+            } else if (random >= 61 && random < 81) {
+                EncounterController.setEncounter(Encounter.TRADER);
+                int traderGood = (int) (Math.random() * 4) + 1;
+                if (traderGood == 1) {
+                    buyGood = getCurrRegion().getTechLevel().getFuel();
+                } else if (traderGood == 2) {
+                    buyGood = getCurrRegion().getTechLevel().getCapacity();
+                } else if (traderGood == 3) {
+                    buyGood = getCurrRegion().getTechLevel().getDefense();
+                } else {
+                    buyGood = getCurrRegion().getTechLevel().getWeapon();
+                }
+                Encounter.TRADER.setDescription("\"Howdy! Would you like to buy some of "
+                        + buyGood.getName() + " for " + buyGood.getTraderPrice() + "?");
+                setBuyGood(buyGood);
+                return true;
+            } else {
+                return false;
+            }
+        default:
+            return false;
+        }
+    }
+
     public int getCredits() {
         return credits;
     }
@@ -163,11 +316,49 @@ public class Person {
         this.merchantPoints = merchantPoints;
     }
 
-    public Ship getShip() {
+    public static Ship getShip() {
         return ship;
     }
 
     public void setShip(Ship ship) {
         Person.ship = ship;
+    }
+
+    public Button getPrevButton() {
+        return prevButton;
+    }
+
+    public void setPrevButton(Button prevButton) {
+        this.prevButton = prevButton;
+    }
+
+    public Region getPrevRegion() {
+        return prevRegion;
+    }
+
+    public void setPrevRegion(Region prevRegion) {
+        this.prevRegion = prevRegion;
+    }
+
+    public void travel() {
+        Parent root = null;
+        setCurrRegion(getNextRegion());
+        if (!visitedContains(getCurrRegion())) {
+            addVisited(getCurrRegion());
+        }
+        getCurrButton().setStyle("-fx-background-color: #00ff00");
+        getCurrButton().setShape(new Circle(20.0));
+        getNextButton().setStyle("-fx-background-color: #ffc300");
+        getNextButton().setShape(new Rectangle(20.0, 20.0));
+        setCurrButton(getNextButton());
+        try {
+            root = FXMLLoader.load(getClass().getResource(
+                    "..//screens//RegionPage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene regionPage = new Scene(root, 720, 480);
+        GameController gameController = new GameController();
+        gameController.changeStage(regionPage);
     }
 }

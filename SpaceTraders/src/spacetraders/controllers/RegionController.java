@@ -7,19 +7,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import spacetraders.classes.Person;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RegionController implements Initializable {
-    private @FXML Label regionNameField, regionTechField, regionDescField;
+    private @FXML Label regionNameField;
+    private @FXML Label regionTechField;
+    private @FXML Label regionDescField;
     private @FXML Button marketplace;
-    final Pane[] root = {null};
+    private final Pane[] root = {null};
 
     public void openMarketplace(javafx.event.ActionEvent actionEvent) {
         try {
