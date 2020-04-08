@@ -24,8 +24,9 @@ public enum Good {
     NAVSYSTEM("Navigation System", 500, 4, "pilot points", 0),
     TARGETSYSTEM("Targeting System", 500, 4, "fighter points", 0),
     AUTOTRANSLATOR("Auto Translator", 500, 4, "merchant points", 0),
-    AUTOREPAIR("Auto-Repair System", 500, 4, "engineer points", 0);
+    AUTOREPAIR("Auto-Repair System", 500, 4, "engineer points", 0),
 
+    WINITEM("Win Item",500,0,"pilot points",0);
 
     private int basePrice;
     private int traderPrice;
