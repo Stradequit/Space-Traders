@@ -2,12 +2,17 @@ package spacetraders.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import spacetraders.classes.Person;
 import spacetraders.classes.Good;
+import spacetraders.classes.Region;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,7 +40,8 @@ public class MarketplaceController implements Initializable {
     private int sellPriceInt = 0;
     private boolean hullTaken = false;
     private int size = 0;
-
+    MapController mapController = new MapController();
+    private Region selectedRegion = mapController.getSelectedRegion();
 
     public void buyItem(ActionEvent actionEvent) {
         if (person.getCredits() >= buyPriceInt) {
@@ -55,6 +61,17 @@ public class MarketplaceController implements Initializable {
                 int oldCredit = person.getCredits();
                 int newCredit = oldCredit - buyPriceInt;
                 person.setCredits(newCredit);
+                if (good == Good.WINITEM) {
+                    Parent root = null;
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("..//screens//GameOver.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene gameOver = new Scene(root, 720, 480);
+                    GameController gameController = new GameController();
+                    gameController.changeStage(gameOver);
+                }
                 person.getShip().addItem(good);
                 afterPurchaseLabel.setText("Purchase Successful");
                 update();
@@ -105,7 +122,11 @@ public class MarketplaceController implements Initializable {
             good = person.getCurrRegion().getTechLevel().getWeapon();
         }
         if (actionEvent.getSource() == miscGoodConfirm) {
-            good = person.getCurrRegion().getTechLevel().getUpgrades();
+            if (person.getCurrRegion() == selectedRegion) {
+                good = Good.WINITEM;
+            } else {
+                good = person.getCurrRegion().getTechLevel().getUpgrades();
+            }
         }
         buyPriceInt = good.getBasePrice() - ((5 * person.getMerchantPoints()) / 10);
         sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));

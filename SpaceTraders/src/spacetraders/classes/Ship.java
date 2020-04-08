@@ -80,7 +80,7 @@ public class Ship {
     public Ship() {
         name = "Ship";
         cargoCapacity = 3;
-        fuelCapacity = 100;
+        fuelCapacity = 2000000000;
         maxHealth = 3;
         currHealth = 3;
     }
