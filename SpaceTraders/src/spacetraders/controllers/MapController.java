@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -19,18 +18,25 @@ import spacetraders.classes.Encounter;
 import spacetraders.classes.Person;
 import spacetraders.classes.Region;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
 
 
 public class MapController implements Initializable {
     private @FXML StackPane stackPane;
     private @FXML GridPane regionPane;
-    private @FXML Button police, bandit, trader;
+    private @FXML Button police;
+    private @FXML Button bandit;
+    private @FXML Button trader;
+    private static Region selectedRegion;
+    Random random = new Random();
+
+    public Region getSelectedRegion() {
+        return selectedRegion;
+    }
     public static double randomBetween(double min, double max) {
         double x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
@@ -39,6 +45,7 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        int randomInteger = random.nextInt(10);
         String path = MapController.class.getResource("..//images//spaceBG.jpg").toString();
         Image image = new Image(path);
         ImageView imageView = new ImageView(image);
@@ -92,8 +99,10 @@ public class MapController implements Initializable {
                 person.setPrevButton(person.getCurrButton());
                 person.setNextRegion(regions.get(buttons.indexOf(button)));
                 person.setNextButton(button);
-                if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) { //If not currRegion
-                    if (!person.visitedContains((regions.get(buttons.indexOf(button))))) { //If haven't visited
+                //If not currRegion
+                if (!regions.get(buttons.indexOf(button)).equals(person.getCurrRegion())) {
+                    //If haven't visited
+                    if (!person.visitedContains((regions.get(buttons.indexOf(button))))) {
                         try {
                             root[0] = FXMLLoader.load(getClass().getResource(
                                     "..//screens//UnknownVisit.fxml"));
@@ -110,9 +119,9 @@ public class MapController implements Initializable {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Scene KnownVisit = new Scene(root[0], 600, 400);
+                        Scene knownVisit = new Scene(root[0], 600, 400);
                         GameController gameController = new GameController();
-                        gameController.changeStage(KnownVisit);
+                        gameController.changeStage(knownVisit);
                     }
                 } else {
                     try {
@@ -128,22 +137,25 @@ public class MapController implements Initializable {
             });
             regionPane.add(button, x, y);
         }
+        selectedRegion = regions.get(randomInteger);
+        System.out.println(selectedRegion.getName());
     }
     public void encounter(ActionEvent actionEvent) {
         Person person = new Person();
         if (actionEvent.getSource() == bandit) {
-            encounterController.setEncounter(Encounter.BANDIT);
+            EncounterController.setEncounter(Encounter.BANDIT);
         }
         if (actionEvent.getSource() == trader) {
-            encounterController.setEncounter(Encounter.TRADER);
+            EncounterController.setEncounter(Encounter.TRADER);
         }
         if (actionEvent.getSource() == police) {
-            encounterController.setEncounter(Encounter.POLICE);
-            Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. " +
-                    "YOU ARE IN POSSESSION OF STOLEN GOODS. " +
-                    "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST" +
-                    " EXTENT OF THE LAW.\" [The officer demands " +
-                    "that you turn over the following: " + person.getShip().getItemInventory().toString() + "]");
+            EncounterController.setEncounter(Encounter.POLICE);
+            Encounter.POLICE.setDescription("\"STOP IN THE NAME OF THE LAW, MISCREANT. "
+                    + "YOU ARE IN POSSESSION OF STOLEN GOODS. "
+                    + "PLEASE TURN THEM OVER IMMEDIATELY OR BE PUNISHED TO THE FULLEST"
+                    + " EXTENT OF THE LAW.\" [The officer demands "
+                    + "that you turn over the following: " + person.getShip().getItemInventory().
+                    toString() + "]");
         }
         Parent root = null;
         try {
@@ -155,6 +167,11 @@ public class MapController implements Initializable {
         Scene encounterPage = new Scene(root, 600, 400);
         GameController gameController = new GameController();
         gameController.changeStage(encounterPage);
+    }
+
+    public void takeDamage(ActionEvent actionEvent) {
+        Person person = new Person();
+        person.getShip().takeDamage();
     }
 }
 

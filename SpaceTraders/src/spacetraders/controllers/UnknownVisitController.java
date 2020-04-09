@@ -8,26 +8,26 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import spacetraders.classes.Person;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class UnknownVisitController implements Initializable {
-    private @FXML Label fuelCost, currFuel, distance;
-    private @FXML Button visit;
-    final Pane[] root = {null};
+    private @FXML Label fuelCost;
+    private @FXML Label currFuel;
+    private @FXML Label distance;
+    private final Pane[] root = {null};
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Person person = new Person();
-        Double xDiff = (double) (person.getNextRegion().getCoords()[0] - person.getCurrRegion().getCoords()[0]);
-        Double yDiff = (double) (person.getNextRegion().getCoords()[1] - person.getCurrRegion().getCoords()[1]);
+        Double xDiff = (double) (person.getNextRegion().getCoords()[0]
+                - person.getCurrRegion().getCoords()[0]);
+        Double yDiff = (double) (person.getNextRegion().getCoords()[1]
+                - person.getCurrRegion().getCoords()[1]);
         Double dist = (Math.pow(Math.pow(xDiff, 2.0) + Math.pow(yDiff, 2.0), 0.5));
         int fuelCostCalc = (int) (
                 35 * dist - 10 * person.getPilotPoints()); //Fuel Cost formula
