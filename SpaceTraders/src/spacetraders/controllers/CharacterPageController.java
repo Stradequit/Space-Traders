@@ -32,7 +32,6 @@ public class CharacterPageController implements Initializable {
         GameController gameController = new GameController();
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         gameController.changeStage(mapPage);
-        stage.close();
     }
 
     @Override
