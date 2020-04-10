@@ -194,7 +194,6 @@ public class EncounterController {
                     + (person.getBuyGood().getTraderPrice()) * 1.4 + " credits");
         }
         optionFourButton.setVisible(false);
-        person.travel();
     }
 
     public boolean wonFight() {
