@@ -1,5 +1,6 @@
 package spacetraders.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +14,6 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 
 public class EndingController {
-
     public void seeCredits(ActionEvent actionEvent) {
         Parent root = null;
         try {
@@ -21,13 +21,21 @@ public class EndingController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene characterPage = new Scene(root, 720, 480);
+        Scene credits = new Scene(root, 720, 480);
         GameController gameController = new GameController();
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-        gameController.changeStage(characterPage);
-        stage.close();
+        gameController.changeStage(credits);
     }
 
-    public void newGame(ActionEvent actionEvent) throws IOException {
+    public void newGame(ActionEvent actionEvent) throws IOException, InterruptedException {
+        System.out.println( "Restarting app!" );
+        Platform.runLater( () -> {
+            try {
+                new Main().start( new Stage() );
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 }

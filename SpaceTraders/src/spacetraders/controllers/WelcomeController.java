@@ -36,7 +36,6 @@ public class WelcomeController implements Initializable {
         GameController gameController = new GameController();
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         gameController.changeStage(characterCreation);
-        stage.close();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
