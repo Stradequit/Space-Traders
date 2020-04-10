@@ -1,5 +1,14 @@
 package spacetraders.classes;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import spacetraders.controllers.GameController;
+
+import java.io.IOException;
+
 public class Ship {
     private String name;
     private int cargoCapacity;
@@ -71,8 +80,9 @@ public class Ship {
     public Ship() {
         name = "Ship";
         cargoCapacity = 3;
-        fuelCapacity = 100;
+        fuelCapacity = 2000000000;
         maxHealth = 3;
+        currHealth = 3;
     }
     public String getName() {
         return name;
@@ -123,5 +133,19 @@ public class Ship {
     }
     public void changeItemInventory(int modFactor) {
 
+    }
+    public void takeDamage() {
+        currHealth--;
+        if (currHealth == 0) {
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("..//screens//GameOver.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene gameOver = new Scene(root, 720, 480);
+            GameController gameController = new GameController();
+            gameController.changeStage(gameOver);
+        }
     }
 }

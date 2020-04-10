@@ -28,7 +28,7 @@ public class RegionController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene marketPage = new Scene(root[0], 720, 360);
+        Scene marketPage = new Scene(root[0], 720, 465);
         GameController gameController = new GameController();
         gameController.changeStage(marketPage);
     }

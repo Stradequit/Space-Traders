@@ -51,6 +51,7 @@
             <Button fx:id="bandit" mnemonicParsing="false" onAction="#encounter" text="bandit" GridPane.columnIndex="14" GridPane.rowIndex="12" />
             <Button fx:id="trader" mnemonicParsing="false" onAction="#encounter" text="trader" GridPane.columnIndex="14" GridPane.rowIndex="13" />
             <Button fx:id="police" mnemonicParsing="false" onAction="#encounter" text="police" GridPane.columnIndex="14" GridPane.rowIndex="14" />
+            <Button fx:id="damageButton" mnemonicParsing="false" onAction="#takeDamage" text="takeDamage" GridPane.columnIndex="14" GridPane.rowIndex="11" />
          </children>
       </GridPane>
    </children>

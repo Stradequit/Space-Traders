@@ -21,6 +21,7 @@ import spacetraders.classes.Region;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -30,7 +31,12 @@ public class MapController implements Initializable {
     private @FXML Button police;
     private @FXML Button bandit;
     private @FXML Button trader;
+    private static Region selectedRegion;
+    Random random = new Random();
 
+    public Region getSelectedRegion() {
+        return selectedRegion;
+    }
     public static double randomBetween(double min, double max) {
         double x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
@@ -39,6 +45,7 @@ public class MapController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        int randomInteger = random.nextInt(10);
         String path = MapController.class.getResource("..//images//spaceBG.jpg").toString();
         Image image = new Image(path);
         ImageView imageView = new ImageView(image);
@@ -130,6 +137,8 @@ public class MapController implements Initializable {
             });
             regionPane.add(button, x, y);
         }
+        selectedRegion = regions.get(randomInteger);
+        System.out.println(selectedRegion.getName());
     }
     public void encounter(ActionEvent actionEvent) {
         Person person = new Person();
@@ -158,6 +167,11 @@ public class MapController implements Initializable {
         Scene encounterPage = new Scene(root, 600, 400);
         GameController gameController = new GameController();
         gameController.changeStage(encounterPage);
+    }
+
+    public void takeDamage(ActionEvent actionEvent) {
+        Person person = new Person();
+        person.getShip().takeDamage();
     }
 }
 

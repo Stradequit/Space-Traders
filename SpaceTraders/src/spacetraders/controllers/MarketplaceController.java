@@ -2,12 +2,17 @@ package spacetraders.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import spacetraders.classes.Person;
 import spacetraders.classes.Good;
+import spacetraders.classes.Region;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,6 +33,11 @@ public class MarketplaceController implements Initializable {
     private @FXML Label afterPurchaseLabel;
     private @FXML Label itemInventoryLabel;
     private @FXML Label characterStats;
+    private @FXML Label repairCost;
+    private @FXML Label refuelCost;
+    private @FXML Label shipHealth;
+    private @FXML Label currentFuel;
+
 
     private Person person = new Person();
     private Good good = null;
@@ -35,7 +45,36 @@ public class MarketplaceController implements Initializable {
     private int sellPriceInt = 0;
     private boolean hullTaken = false;
     private int size = 0;
+    private MapController mapController = new MapController();
+    private Region selectedRegion = mapController.getSelectedRegion();
 
+    public void repairShip(ActionEvent actionEvent) {
+        int cost = 100 * (person.getShip().getMaxHealth()
+                - person.getShip().getCurrHealth()) - (5 * person.getEngineeringPoints());
+        if (cost < 0) {
+            cost = 0;
+        }
+        if (person.getCredits() >= cost) {
+            person.setCredits(person.getCredits() - cost);
+            person.getShip().setCurrHealth(person.getShip().getMaxHealth());
+            repairCost.setText("0");
+            shipHealth.setText(person.getShip().getCurrHealth() + "");
+        } else {
+            afterPurchaseLabel.setText("Cannot repair. You do not have enough money.");
+        }
+    }
+
+    public void refuelShip(ActionEvent actionEvent) {
+        int cost = person.getShip().getFuelCapacity() - person.getCurrFuel();
+        if (person.getCredits() >= cost) {
+            person.setCredits(person.getCredits() - cost);
+            person.getShip().refuel(person.getShip().getFuelCapacity());
+            refuelCost.setText("0");
+            currentFuel.setText(person.getCurrFuel() + "");
+        } else {
+            afterPurchaseLabel.setText("Cannot refuel. You do not have enough money.");
+        }
+    }
 
     public void buyItem(ActionEvent actionEvent) {
         if (person.getCredits() >= buyPriceInt) {
@@ -55,6 +94,17 @@ public class MarketplaceController implements Initializable {
                 int oldCredit = person.getCredits();
                 int newCredit = oldCredit - buyPriceInt;
                 person.setCredits(newCredit);
+                if (good == Good.WINITEM) {
+                    Parent root = null;
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("..//screens//GameOver.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene gameOver = new Scene(root, 720, 480);
+                    GameController gameController = new GameController();
+                    gameController.changeStage(gameOver);
+                }
                 person.getShip().addItem(good);
                 afterPurchaseLabel.setText("Purchase Successful");
                 update();
@@ -105,7 +155,11 @@ public class MarketplaceController implements Initializable {
             good = person.getCurrRegion().getTechLevel().getWeapon();
         }
         if (actionEvent.getSource() == miscGoodConfirm) {
-            good = person.getCurrRegion().getTechLevel().getUpgrades();
+            if (person.getCurrRegion() == selectedRegion) {
+                good = Good.WINITEM;
+            } else {
+                good = person.getCurrRegion().getTechLevel().getUpgrades();
+            }
         }
         buyPriceInt = good.getBasePrice() - ((5 * person.getMerchantPoints()) / 10);
         sellPriceInt = good.getBasePrice() + (1 + (person.getMerchantPoints() / 10));
@@ -148,5 +202,14 @@ public class MarketplaceController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        shipHealth.setText(person.getShip().getCurrHealth() + "");
+        currentFuel.setText(person.getCurrFuel() + "");
+        refuelCost.setText((person.getShip().getFuelCapacity() - person.getCurrFuel()) + "");
+        int cost = 100 * (person.getShip().getMaxHealth()
+                - person.getShip().getCurrHealth()) - (5 * person.getEngineeringPoints());
+        if (cost < 0) {
+            cost = 0;
+        }
+        repairCost.setText(cost + "");
     }
 }
