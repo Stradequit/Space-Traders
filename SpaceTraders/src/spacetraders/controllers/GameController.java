@@ -6,10 +6,21 @@ import spacetraders.classes.Region;
 import spacetraders.classes.TechLevel;
 
 public class GameController {
-    private Stage stage = new Stage();
+    private static Stage stage = new Stage();
+    private static Stage tempStage = new Stage();
     public void changeStage(Scene scene) {
         stage.setScene(scene);
         stage.show();
+    }
+    public void changeTempStage(Scene scene) {
+        tempStage.setScene(scene);
+        tempStage.show();
+    }
+    public void closeStage() {
+        stage.close();
+    }
+    public void closeTempStage() {
+        tempStage.close();
     }
     //Creating Regions
     private Region instantia = new Region("0", "Instantia",
