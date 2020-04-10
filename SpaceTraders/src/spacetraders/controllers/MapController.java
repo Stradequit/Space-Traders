@@ -32,7 +32,7 @@ public class MapController implements Initializable {
     private @FXML Button bandit;
     private @FXML Button trader;
     private static Region selectedRegion;
-    Random random = new Random();
+    private Random random = new Random();
 
     public Region getSelectedRegion() {
         return selectedRegion;

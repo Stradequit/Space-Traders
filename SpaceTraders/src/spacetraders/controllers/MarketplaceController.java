@@ -97,7 +97,8 @@ public class MarketplaceController implements Initializable {
                 if (good == Good.WINITEM) {
                     Parent root = null;
                     try {
-                        root = FXMLLoader.load(getClass().getResource("..//screens//GameOver.fxml"));
+                        root = FXMLLoader.load(getClass().getResource(
+                                "..//screens//GameOver.fxml"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
