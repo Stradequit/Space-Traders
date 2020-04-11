@@ -32,7 +32,7 @@ public class MapController implements Initializable {
     private @FXML Button bandit;
     private @FXML Button trader;
     private static Region selectedRegion;
-    Random random = new Random();
+    private Random random = new Random();
 
     public Region getSelectedRegion() {
         return selectedRegion;
@@ -70,7 +70,7 @@ public class MapController implements Initializable {
             }
             Scene shipPage = new Scene(root[0], 600, 400);
             GameController gameController = new GameController();
-            gameController.changeStage(shipPage);
+            gameController.changeTempStage(shipPage);
         });
         regionPane.add(toShipScreen, 0, 14);
         for (int i = 0; i < 10; i++) {
@@ -111,7 +111,7 @@ public class MapController implements Initializable {
                         }
                         Scene unknownVisit = new Scene(root[0], 600, 400);
                         GameController gameController = new GameController();
-                        gameController.changeStage(unknownVisit);
+                        gameController.changeTempStage(unknownVisit);
                     } else {
                         try {
                             root[0] = FXMLLoader.load(getClass().getResource(
@@ -121,7 +121,7 @@ public class MapController implements Initializable {
                         }
                         Scene knownVisit = new Scene(root[0], 600, 400);
                         GameController gameController = new GameController();
-                        gameController.changeStage(knownVisit);
+                        gameController.changeTempStage(knownVisit);
                     }
                 } else {
                     try {
@@ -132,7 +132,7 @@ public class MapController implements Initializable {
                     }
                     Scene regionPage = new Scene(root[0], 720, 480);
                     GameController gameController = new GameController();
-                    gameController.changeStage(regionPage);
+                    gameController.changeTempStage(regionPage);
                 }
             });
             regionPane.add(button, x, y);
@@ -166,7 +166,7 @@ public class MapController implements Initializable {
         }
         Scene encounterPage = new Scene(root, 600, 400);
         GameController gameController = new GameController();
-        gameController.changeStage(encounterPage);
+        gameController.changeTempStage(encounterPage);
     }
 
     public void takeDamage(ActionEvent actionEvent) {

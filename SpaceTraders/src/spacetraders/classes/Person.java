@@ -359,6 +359,6 @@ public class Person {
         }
         Scene regionPage = new Scene(root, 720, 480);
         GameController gameController = new GameController();
-        gameController.changeStage(regionPage);
+        gameController.changeTempStage(regionPage);
     }
 }

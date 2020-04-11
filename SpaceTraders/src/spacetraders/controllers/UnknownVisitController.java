@@ -55,11 +55,10 @@ public class UnknownVisitController implements Initializable {
                 }
                 Scene encounterPage = new Scene(root, 600, 400);
                 GameController gameController = new GameController();
-                gameController.changeStage(encounterPage);
+                gameController.changeTempStage(encounterPage);
             } else {
                 person.travel();
                 Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-                stage.close();
             }
         } else {
             try {
@@ -71,8 +70,7 @@ public class UnknownVisitController implements Initializable {
             Scene fuelErrorPage = new Scene(root[0], 600, 400);
             GameController gameController = new GameController();
             Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-            gameController.changeStage(fuelErrorPage);
-            stage.close();
+            gameController.changeTempStage(fuelErrorPage);
         }
     }
 }

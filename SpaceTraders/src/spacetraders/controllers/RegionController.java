@@ -30,7 +30,7 @@ public class RegionController implements Initializable {
         }
         Scene marketPage = new Scene(root[0], 720, 465);
         GameController gameController = new GameController();
-        gameController.changeStage(marketPage);
+        gameController.changeTempStage(marketPage);
     }
 
     @Override
