@@ -9,9 +9,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import spacetraders.Main;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
 
 public class EndingController {
     public void seeCredits(ActionEvent actionEvent) {
@@ -28,10 +26,10 @@ public class EndingController {
     }
 
     public void newGame(ActionEvent actionEvent) throws IOException, InterruptedException {
-        System.out.println( "Restarting app!" );
-        Platform.runLater( () -> {
+        System.out.println("Restarting app!");
+        Platform.runLater(() -> {
             try {
-                new Main().start( new Stage() );
+                new Main().start(new Stage());
             } catch (Exception e) {
                 e.printStackTrace();
             }

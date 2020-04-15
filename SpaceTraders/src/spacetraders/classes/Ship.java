@@ -3,8 +3,6 @@ package spacetraders.classes;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
 import spacetraders.controllers.GameController;
 
 import java.io.IOException;
@@ -80,7 +78,7 @@ public class Ship {
     public Ship() {
         name = "Ship";
         cargoCapacity = 3;
-        fuelCapacity = 2000000000;
+        fuelCapacity = 250;
         maxHealth = 3;
         currHealth = 3;
     }
