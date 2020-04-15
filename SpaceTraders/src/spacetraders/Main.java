@@ -16,7 +16,7 @@ public class Main extends Application {
         int height = 480;
         int width = 720;
         //Initializes welcome screen
-        Scene scene = new Scene(root, width, height);
+        Scene scene = new Scene(root);
         gameController.changeStage(scene);
     }
     public static void main(String[] args) {

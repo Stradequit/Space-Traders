@@ -10,6 +10,7 @@ public class GameController {
     private static Stage tempStage = new Stage();
     public void changeStage(Scene scene) {
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
     public void changeTempStage(Scene scene) {
